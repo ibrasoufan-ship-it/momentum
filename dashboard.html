@@ -223,7 +223,8 @@ const I18N = {
    allSec:"🏭 كل القطاعات",
    tabAn:"📊 التحليل", tabTasi:"🇸🇦 تاسي", tasiEmpty:"لا نتائج تاسي بعد — شغّل فحصًا جديدًا",
    tabCyc:"🔍 بحث الدورة",
-   cycLoad:"أحلّل دورة", cycFail:"تعذّر جلب بيانات هذا الرمز — تأكد من كتابته (AAPL أو BTC)",
+   cycLoad:"أحلّل دورة", cycFail:"هذا الرمز ليس ضمن الفحص الأخير — جرّب رمزًا من قوائم الفحص",
+   cycAvail:"الرموز المتاحة للبحث",
    phEarly:"🟢 بداية دورة صاعدة", phMid:"🔵 وسط دورة صاعدة", phLate:"🟠 دورة صاعدة ناضجة",
    phDEarly:"🔴 بداية دورة هابطة", phDLate:"⚪ دورة هابطة ممتدة",
    cycFromPivot:"من المحور", cycUpTrend:"دورة صاعدة", cycDownTrend:"دورة هابطة",
@@ -266,7 +267,8 @@ const I18N = {
    allSec:"🏭 All sectors",
    tabAn:"📊 Analysis", tabTasi:"🇸🇦 TASI", tasiEmpty:"No TASI results yet — run a new scan",
    tabCyc:"🔍 Cycle search",
-   cycLoad:"Analyzing cycle of", cycFail:"Couldn't fetch this symbol — check spelling (AAPL or BTC)",
+   cycLoad:"Analyzing cycle of", cycFail:"This symbol isn't in the latest scan — try one from the scan lists",
+   cycAvail:"Symbols available for search",
    phEarly:"🟢 Early uptrend cycle", phMid:"🔵 Mid uptrend cycle", phLate:"🟠 Mature uptrend cycle",
    phDEarly:"🔴 Early downtrend cycle", phDLate:"⚪ Extended downtrend",
    cycFromPivot:"from pivot", cycUpTrend:"Up cycle", cycDownTrend:"Down cycle",
@@ -560,28 +562,33 @@ function renderAnalysis(){
 }
 
 /* ======================= محرك الدورة الزمنية (منهج الفراكتال) ======================= */
-/* جلب بيانات أي رمز من المتصفح: Binance للكريبتو · Stooq للأسهم */
+/* بيانات البحث تأتي من الفحص السحابي (series.json) — بلا إنترنت خارجي ولا حجب */
+let SERIES=null;   // سلاسل الأسعار المجهّزة من الفحص السحابي
+async function loadSeries(){
+  if(SERIES) return SERIES;
+  try{ const r=await fetch("series.json",{cache:"no-store"}); if(r.ok) SERIES=await r.json(); }
+  catch(e){ SERIES={}; }
+  return SERIES||{};
+}
+/* بناء صفوف من سلسلة مضغوطة (أيام تداول متتابعة) */
+function rowsFrom(entry){
+  const start=new Date(entry.d0+"T00:00:00Z"), out=[];
+  let d=new Date(start);
+  for(let i=0;i<entry.p.length;i++){
+    while(d.getUTCDay()===0||d.getUTCDay()===6) d.setUTCDate(d.getUTCDate()+1);
+    const c=entry.p[i];
+    out.push({d:new Date(d),c,l:c,h:c});
+    d.setUTCDate(d.getUTCDate()+1);
+  }
+  return out;
+}
 async function fetchSeries(sym){
   const s=sym.trim().toUpperCase();
-  const isSaudi=/^\d{4}$/.test(s);              // رمز تاسي = 4 أرقام (مثل 2222)
-  // مرشحات المصدر: تاسي أولًا للأرقام، وإلا أمريكي
-  const cands = isSaudi
-    ? [`https://stooq.com/q/d/l/?s=${s}.sr&i=d`, `https://stooq.com/q/d/l/?s=${s}.sa&i=d`]
-    : [`https://stooq.com/q/d/l/?s=${s.toLowerCase()}.us&i=d`,
-       `https://stooq.com/q/d/l/?s=${s.toLowerCase()}&i=d`];
-  for(const u of cands){
-    try{
-      const r=await fetch(u);
-      if(!r.ok) continue;
-      const txt=await r.text();
-      const lines=txt.trim().split("\n");
-      if(lines.length>60&&lines[0].toLowerCase().startsWith("date")){
-        const rows=lines.slice(1).map(l=>{const p=l.split(",");
-          return {d:new Date(p[0]),c:+p[4],l:+p[3],h:+p[2]}}).filter(x=>isFinite(x.c)&&x.c>0);
-        if(rows.length>60) return {kind:isSaudi?"tasi":"stock",rows:rows.slice(-500)};
-      }
-    }catch(e){}
-  }
+  const S=await loadSeries();
+  // مطابقة مباشرة أو بلاحقة السوق (تاسي .SR)
+  const key = S[s] ? s : (S[s+".SR"] ? s+".SR" : null);
+  if(key) return {kind:key.endsWith(".SR")?"tasi":"stock", rows:rowsFrom(S[key]),
+                  n:Object.keys(S).length};
   return null;
 }
 /* مقياس الاتجاهية Hurst — جوهر نظرية الفراكتال في الكتاب:
@@ -651,7 +658,15 @@ async function runCycle(){
   if(!sym){ out.innerHTML=""; return }
   out.innerHTML=`<div class="empty" style="padding:30px">⏳ ${t.cycLoad} ${sym}…</div>`;
   const data=await fetchSeries(sym);
-  if(!data){ out.innerHTML=`<div class="empty" style="padding:30px">${t.cycFail}</div>`; return }
+  if(!data){
+    const S=await loadSeries(), keys=Object.keys(S);
+    const sug=keys.filter(k=>k.startsWith(sym.slice(0,2))).slice(0,8).map(k=>k.replace(".SR",""));
+    out.innerHTML=`<div class="empty" style="padding:30px;font-size:19px">${t.cycFail}
+      ${keys.length?`<div style="margin-top:14px;font-size:16px">${t.cycAvail}: ${keys.length}
+        ${sug.length?`<div class="chiprow" style="justify-content:center;margin-top:10px">
+          ${sug.map(k=>`<a class="chip" href="#" onclick="document.getElementById('cycInput').value='${k}';runCycle();return false">${k}</a>`).join("")}</div>`:""}
+      </div>`:""}</div>`;
+    return }
   const a=analyzeCycle(data.rows);
   const PH={early:[t.phEarly,"#1b8b3f","#e8f8ee"], mid:[t.phMid,"#0a58c2","#eef4ff"],
             late:[t.phLate,"#b36b00","#fff4e5"], dearly:[t.phDEarly,"#c22","#ffeceb"],

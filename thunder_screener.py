@@ -611,6 +611,17 @@ def scan_tasi():
                     "tv": f"TADAWUL:{code}"})
     out.sort(key=lambda x: x["score"], reverse=True)
     print(f"✅ تاسي: {len(out)} سهمًا مفحوصًا")
+    # حفظ سلاسل تاسي لبحث الدورة
+    try:
+        p = os.path.join(HERE, "series.json")
+        cur = json.load(open(p)) if os.path.exists(p) else {}
+        for s, dfs in frames.items():
+            c = dfs["Close"].dropna().iloc[-400:]
+            if len(c) >= 120:
+                cur[s] = {"d0": str(c.index[0].date()), "p": [round(float(x), 3) for x in c.values]}
+        json.dump(cur, open(p, "w"), separators=(",", ":"))
+    except Exception:
+        pass
     return out[:40]
 
 def main():
@@ -661,6 +672,20 @@ def main():
     if SCAN_TASI:
         try: tasi = scan_tasi()
         except Exception as e: print("فحص تاسي فشل:", e)
+    # سلاسل أسعار مضغوطة لبحث الدورة (يقرأها المتصفح بلا إنترنت)
+    try:
+        series = {}
+        for t_, dfx in frames.items():
+            c = dfx["Close"].dropna()
+            if len(c) < 120: continue
+            c = c.iloc[-400:]
+            series[t_] = {"d0": str(c.index[0].date()),
+                          "p": [round(float(x), 3) for x in c.values]}
+        with open(os.path.join(HERE, "series.json"), "w") as f:
+            json.dump(series, f, separators=(",", ":"))
+        print(f"✅ سلاسل بحث الدورة: {len(series)} رمزًا")
+    except Exception as e:
+        print("حفظ السلاسل فشل:", e)
     render(results[:50], macro, analysis, tasi)
 
 if __name__ == "__main__":
