@@ -1,0 +1,29 @@
+name: MOMENTUM auto scan
+on:
+  schedule:
+    - cron: '0 13-23 * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install yfinance pandas lxml
+      - run: python thunder_screener.py || true
+      - run: mkdir -p site && cp dashboard.html site/index.html && cp -f _headers site/ 2>/dev/null || true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: scan
+    runs-on: ubuntu-latest
+    steps:
+      - id: dep
+        uses: actions/deploy-pages@v4
