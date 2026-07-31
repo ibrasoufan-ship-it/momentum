@@ -536,7 +536,7 @@ def fill_sector_cache(frames, sec_map, cap=300):
     return sec_map
 
 # ----------------------------- 5) توليد اللوحة -----------------------------
-def render(results, macro, analysis=None, crypto=None):
+def render(results, macro, analysis=None, tasi=None):
     tpl_path = os.path.join(HERE, "dashboard.html")
     with open(tpl_path, encoding="utf-8") as f: tpl = f.read()
     now = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -545,7 +545,7 @@ def render(results, macro, analysis=None, crypto=None):
     payload = {"generated": now + " · وضع: " + mode_txt,
                "generated_en": now + " · Mode: " + mode_en,
                "demo": False, "stocks": results, "macro": macro,
-               "analysis": analysis or {}, "crypto": crypto or []}
+               "analysis": analysis or {}, "tasi": tasi or []}
     js = json.dumps(payload, ensure_ascii=False)
     a, b = tpl.find("/*DATA_START*/"), tpl.find("/*DATA_END*/")
     tpl = tpl[:a] + "/*DATA_START*/ const DATA = " + js + "; " + tpl[b:]
@@ -555,26 +555,37 @@ def render(results, macro, analysis=None, crypto=None):
         json.dump(payload, f, ensure_ascii=False, indent=1)
     print("✅ dashboard.html jahiz —", out)
 
-# ----------------------------- 5.5) الكريبتو -----------------------------
-SCAN_CRYPTO = True   # فحص الكريبتو مع الأسهم · اجعله False لإيقافه
-CRYPTO_UNIVERSE = ("BTC ETH SOL BNB XRP ADA DOGE AVAX DOT LINK MATIC LTC BCH TRX "
-    "ATOM UNI ETC XLM NEAR ALGO FIL APT ARB OP INJ IMX HBAR VET GRT AAVE MKR RUNE "
-    "SAND MANA AXS THETA FTM EGLD FLOW CHZ ENJ GALA APE LDO CRV SNX COMP DYDX "
-    "SUI SEI TIA PYTH JUP WIF PEPE BONK FLOKI SHIB RNDR FET AGIX OCEAN TAO KAS "
-    "STX ORDI RPL ROSE KAVA ZEC DASH XTZ NEO IOTA QNT GMX 1INCH BAT ANKR CELO").split()
+# ----------------------------- 5.5) السوق السعودي (تاسي) -----------------------------
+SCAN_TASI = True   # فحص السوق السعودي مع الأمريكي · اجعله False لإيقافه
+# رموز تداول السعودية على ياهو تنتهي بـ .SR — أبرز الشركات النشطة
+TASI_UNIVERSE = ("2222 1120 2010 7010 1180 1211 2280 1150 4300 2350 1050 1060 4001 4002 "
+    "2380 1010 1080 1140 2020 2030 2060 2090 2170 2190 2210 2250 2290 2310 2330 2360 "
+    "3020 3030 3040 3050 3060 3080 3090 4003 4004 4008 4009 4013 4020 4030 4040 4050 "
+    "4061 4070 4080 4090 4100 4110 4140 4150 4160 4161 4162 4163 4164 4180 4190 4200 "
+    "4220 4230 4240 4250 4260 4270 4280 4290 4321 4322 5110 6001 6002 6004 6010 6015 "
+    "6020 6040 6050 6060 6070 6090 7020 7030 7040 7200 8010 8012 8020 8030 8040 8050 "
+    "1201 1202 1210 1212 1213 1214 1301 1302 1303 1304 1320 1321 1322 1810 1820 1830 "
+    "2001 2040 2050 2070 2080 2081 2100 2110 2120 2130 2140 2150 2160 2180 2200 2220 "
+    "2230 2240 2270 2300 2320 2340 2370 2382 4031 4051 4191 4192 4291 4292 4310 4331").split()
 
-def scan_crypto():
-    """فحص الكريبتو بنفس المعادلة معايرة: قوة نسبية على BTC، بلا أرباح/فلوت، 24/7."""
-    syms = [f"{c}-USD" for c in CRYPTO_UNIVERSE]
-    print(f"فحص الكريبتو: {len(syms)} عملة ...")
-    btc = yf.download("BTC-USD", period="1y", progress=False, auto_adjust=True)["Close"].dropna()
-    if hasattr(btc, "columns"): btc = btc.iloc[:, 0]
-    btc_ret = float(btc.iloc[-1] / back(btc, P["rs"]) - 1) if len(btc) > 1 else 0.0
+def scan_tasi():
+    """فحص السوق السعودي بنفس المعادلة — القوة النسبية على مؤشر تاسي."""
+    syms = [f"{c}.SR" for c in TASI_UNIVERSE]
+    print(f"فحص السوق السعودي (تاسي): {len(syms)} سهمًا ...")
+    try:
+        idx = yf.download("^TASI.SR", period="1y", progress=False, auto_adjust=True)["Close"].dropna()
+        if hasattr(idx, "columns"): idx = idx.iloc[:, 0]
+        idx_ret = float(idx.iloc[-1] / back(idx, P["rs"]) - 1) if len(idx) > 1 else 0.0
+    except Exception:
+        idx_ret = 0.0
     frames = {}
     for i in range(0, len(syms), 50):
         chunk = syms[i:i+50]
-        df = yf.download(chunk, period="1y", interval="1d", group_by="ticker",
-                         progress=False, threads=True, auto_adjust=True)
+        try:
+            df = yf.download(chunk, period="1y", interval="1d", group_by="ticker",
+                             progress=False, threads=True, auto_adjust=True)
+        except Exception:
+            continue
         for s in chunk:
             try:
                 sub = df[s].dropna()
@@ -583,23 +594,23 @@ def scan_crypto():
                 pass
         time.sleep(1)
     out = []
-    for s, dfc in frames.items():
+    for s, dfs in frames.items():
         try:
-            r = score_stock(dfc, btc_ret)
+            r = score_stock(dfs, idx_ret)
         except Exception:
             continue
-        name = s.replace("-USD", "")
+        code = s.replace(".SR", "")
         status = ("launch" if (r["loaded"] or (r["breakout"] and r["fresh"] and r["vol_confirm"]))
                   else "watch")
-        out.append({"ticker": name, "name": name, "score": round(r["tech"] + 10, 1),  # أساسيات محايدة
-                    "earnings": None, "sector": "Crypto", "industry": "", "mc": 0, "volx": r["volx"],
+        out.append({"ticker": code, "name": code, "score": round(r["tech"] + 10, 1),
+                    "earnings": None, "sector": "TASI", "industry": "", "mc": 0, "volx": r["volx"],
                     "status": status, "close": r["close"], "chg": r["chg"], "mcap": "—",
                     "eta": r["eta"], "plan": r["plan"], "plan_en": r["plan_en"],
                     "signals": r["signals"], "signals_en": r["signals_en"],
                     "checklist": r["checklist"], "cycle_start": r["cycle_start"],
-                    "tv": f"BINANCE:{name}USDT"})
+                    "tv": f"TADAWUL:{code}"})
     out.sort(key=lambda x: x["score"], reverse=True)
-    print(f"✅ الكريبتو: {len(out)} عملة مفحوصة")
+    print(f"✅ تاسي: {len(out)} سهمًا مفحوصًا")
     return out[:40]
 
 def main():
@@ -646,11 +657,11 @@ def main():
     print("بناء التحليل: القطاعات والارتباطات ...")
     sec_map = fill_sector_cache(frames, sec_map)
     analysis = analysis_engine(frames, sec_map)
-    crypto = []
-    if SCAN_CRYPTO:
-        try: crypto = scan_crypto()
-        except Exception as e: print("فحص الكريبتو فشل:", e)
-    render(results[:50], macro, analysis, crypto)
+    tasi = []
+    if SCAN_TASI:
+        try: tasi = scan_tasi()
+        except Exception as e: print("فحص تاسي فشل:", e)
+    render(results[:50], macro, analysis, tasi)
 
 if __name__ == "__main__":
     main()

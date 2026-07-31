@@ -166,10 +166,23 @@
 
 <nav>
   <button id="tabStocks" class="on" onclick="tab('stocks')"><span id="tabStocksTxt"></span> <span id="refIcon" class="ref">↻</span></button>
-  <button id="tabCrypto" onclick="tab('crypto')"><span id="tabCryptoTxt"></span></button>
+  <button id="tabTasi" onclick="tab('tasi')"><span id="tabTasiTxt"></span></button>
   <button id="tabMacro" onclick="tab('macro')"><span id="tabMacroTxt"></span></button>
   <button id="tabAn" onclick="tab('an')"><span id="tabAnTxt"></span></button>
+  <button id="tabCyc" onclick="tab('cyc')"><span id="tabCycTxt"></span></button>
 </nav>
+
+<div id="cycBox" style="display:none;max-width:640px;margin:22px auto 0;padding:0 20px">
+  <div style="display:flex;gap:10px">
+    <input id="cycInput" placeholder="AAPL · TSLA · 2222 · 1120" autocomplete="off"
+      style="flex:1;padding:16px 20px;font-size:20px;border:1px solid var(--line);direction:ltr;
+      border-radius:18px;background:var(--card);color:var(--txt);font-weight:700;text-align:center"
+      onkeydown="if(event.key==='Enter')runCycle()">
+    <button onclick="runCycle()" style="padding:16px 28px;font-size:20px;font-weight:800;
+      border:none;border-radius:18px;background:var(--txt);color:#fff;cursor:pointer">🔍</button>
+  </div>
+  <div id="cycOut" style="margin-top:20px"></div>
+</div>
 
 <div class="chips" id="chips">
   <button data-f="all" class="on"></button>
@@ -208,7 +221,17 @@ const I18N = {
    sortL:{score:"⭐ الدرجة الأعلى",priceAsc:"💲 السعر: الأدنى أولًا",priceDesc:"💲 السعر: الأعلى أولًا",
      eta:"⏳ الأقرب للاختراق",volx:"📊 انفجار الحجم",mc:"🏢 أصغر قيمة سوقية"},
    allSec:"🏭 كل القطاعات",
-   tabAn:"📊 التحليل", tabCrypto:"₿ الكريبتو", cryptoEmpty:"لا كريبتو بعد — شغّل فحصًا جديدًا",
+   tabAn:"📊 التحليل", tabTasi:"🇸🇦 تاسي", tasiEmpty:"لا نتائج تاسي بعد — شغّل فحصًا جديدًا",
+   tabCyc:"🔍 بحث الدورة",
+   cycLoad:"أحلّل دورة", cycFail:"تعذّر جلب بيانات هذا الرمز — تأكد من كتابته (AAPL أو BTC)",
+   phEarly:"🟢 بداية دورة صاعدة", phMid:"🔵 وسط دورة صاعدة", phLate:"🟠 دورة صاعدة ناضجة",
+   phDEarly:"🔴 بداية دورة هابطة", phDLate:"⚪ دورة هابطة ممتدة",
+   cycFromPivot:"من المحور", cycUpTrend:"دورة صاعدة", cycDownTrend:"دورة هابطة",
+   cycEarly:"موقع مبكر في الدورة", cycTrendy:"حركة اتجاهية (فراكتال)", cycHasHistory:"تاريخ دورات كافٍ",
+   hTrend:"اتجاهية", hMean:"ارتدادية", hRandom:"عشوائية",
+   cycStart:"بداية الدورة الحالية", cycAge:"عمر الدورة", cycAvg:"متوسط دوراته", cycPrev:"دورة سابقة",
+   cycDays:"يوم", cycWindow:"نافذة النضج المتوقعة", cycIn:"خلال", cycPrevLens:"أطوال آخر دورات",
+   cycNote:"النافذة إسقاط إحصائي من دورات السهم نفسه — احتمال لا موعد مضمون",
    anSec:"🔄 دوران القطاعات — من يقود السوق؟",
    anCounter:"🧭 عكس التيار — يتحركون ضد ناسداك وداو",
    anSat:"🛰 أسهم ترافقه",
@@ -241,7 +264,17 @@ const I18N = {
    sortL:{score:"⭐ Top score",priceAsc:"💲 Price: low first",priceDesc:"💲 Price: high first",
      eta:"⏳ Nearest breakout",volx:"📊 Volume surge",mc:"🏢 Smallest market cap"},
    allSec:"🏭 All sectors",
-   tabAn:"📊 Analysis", tabCrypto:"₿ Crypto", cryptoEmpty:"No crypto yet — run a new scan",
+   tabAn:"📊 Analysis", tabTasi:"🇸🇦 TASI", tasiEmpty:"No TASI results yet — run a new scan",
+   tabCyc:"🔍 Cycle search",
+   cycLoad:"Analyzing cycle of", cycFail:"Couldn't fetch this symbol — check spelling (AAPL or BTC)",
+   phEarly:"🟢 Early uptrend cycle", phMid:"🔵 Mid uptrend cycle", phLate:"🟠 Mature uptrend cycle",
+   phDEarly:"🔴 Early downtrend cycle", phDLate:"⚪ Extended downtrend",
+   cycFromPivot:"from pivot", cycUpTrend:"Up cycle", cycDownTrend:"Down cycle",
+   cycEarly:"Early in cycle", cycTrendy:"Trending (fractal)", cycHasHistory:"Enough cycle history",
+   hTrend:"trending", hMean:"mean-reverting", hRandom:"random",
+   cycStart:"Current cycle started", cycAge:"Cycle age", cycAvg:"Avg cycle", cycPrev:"prior cycles",
+   cycDays:"days", cycWindow:"Expected maturity window", cycIn:"in", cycPrevLens:"Recent cycle lengths",
+   cycNote:"The window is a statistical projection from this symbol's own cycles — a probability, not a guaranteed date",
    anSec:"🔄 Sector rotation — who leads the market?",
    anCounter:"🧭 Counter-trend — moving against Nasdaq & Dow",
    anSat:"🛰 Stocks moving with it",
@@ -289,7 +322,8 @@ function applyStatic(){
   document.getElementById("tabStocksTxt").textContent = t.tabStocks;
   document.getElementById("tabMacroTxt").textContent = t.tabMacro;
   document.getElementById("tabAnTxt").textContent = t.tabAn;
-  document.getElementById("tabCryptoTxt").textContent = t.tabCrypto;
+  document.getElementById("tabTasiTxt").textContent = t.tabTasi;
+  document.getElementById("tabCycTxt").textContent = t.tabCyc;
   document.querySelectorAll("#chips button").forEach(b => b.textContent = t.chips[b.dataset.f]);
   document.getElementById("foot").innerHTML = t.foot;
   const ss = document.getElementById("sortSel");
@@ -415,37 +449,16 @@ const CMP = {
 function renderStocks(){
   renderCardList(DATA.stocks, true);
 }
-function renderCrypto(){
-  renderCardList(DATA.crypto||[], false);
-  liveCrypto();
+function renderTasi(){
+  renderCardList(DATA.tasi||[], false);
 }
-/* سعر حي نصي للكريبتو من Binance (لحظي، مجاني، بلا مربع ولا حجب) */
-async function liveCrypto(){
-  const els=[...document.querySelectorAll('.px[data-live]')];
-  if(!els.length) return;
-  try{
-    const r=await fetch("https://api.binance.com/api/v3/ticker/24hr");
-    const all=await r.json();
-    const map={};
-    all.forEach(x=>{ if(x.symbol.endsWith("USDT")) map[x.symbol.slice(0,-4)]={p:+x.lastPrice,c:+x.priceChangePercent}; });
-    els.forEach(el=>{
-      const d=map[el.dataset.live]; if(!d) return;
-      const up=d.c>=0;
-      el.className="px "+(up?"up":"down");
-      el.innerHTML=`$${d.p<1?d.p.toFixed(5):d.p.toLocaleString("en-US",{maximumFractionDigits:2})} `
-        +`<span class="pct">${up?"▲":"▼"} ${Math.abs(d.c).toFixed(2)}%</span> `
-        +`<span class="livedot" title="حي">●</span>`;
-    });
-  }catch(e){}
-}
-setInterval(()=>{ if(view==="crypto") liveCrypto(); }, 30000);
 function renderCardList(source, isStock){
   const t=L(), g=document.getElementById("grid");
   const items=(source||[]).filter(s=>
     (filter==="all"||(filter==="fav"?favs.has(s.ticker):s.status===filter))
     &&(sector==="all"||!isStock||s.sector===sector));
   items.sort(CMP[sortBy]||CMP.score);
-  if(!items.length){g.innerHTML=`<div class="empty">${isStock?t.empty:t.cryptoEmpty}</div>`;return}
+  if(!items.length){g.innerHTML=`<div class="empty">${isStock?t.empty:t.tasiEmpty}</div>`;return}
   g.innerHTML=items.map(s=>{
     const [cls]=STC[s.status]||STC.wait;
     // الإشارات: نحذف ما يكرّر الشارة (اختراق/استمرار) ونُبقي البنيوية فقط، سطران كحد أقصى
@@ -546,6 +559,131 @@ function renderAnalysis(){
     ${counter?`<div class="anhead">${t.anCounter}</div><div class="card" style="grid-column:1/-1"><div class="chiprow">${counter}</div></div>`:""}`;
 }
 
+/* ======================= محرك الدورة الزمنية (منهج الفراكتال) ======================= */
+/* جلب بيانات أي رمز من المتصفح: Binance للكريبتو · Stooq للأسهم */
+async function fetchSeries(sym){
+  const s=sym.trim().toUpperCase();
+  const isSaudi=/^\d{4}$/.test(s);              // رمز تاسي = 4 أرقام (مثل 2222)
+  // مرشحات المصدر: تاسي أولًا للأرقام، وإلا أمريكي
+  const cands = isSaudi
+    ? [`https://stooq.com/q/d/l/?s=${s}.sr&i=d`, `https://stooq.com/q/d/l/?s=${s}.sa&i=d`]
+    : [`https://stooq.com/q/d/l/?s=${s.toLowerCase()}.us&i=d`,
+       `https://stooq.com/q/d/l/?s=${s.toLowerCase()}&i=d`];
+  for(const u of cands){
+    try{
+      const r=await fetch(u);
+      if(!r.ok) continue;
+      const txt=await r.text();
+      const lines=txt.trim().split("\n");
+      if(lines.length>60&&lines[0].toLowerCase().startsWith("date")){
+        const rows=lines.slice(1).map(l=>{const p=l.split(",");
+          return {d:new Date(p[0]),c:+p[4],l:+p[3],h:+p[2]}}).filter(x=>isFinite(x.c)&&x.c>0);
+        if(rows.length>60) return {kind:isSaudi?"tasi":"stock",rows:rows.slice(-500)};
+      }
+    }catch(e){}
+  }
+  return null;
+}
+/* مقياس الاتجاهية Hurst — جوهر نظرية الفراكتال في الكتاب:
+   >0.55 حركة اتجاهية تحترم مسارها · ~0.5 عشوائية · <0.45 ارتدادية متذبذبة */
+function hurst(cl){
+  const r=[]; for(let i=1;i<cl.length;i++) r.push(Math.log(cl[i]/cl[i-1]));
+  const lags=[2,4,8,16,32,64].filter(l=>l<r.length/3);
+  const X=[],Y=[];
+  lags.forEach(lag=>{
+    let s=0,n=0;
+    for(let i=lag;i<r.length;i++){ let d=0; for(let j=0;j<lag;j++) d+=r[i-j]; s+=d*d; n++; }
+    if(n>0){ X.push(Math.log(lag)); Y.push(Math.log(Math.sqrt(s/n))); }
+  });
+  const n=X.length; if(n<3) return 0.5;
+  const mx=X.reduce((a,b)=>a+b)/n, my=Y.reduce((a,b)=>a+b)/n;
+  let num=0,den=0; for(let i=0;i<n;i++){num+=(X[i]-mx)*(Y[i]-my);den+=(X[i]-mx)**2;}
+  return den? Math.max(0.1,Math.min(0.95,num/den)) : 0.5;
+}
+/* كشف القيعان/القمم المحورية (فراكتال ويليامز: قاع أدنى من يومين قبله وبعده بمسافة) */
+function pivots(rows,w){
+  w=w||5; const lo=[],hi=[];
+  for(let i=w;i<rows.length-w;i++){
+    let isLo=true,isHi=true;
+    for(let j=i-w;j<=i+w;j++){ if(rows[j].l<rows[i].l) isLo=false; if(rows[j].h>rows[i].h) isHi=false; }
+    if(isLo) lo.push(i); if(isHi) hi.push(i);
+  }
+  return {lo,hi};
+}
+function fmtD(d){ return d.toISOString().slice(0,10); }
+function analyzeCycle(rows){
+  const cl=rows.map(x=>x.c);
+  const P=pivots(rows,5);
+  const lows=P.lo, highs=P.hi;
+  const last=rows.length-1, price=cl[last];
+  // أطوال الدورات السابقة: قاع → قاع
+  const lens=[]; for(let i=1;i<lows.length;i++) lens.push(lows[i]-lows[i-1]);
+  const avgLen=lens.length? Math.round(lens.reduce((a,b)=>a+b)/lens.length) : null;
+  // الدورة الحالية تبدأ من آخر قاع محوري
+  const lastLow=lows.length? lows[lows.length-1] : 0;
+  const lastHigh=highs.length? highs[highs.length-1] : 0;
+  const startIdx=lastLow, ageD=last-startIdx;
+  const up = lastLow>lastHigh;                    // آخر محور قاع = دورة صاعدة
+  const fromLow=(price/cl[lastLow]-1)*100;
+  const fromHigh=lastHigh? (price/cl[lastHigh]-1)*100 : 0;
+  // مرحلة الدورة
+  let phase;
+  if(up){ phase = ageD<=Math.max(8,(avgLen||40)*0.25) ? "early" : fromLow>60 ? "late" : "mid"; }
+  else  { phase = ageD<=Math.max(8,(avgLen||40)*0.25) ? "dearly" : "dlate"; }
+  // نافذة النضج المتوقعة (إسقاط إحصائي من دورات السهم نفسه — احتمال لا موعد)
+  let win=null;
+  if(avgLen){
+    const sd=lens.length>1? Math.sqrt(lens.map(x=>(x-avgLen)**2).reduce((a,b)=>a+b)/lens.length) : avgLen*0.25;
+    const lo=Math.max(0,Math.round(avgLen-sd-ageD)), hi=Math.round(avgLen+sd-ageD);
+    if(hi>0) win={lo:Math.max(0,lo),hi,
+      d1:fmtD(new Date(rows[last].d.getTime()+Math.max(0,lo)*864e5)),
+      d2:fmtD(new Date(rows[last].d.getTime()+hi*864e5))};
+  }
+  return {price,up,phase,ageD,avgLen,lens:lens.slice(-4),win,
+    startDate:fmtD(rows[startIdx].d), startPrice:cl[startIdx],
+    fromLow:+fromLow.toFixed(1), fromHigh:+fromHigh.toFixed(1),
+    H:+hurst(cl).toFixed(2), nCycles:lens.length,
+    lastDate:fmtD(rows[last].d)};
+}
+async function runCycle(){
+  const sym=(document.getElementById("cycInput").value||"").trim().toUpperCase();
+  const out=document.getElementById("cycOut"), t=L();
+  if(!sym){ out.innerHTML=""; return }
+  out.innerHTML=`<div class="empty" style="padding:30px">⏳ ${t.cycLoad} ${sym}…</div>`;
+  const data=await fetchSeries(sym);
+  if(!data){ out.innerHTML=`<div class="empty" style="padding:30px">${t.cycFail}</div>`; return }
+  const a=analyzeCycle(data.rows);
+  const PH={early:[t.phEarly,"#1b8b3f","#e8f8ee"], mid:[t.phMid,"#0a58c2","#eef4ff"],
+            late:[t.phLate,"#b36b00","#fff4e5"], dearly:[t.phDEarly,"#c22","#ffeceb"],
+            dlate:[t.phDLate,"#6e6e73","#f2f2f7"]};
+  const [phTxt,phCol,phBg]=PH[a.phase]||PH.mid;
+  const hTxt = a.H>=0.55? t.hTrend : a.H<=0.45? t.hMean : t.hRandom;
+  const chk=(ok,label)=>`<span class="chkitem ${ok?"ok":""}">${ok?"✓":"○"} ${label}</span>`;
+  out.innerHTML=`<div class="card">
+    <div class="top"><div><div class="tick">${sym}</div>
+      <div class="nm">${data.kind==="tasi"?"🇸🇦 تاسي":"🇺🇸 US"} · ${a.lastDate}</div></div>
+      <span class="badge" style="background:${phBg};color:${phCol}">${phTxt}</span></div>
+    <div class="px ${a.up?"up":"down"}" style="margin-top:10px">$${a.price.toFixed(a.price<1?5:2)}
+      <span class="pct">${a.up?"▲":"▼"} ${Math.abs(a.up?a.fromLow:a.fromHigh)}% ${t.cycFromPivot}</span></div>
+    <div class="chk" style="margin-top:16px">
+      ${chk(a.up,a.up?t.cycUpTrend:t.cycDownTrend)}
+      ${chk(a.phase==="early"||a.phase==="dearly",t.cycEarly)}
+      ${chk(a.H>=0.55,`${t.cycTrendy} (H=${a.H} · ${hTxt})`)}
+      ${chk(!!a.avgLen,t.cycHasHistory)}
+    </div>
+    <div class="plan" style="background:#eef4ff;color:#0a58c2;margin-top:16px">
+      📅 <b>${t.cycStart}:</b> ${a.startDate} ($${a.startPrice.toFixed(2)})<br>
+      ⏱ <b>${t.cycAge}:</b> ${a.ageD} ${t.cycDays}
+      ${a.avgLen?` · <b>${t.cycAvg}:</b> ${a.avgLen} ${t.cycDays} (${a.nCycles} ${t.cycPrev})`:""}
+    </div>
+    ${a.win?`<div class="plan" style="margin-top:12px">🎯 <b>${t.cycWindow}:</b> ${a.win.d1} → ${a.win.d2}
+      <span style="font-weight:400">(${t.cycIn} ${a.win.lo}–${a.win.hi} ${t.cycDays})</span></div>`:""}
+    ${a.lens.length?`<div class="sigs"><div>${t.cycPrevLens}: ${a.lens.join(" · ")} ${t.cycDays}</div></div>`:""}
+    <div class="annote" style="margin-top:10px">${t.cycNote}</div>
+    <a class="tvbtn" target="_blank" href="https://www.tradingview.com/chart/?symbol=${encodeURIComponent(sym)}">${t.tv}</a>
+  </div>`;
+}
+
 /* ======================= تنقل ======================= */
 function tab(v){
   const icon=document.getElementById("refIcon");
@@ -556,21 +694,25 @@ function tab(v){
   }
   view=v;
   document.getElementById("tabStocks").classList.toggle("on",v==="stocks");
-  document.getElementById("tabCrypto").classList.toggle("on",v==="crypto");
+  document.getElementById("tabTasi").classList.toggle("on",v==="tasi");
+  document.getElementById("tabCyc").classList.toggle("on",v==="cyc");
   document.getElementById("tabMacro").classList.toggle("on",v==="macro");
   document.getElementById("tabAn").classList.toggle("on",v==="an");
-  // شريط الفلاتر يظهر للأسهم والكريبتو (قائمة القطاعات تختفي في الكريبتو)
-  document.getElementById("chips").style.display=(v==="stocks"||v==="crypto")?"flex":"none";
-  document.getElementById("secSel").style.display=v==="crypto"?"none":"";
+  // الفلاتر للأسهم وتاسي · صندوق البحث لتبويب الدورة · الشبكة تختفي في البحث
+  document.getElementById("chips").style.display=(v==="stocks"||v==="tasi")?"flex":"none";
+  document.getElementById("secSel").style.display=v==="tasi"?"none":"";
+  document.getElementById("cycBox").style.display=v==="cyc"?"block":"none";
+  document.getElementById("grid").style.display=v==="cyc"?"none":"grid";
   if(v==="stocks"){renderStocks()}
-  else if(v==="crypto"){renderCrypto()}
+  else if(v==="tasi"){renderTasi()}
   else if(v==="macro"){renderMacro();animateNeedles()}
+  else if(v==="cyc"){ setTimeout(()=>document.getElementById("cycInput").focus(),100) }
   else{renderAnalysis()}
 }
 document.querySelectorAll("#chips button").forEach(b=>b.onclick=()=>{
   filter=b.dataset.f;
   document.querySelectorAll("#chips button").forEach(x=>x.classList.remove("on"));
-  b.classList.add("on"); view==="crypto"?renderCrypto():renderStocks();
+  b.classList.add("on"); view==="tasi"?renderTasi():renderStocks();
 });
 /* سعر لايف داخل كل بطاقة — عنصر TradingView مصغّر، بلا مفاتيح ولا حدود */
 function mountQuotes(){
