@@ -1,8 +1,9 @@
 name: MOMENTUM auto scan
 on:
   schedule:
-- cron: '0 7,10,12 * * 0-4'
-    - cron: '0 14,16,18,20 * * 1-5'  workflow_dispatch:
+    - cron: '0 7,10,12 * * 0-4'
+    - cron: '0 14,16,18,20 * * 1-5'
+  workflow_dispatch:
 permissions:
   contents: write
 concurrency:
@@ -24,6 +25,7 @@ jobs:
           cp -f series.json site/ 2>/dev/null || true
           cp -f _headers site/ 2>/dev/null || true
           touch site/.nojekyll
+          ls -la site
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
