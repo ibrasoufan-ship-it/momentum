@@ -21,6 +21,7 @@ jobs:
       - run: |
           mkdir -p site
           cp dashboard.html site/index.html
+          cp -f series.json site/ 2>/dev/null || true
           cp -f _headers site/ 2>/dev/null || true
           touch site/.nojekyll
       - uses: peaceiris/actions-gh-pages@v4
