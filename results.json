@@ -1,0 +1,5990 @@
+{
+ "generated": "2026-07-30 20:36 · وضع: مضاربة أسبوع (سوينغ)",
+ "generated_en": "2026-07-30 20:36 · Mode: Weekly swing",
+ "demo": false,
+ "stocks": [
+  {
+   "ticker": "SVV",
+   "name": "SVV",
+   "score": 67.9,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.89,
+   "status": "watch",
+   "close": 10.36,
+   "chg": 4.12,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 10.57$ · وقف 9.79$ (−7.3%) · هدف الأسبوع 12.12$ (+14.7%)",
+   "plan_en": "Entry above 10.57$ · Stop 9.79$ (−7.3%) · Weekly target 12.12$ (+14.7%)",
+   "signals": [
+    "قاعدة ضيقة (21%) — تجميع وايكوف",
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي"
+   ],
+   "signals_en": [
+    "Tight base (21%) — Wyckoff accumulation",
+    "Spring — false break then recovery",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "GBTG",
+   "name": "GBTG",
+   "score": 67.2,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.48,
+   "status": "launch",
+   "close": 9.44,
+   "chg": 0.16,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "ادخل على تصحيح نحو 9.41$ · وقف 9.17$ · هدف ممتد 9.52$",
+   "plan_en": "Buy the pullback toward 9.41$ · Stop 9.17$ · Extended target 9.52$",
+   "signals": [
+    "🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح",
+    "اختراق سقف قاعدة التجميع",
+    "قاعدة ضيقة (1%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "🔥 Broke out and still trending — continuation candidate, buy the pullback",
+    "Breakout above base resistance",
+    "Tight base (1%) — Wyckoff accumulation",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "NEOG",
+   "name": "NEOG",
+   "score": 64.4,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.12,
+   "status": "watch",
+   "close": 11.1,
+   "chg": 18.09,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 11.10$ · وقف 10.47$ (−5.7%) · هدف الأسبوع 12.36$ (+11.4%)",
+   "plan_en": "Entry above 11.10$ · Stop 10.47$ (−5.7%) · Weekly target 12.36$ (+11.4%)",
+   "signals": [
+    "قاعدة ضيقة (21%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Tight base (21%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "PTON",
+   "name": "PTON",
+   "score": 64.3,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.77,
+   "status": "watch",
+   "close": 6.43,
+   "chg": -2.5,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 6.58$ · وقف 6.21$ (−5.6%) · هدف الأسبوع 7.32$ (+11.2%)",
+   "plan_en": "Entry above 6.58$ · Stop 6.21$ (−5.6%) · Weekly target 7.32$ (+11.2%)",
+   "signals": [
+    "قاعدة ضيقة (24%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (24%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "CNET",
+   "name": "CNET",
+   "score": 64.0,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 4.15,
+   "status": "watch",
+   "close": 1.73,
+   "chg": 12.34,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 1.73$ · وقف 1.07$ (−38.0%) · هدف الأسبوع 3.04$ (+75.9%)",
+   "plan_en": "Entry above 1.73$ · Stop 1.07$ (−38.0%) · Weekly target 3.04$ (+75.9%)",
+   "signals": [
+    "انفجار حجم التداول ×4.1",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "قوة نسبية +63% على SPY"
+   ],
+   "signals_en": [
+    "Volume surge ×4.1",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Relative strength +63% vs SPY"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "STGW",
+   "name": "STGW",
+   "score": 63.6,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.91,
+   "status": "launch",
+   "close": 8.18,
+   "chg": 1.18,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 8.18$ · وقف 7.65$ (−6.4%) · هدف الأسبوع 9.22$ (+12.8%)",
+   "plan_en": "Entry above 8.18$ · Stop 7.65$ (−6.4%) · Weekly target 9.22$ (+12.8%)",
+   "signals": [
+    "✅ اختراق حديث ومؤكد بالحجم — نافذة الدخول مفتوحة",
+    "اختراق سقف قاعدة التجميع",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "✅ Fresh volume-confirmed breakout — entry window open",
+    "Breakout above base resistance",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": true
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "IMMR",
+   "name": "IMMR",
+   "score": 63.5,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.62,
+   "status": "launch",
+   "close": 7.49,
+   "chg": 2.11,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "ادخل على تصحيح نحو 7.08$ · وقف 6.82$ · هدف ممتد 8.83$",
+   "plan_en": "Buy the pullback toward 7.08$ · Stop 6.82$ · Extended target 8.83$",
+   "signals": [
+    "🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح",
+    "قاعدة ضيقة (14%) — تجميع وايكوف",
+    "قوة نسبية +10% على SPY",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "🔥 Broke out and still trending — continuation candidate, buy the pullback",
+    "Tight base (14%) — Wyckoff accumulation",
+    "Relative strength +10% vs SPY",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "AEG",
+   "name": "AEG",
+   "score": 63.4,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.09,
+   "status": "watch",
+   "close": 9.39,
+   "chg": 4.14,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 9.39$ · وقف 9.22$ (−1.8%) · هدف الأسبوع 9.73$ (+3.6%)",
+   "plan_en": "Entry above 9.39$ · Stop 9.22$ (−1.8%) · Weekly target 9.73$ (+3.6%)",
+   "signals": [
+    "اختراق سقف قاعدة التجميع",
+    "قاعدة ضيقة (16%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Breakout above base resistance",
+    "Tight base (16%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "NMR",
+   "name": "NMR",
+   "score": 62.5,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.89,
+   "status": "watch",
+   "close": 9.52,
+   "chg": -1.5,
+   "mcap": "—",
+   "eta": 5,
+   "plan": "دخول فوق 10.08$ · وقف 9.81$ (−2.7%) · هدف الأسبوع 10.62$ (+5.4%)",
+   "plan_en": "Entry above 10.08$ · Stop 9.81$ (−2.7%) · Weekly target 10.62$ (+5.4%)",
+   "signals": [
+    "قاعدة ضيقة (20%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Tight base (20%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "PAYO",
+   "name": "PAYO",
+   "score": 62.5,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.09,
+   "status": "launch",
+   "close": 7.16,
+   "chg": 0.56,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "ادخل على تصحيح نحو 7.13$ · وقف 6.95$ · هدف ممتد 7.27$",
+   "plan_en": "Buy the pullback toward 7.13$ · Stop 6.95$ · Extended target 7.27$",
+   "signals": [
+    "🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح",
+    "اختراق سقف قاعدة التجميع",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي"
+   ],
+   "signals_en": [
+    "🔥 Broke out and still trending — continuation candidate, buy the pullback",
+    "Breakout above base resistance",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "GDRX",
+   "name": "GDRX",
+   "score": 61.8,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.91,
+   "status": "watch",
+   "close": 3.2,
+   "chg": -0.62,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 3.23$ · وقف 3.01$ (−6.6%) · هدف الأسبوع 3.65$ (+13.2%)",
+   "plan_en": "Entry above 3.23$ · Stop 3.01$ (−6.6%) · Weekly target 3.65$ (+13.2%)",
+   "signals": [
+    "قاعدة ضيقة (30%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (30%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "FIRY",
+   "name": "FIRY",
+   "score": 61.6,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 5.27,
+   "status": "watch",
+   "close": 9.87,
+   "chg": 0.3,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 10.76$ · وقف 9.15$ (−15.0%) · هدف الأسبوع 13.98$ (+29.9%)",
+   "plan_en": "Entry above 10.76$ · Stop 9.15$ (−15.0%) · Weekly target 13.98$ (+29.9%)",
+   "signals": [
+    "انفجار حجم التداول ×5.3",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Volume surge ×5.3",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "CRSR",
+   "name": "CRSR",
+   "score": 59.8,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.78,
+   "status": "watch",
+   "close": 10.51,
+   "chg": 2.24,
+   "mcap": "—",
+   "eta": 2,
+   "plan": "دخول فوق 11.31$ · وقف 10.31$ (−8.8%) · هدف الأسبوع 13.31$ (+17.7%)",
+   "plan_en": "Entry above 11.31$ · Stop 10.31$ (−8.8%) · Weekly target 13.31$ (+17.7%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه",
+    "قوة نسبية +12% على SPY"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding",
+    "Relative strength +12% vs SPY"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "JBLU",
+   "name": "JBLU",
+   "score": 58.8,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.84,
+   "status": "watch",
+   "close": 5.97,
+   "chg": 4.46,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 6.28$ · وقف 5.71$ (−9.1%) · هدف الأسبوع 7.42$ (+18.1%)",
+   "plan_en": "Entry above 6.28$ · Stop 5.71$ (−9.1%) · Weekly target 7.42$ (+18.1%)",
+   "signals": [
+    "انفجار حجم التداول ×1.8",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume surge ×1.8",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "FOSL",
+   "name": "FOSL",
+   "score": 58.3,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.97,
+   "status": "launch",
+   "close": 5.02,
+   "chg": 14.09,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 5.02$ · وقف 4.61$ (−8.1%) · هدف الأسبوع 5.83$ (+16.2%)",
+   "plan_en": "Entry above 5.02$ · Stop 4.61$ (−8.1%) · Weekly target 5.83$ (+16.2%)",
+   "signals": [
+    "✅ اختراق حديث ومؤكد بالحجم — نافذة الدخول مفتوحة",
+    "قاعدة ضيقة (21%) — تجميع وايكوف",
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي"
+   ],
+   "signals_en": [
+    "✅ Fresh volume-confirmed breakout — entry window open",
+    "Tight base (21%) — Wyckoff accumulation",
+    "Spring — false break then recovery",
+    "Up-volume beats down-volume — institutional accumulation"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": true
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "CFFN",
+   "name": "CFFN",
+   "score": 57.9,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.0,
+   "status": "watch",
+   "close": 8.85,
+   "chg": 1.2,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 8.85$ · وقف 8.54$ (−3.5%) · هدف الأسبوع 9.48$ (+7.1%)",
+   "plan_en": "Entry above 8.85$ · Stop 8.54$ (−3.5%) · Weekly target 9.48$ (+7.1%)",
+   "signals": [
+    "اختراق سقف قاعدة التجميع",
+    "قاعدة ضيقة (16%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Breakout above base resistance",
+    "Tight base (16%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "PDM",
+   "name": "PDM",
+   "score": 56.4,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.59,
+   "status": "watch",
+   "close": 9.72,
+   "chg": -1.92,
+   "mcap": "—",
+   "eta": 2,
+   "plan": "دخول فوق 10.01$ · وقف 9.60$ (−4.1%) · هدف الأسبوع 10.83$ (+8.2%)",
+   "plan_en": "Entry above 10.01$ · Stop 9.60$ (−4.1%) · Weekly target 10.83$ (+8.2%)",
+   "signals": [
+    "قاعدة ضيقة (20%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (20%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "VTEX",
+   "name": "VTEX",
+   "score": 55.9,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.61,
+   "status": "watch",
+   "close": 4.36,
+   "chg": -3.22,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 4.36$ · وقف 4.06$ (−6.9%) · هدف الأسبوع 4.95$ (+13.7%)",
+   "plan_en": "Entry above 4.36$ · Stop 4.06$ (−6.9%) · Weekly target 4.95$ (+13.7%)",
+   "signals": [
+    "اختراق سقف قاعدة التجميع",
+    "قاعدة ضيقة (24%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Breakout above base resistance",
+    "Tight base (24%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "FNKO",
+   "name": "FNKO",
+   "score": 55.8,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.22,
+   "status": "launch",
+   "close": 6.05,
+   "chg": -2.5,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "ادخل على تصحيح نحو 5.69$ · وقف 5.80$ · هدف ممتد 7.22$",
+   "plan_en": "Buy the pullback toward 5.69$ · Stop 5.80$ · Extended target 7.22$",
+   "signals": [
+    "🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح",
+    "اختراق سقف قاعدة التجميع",
+    "قاعدة ضيقة (19%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي"
+   ],
+   "signals_en": [
+    "🔥 Broke out and still trending — continuation candidate, buy the pullback",
+    "Breakout above base resistance",
+    "Tight base (19%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "ADT",
+   "name": "ADT",
+   "score": 55.4,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.89,
+   "status": "launch",
+   "close": 7.57,
+   "chg": 2.16,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "ادخل على تصحيح نحو 7.34$ · وقف 7.02$ · هدف ممتد 8.33$",
+   "plan_en": "Buy the pullback toward 7.34$ · Stop 7.02$ · Extended target 8.33$",
+   "signals": [
+    "🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح",
+    "قاعدة ضيقة (16%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "قوة نسبية +13% على SPY"
+   ],
+   "signals_en": [
+    "🔥 Broke out and still trending — continuation candidate, buy the pullback",
+    "Tight base (16%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Relative strength +13% vs SPY"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "SB",
+   "name": "SB",
+   "score": 54.7,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.73,
+   "status": "launch",
+   "close": 7.88,
+   "chg": 3.97,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "ادخل على تصحيح نحو 7.50$ · وقف 7.34$ · هدف ممتد 9.15$",
+   "plan_en": "Buy the pullback toward 7.50$ · Stop 7.34$ · Extended target 9.15$",
+   "signals": [
+    "🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح",
+    "قاعدة ضيقة (23%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "🔥 Broke out and still trending — continuation candidate, buy the pullback",
+    "Tight base (23%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "ATAI",
+   "name": "ATAI",
+   "score": 54.6,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.71,
+   "status": "launch",
+   "close": 7.19,
+   "chg": 0.14,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "ادخل على تصحيح نحو 6.94$ · وقف 7.00$ · هدف ممتد 8.01$",
+   "plan_en": "Buy the pullback toward 6.94$ · Stop 7.00$ · Extended target 8.01$",
+   "signals": [
+    "🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح",
+    "اختراق سقف قاعدة التجميع",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "قوة نسبية +48% على SPY"
+   ],
+   "signals_en": [
+    "🔥 Broke out and still trending — continuation candidate, buy the pullback",
+    "Breakout above base resistance",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Relative strength +48% vs SPY"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "RNW",
+   "name": "RNW",
+   "score": 54.3,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.88,
+   "status": "watch",
+   "close": 6.16,
+   "chg": 2.92,
+   "mcap": "—",
+   "eta": 4,
+   "plan": "دخول فوق 6.54$ · وقف 6.27$ (−4.1%) · هدف الأسبوع 7.08$ (+8.3%)",
+   "plan_en": "Entry above 6.54$ · Stop 6.27$ (−4.1%) · Weekly target 7.08$ (+8.3%)",
+   "signals": [
+    "قاعدة ضيقة (12%) — تجميع وايكوف",
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (12%) — Wyckoff accumulation",
+    "Spring — false break then recovery",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "NEXT",
+   "name": "NEXT",
+   "score": 54.2,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.4,
+   "status": "watch",
+   "close": 6.64,
+   "chg": 4.81,
+   "mcap": "—",
+   "eta": 9,
+   "plan": "دخول فوق 8.90$ · وقف 8.11$ (−8.9%) · هدف الأسبوع 10.49$ (+17.8%)",
+   "plan_en": "Entry above 8.90$ · Stop 8.11$ (−8.9%) · Weekly target 10.49$ (+17.8%)",
+   "signals": [
+    "قاعدة ضيقة (27%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (27%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "KRNY",
+   "name": "KRNY",
+   "score": 53.9,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.78,
+   "status": "watch",
+   "close": 9.65,
+   "chg": 0.63,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 9.78$ · وقف 9.46$ (−3.3%) · هدف الأسبوع 10.42$ (+6.6%)",
+   "plan_en": "Entry above 9.78$ · Stop 9.46$ (−3.3%) · Weekly target 10.42$ (+6.6%)",
+   "signals": [
+    "قاعدة ضيقة (22%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Tight base (22%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "MFG",
+   "name": "MFG",
+   "score": 53.5,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.02,
+   "status": "watch",
+   "close": 10.23,
+   "chg": 4.29,
+   "mcap": "—",
+   "eta": 5,
+   "plan": "دخول فوق 10.81$ · وقف 10.50$ (−2.9%) · هدف الأسبوع 11.44$ (+5.8%)",
+   "plan_en": "Entry above 10.81$ · Stop 10.50$ (−2.9%) · Weekly target 11.44$ (+5.8%)",
+   "signals": [
+    "قاعدة ضيقة (17%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Tight base (17%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "CERT",
+   "name": "CERT",
+   "score": 53.2,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.99,
+   "status": "launch",
+   "close": 7.91,
+   "chg": -2.29,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "ادخل على تصحيح نحو 7.48$ · وقف 7.17$ · هدف ممتد 9.31$",
+   "plan_en": "Buy the pullback toward 7.48$ · Stop 7.17$ · Extended target 9.31$",
+   "signals": [
+    "🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "قوة نسبية +18% على SPY",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "🔥 Broke out and still trending — continuation candidate, buy the pullback",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Relative strength +18% vs SPY",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "CYCU",
+   "name": "CYCU",
+   "score": 53.0,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 5.61,
+   "status": "launch",
+   "close": 1.28,
+   "chg": 374.19,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 1.28$ · وقف 0.80$ (−37.2%) · هدف الأسبوع 2.23$ (+74.4%)",
+   "plan_en": "Entry above 1.28$ · Stop 0.80$ (−37.2%) · Weekly target 2.23$ (+74.4%)",
+   "signals": [
+    "✅ اختراق حديث ومؤكد بالحجم — نافذة الدخول مفتوحة",
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "انفجار حجم التداول ×5.6",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "✅ Fresh volume-confirmed breakout — entry window open",
+    "Spring — false break then recovery",
+    "Volume surge ×5.6",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": true
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "ENTX",
+   "name": "ENTX",
+   "score": 53.0,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 3.62,
+   "status": "watch",
+   "close": 2.76,
+   "chg": -8.0,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 2.79$ · وقف 2.27$ (−18.7%) · هدف الأسبوع 3.83$ (+37.3%)",
+   "plan_en": "Entry above 2.79$ · Stop 2.27$ (−18.7%) · Weekly target 3.83$ (+37.3%)",
+   "signals": [
+    "انفجار حجم التداول ×3.6",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "قوة نسبية +64% على SPY",
+    "موقع مبكر في الدورة — غير ممتد"
+   ],
+   "signals_en": [
+    "Volume surge ×3.6",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Relative strength +64% vs SPY",
+    "Early in cycle — not extended"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "LVWR",
+   "name": "LVWR",
+   "score": 53.0,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 5.52,
+   "status": "watch",
+   "close": 1.99,
+   "chg": -23.36,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 1.99$ · وقف 1.13$ (−43.1%) · هدف الأسبوع 3.69$ (+86.1%)",
+   "plan_en": "Entry above 1.99$ · Stop 1.13$ (−43.1%) · Weekly target 3.69$ (+86.1%)",
+   "signals": [
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "انفجار حجم التداول ×5.5",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي"
+   ],
+   "signals_en": [
+    "Spring — false break then recovery",
+    "Volume surge ×5.5",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": true
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "NAD",
+   "name": "NAD",
+   "score": 53.0,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.98,
+   "status": "watch",
+   "close": 11.64,
+   "chg": -0.18,
+   "mcap": "—",
+   "eta": 9,
+   "plan": "دخول فوق 12.09$ · وقف 11.97$ (−1.0%) · هدف الأسبوع 12.34$ (+2.0%)",
+   "plan_en": "Entry above 12.09$ · Stop 11.97$ (−1.0%) · Weekly target 12.34$ (+2.0%)",
+   "signals": [
+    "قاعدة ضيقة (5%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Tight base (5%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "OPK",
+   "name": "OPK",
+   "score": 53.0,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 2.42,
+   "status": "watch",
+   "close": 1.35,
+   "chg": -1.82,
+   "mcap": "—",
+   "eta": 5,
+   "plan": "دخول فوق 1.61$ · وقف 1.44$ (−10.5%) · هدف الأسبوع 1.95$ (+21.0%)",
+   "plan_en": "Entry above 1.61$ · Stop 1.44$ (−10.5%) · Weekly target 1.95$ (+21.0%)",
+   "signals": [
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "انفجار حجم التداول ×2.4",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Spring — false break then recovery",
+    "Volume surge ×2.4",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "XRX",
+   "name": "XRX",
+   "score": 52.6,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.7,
+   "status": "watch",
+   "close": 3.42,
+   "chg": 29.55,
+   "mcap": "—",
+   "eta": 2,
+   "plan": "دخول فوق 3.73$ · وقف 3.36$ (−10.0%) · هدف الأسبوع 4.47$ (+19.9%)",
+   "plan_en": "Entry above 3.73$ · Stop 3.36$ (−10.0%) · Weekly target 4.47$ (+19.9%)",
+   "signals": [
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "جفاف السيولة قبل الانطلاق",
+    "فوق متوسط 200 ومحافظ عليه",
+    "قوة نسبية +11% على SPY"
+   ],
+   "signals_en": [
+    "Spring — false break then recovery",
+    "Volume dry-up before launch",
+    "Above 200-MA and holding",
+    "Relative strength +11% vs SPY"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "USA",
+   "name": "USA",
+   "score": 52.5,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.88,
+   "status": "watch",
+   "close": 5.82,
+   "chg": 0.95,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 5.87$ · وقف 5.77$ (−1.7%) · هدف الأسبوع 6.07$ (+3.4%)",
+   "plan_en": "Entry above 5.87$ · Stop 5.77$ (−1.7%) · Weekly target 6.07$ (+3.4%)",
+   "signals": [
+    "قاعدة ضيقة (7%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (7%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "BLMN",
+   "name": "BLMN",
+   "score": 52.4,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.71,
+   "status": "watch",
+   "close": 8.69,
+   "chg": -1.42,
+   "mcap": "—",
+   "eta": 3,
+   "plan": "دخول فوق 9.30$ · وقف 8.67$ (−6.8%) · هدف الأسبوع 10.56$ (+13.6%)",
+   "plan_en": "Entry above 9.30$ · Stop 8.67$ (−6.8%) · Weekly target 10.56$ (+13.6%)",
+   "signals": [
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "AHRT",
+   "name": "AHRT",
+   "score": 52.2,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.73,
+   "status": "watch",
+   "close": 7.01,
+   "chg": -0.78,
+   "mcap": "—",
+   "eta": 3,
+   "plan": "دخول فوق 7.21$ · وقف 7.03$ (−2.5%) · هدف الأسبوع 7.58$ (+5.1%)",
+   "plan_en": "Entry above 7.21$ · Stop 7.03$ (−2.5%) · Weekly target 7.58$ (+5.1%)",
+   "signals": [
+    "قاعدة ضيقة (12%) — تجميع وايكوف",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (12%) — Wyckoff accumulation",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": false
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "CRF",
+   "name": "CRF",
+   "score": 52.1,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.87,
+   "status": "watch",
+   "close": 7.01,
+   "chg": 0.57,
+   "mcap": "—",
+   "eta": 4,
+   "plan": "دخول فوق 7.19$ · وقف 7.08$ (−1.4%) · هدف الأسبوع 7.39$ (+2.9%)",
+   "plan_en": "Entry above 7.19$ · Stop 7.08$ (−1.4%) · Weekly target 7.39$ (+2.9%)",
+   "signals": [
+    "قاعدة ضيقة (4%) — تجميع وايكوف",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (4%) — Wyckoff accumulation",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": false
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "LILA",
+   "name": "LILA",
+   "score": 51.7,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.73,
+   "status": "watch",
+   "close": 8.15,
+   "chg": -4.38,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 8.15$ · وقف 7.66$ (−6.0%) · هدف الأسبوع 9.12$ (+12.0%)",
+   "plan_en": "Entry above 8.15$ · Stop 7.66$ (−6.0%) · Weekly target 9.12$ (+12.0%)",
+   "signals": [
+    "اختراق سقف قاعدة التجميع",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)",
+    "⚠️ اختراق بلا حجم مؤكد — احذر الاختراق الكاذب"
+   ],
+   "signals_en": [
+    "Breakout above base resistance",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)",
+    "⚠️ Breakout lacks volume — beware false breakout"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "LYG",
+   "name": "LYG",
+   "score": 51.5,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.87,
+   "status": "watch",
+   "close": 6.22,
+   "chg": 5.88,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 6.22$ · وقف 6.06$ (−2.5%) · هدف الأسبوع 6.52$ (+4.9%)",
+   "plan_en": "Entry above 6.22$ · Stop 6.06$ (−2.5%) · Weekly target 6.52$ (+4.9%)",
+   "signals": [
+    "اختراق سقف قاعدة التجميع",
+    "قاعدة ضيقة (20%) — تجميع وايكوف",
+    "فوق متوسط 200 ومحافظ عليه",
+    "⚠️ اختراق بلا حجم مؤكد — احذر الاختراق الكاذب"
+   ],
+   "signals_en": [
+    "Breakout above base resistance",
+    "Tight base (20%) — Wyckoff accumulation",
+    "Above 200-MA and holding",
+    "⚠️ Breakout lacks volume — beware false breakout"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": false
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "INN",
+   "name": "INN",
+   "score": 51.3,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.69,
+   "status": "watch",
+   "close": 6.82,
+   "chg": -3.47,
+   "mcap": "—",
+   "eta": 3,
+   "plan": "دخول فوق 7.16$ · وقف 6.83$ (−4.6%) · هدف الأسبوع 7.83$ (+9.3%)",
+   "plan_en": "Entry above 7.16$ · Stop 6.83$ (−4.6%) · Weekly target 7.83$ (+9.3%)",
+   "signals": [
+    "قاعدة ضيقة (26%) — تجميع وايكوف",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (26%) — Wyckoff accumulation",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": false
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "TME",
+   "name": "TME",
+   "score": 51.2,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.01,
+   "status": "watch",
+   "close": 9.49,
+   "chg": -2.26,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 9.59$ · وقف 9.19$ (−4.2%) · هدف الأسبوع 10.40$ (+8.4%)",
+   "plan_en": "Entry above 9.59$ · Stop 9.19$ (−4.2%) · Weekly target 10.40$ (+8.4%)",
+   "signals": [
+    "قاعدة ضيقة (21%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "قوة نسبية +10% على SPY"
+   ],
+   "signals_en": [
+    "Tight base (21%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Relative strength +10% vs SPY"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "AGNC",
+   "name": "AGNC",
+   "score": 51.0,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.14,
+   "status": "watch",
+   "close": 10.89,
+   "chg": -0.09,
+   "mcap": "—",
+   "eta": 4,
+   "plan": "دخول فوق 11.47$ · وقف 11.11$ (−3.2%) · هدف الأسبوع 12.21$ (+6.4%)",
+   "plan_en": "Entry above 11.47$ · Stop 11.11$ (−3.2%) · Weekly target 12.21$ (+6.4%)",
+   "signals": [
+    "قاعدة ضيقة (15%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Tight base (15%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "CARS",
+   "name": "CARS",
+   "score": 51.0,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.76,
+   "status": "watch",
+   "close": 11.87,
+   "chg": -8.06,
+   "mcap": "—",
+   "eta": 2,
+   "plan": "دخول فوق 12.45$ · وقف 11.65$ (−6.4%) · هدف الأسبوع 14.06$ (+12.9%)",
+   "plan_en": "Entry above 12.45$ · Stop 11.65$ (−6.4%) · Weekly target 14.06$ (+12.9%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "FRSH",
+   "name": "FRSH",
+   "score": 51.0,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.53,
+   "status": "watch",
+   "close": 11.22,
+   "chg": -3.4,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 11.22$ · وقف 10.37$ (−7.6%) · هدف الأسبوع 12.91$ (+15.1%)",
+   "plan_en": "Entry above 11.22$ · Stop 10.37$ (−7.6%) · Weekly target 12.91$ (+15.1%)",
+   "signals": [
+    "اختراق سقف قاعدة التجميع",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)",
+    "⚠️ اختراق بلا حجم مؤكد — احذر الاختراق الكاذب"
+   ],
+   "signals_en": [
+    "Breakout above base resistance",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)",
+    "⚠️ Breakout lacks volume — beware false breakout"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "SXC",
+   "name": "SXC",
+   "score": 50.9,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.52,
+   "status": "watch",
+   "close": 8.27,
+   "chg": -11.65,
+   "mcap": "—",
+   "eta": 6,
+   "plan": "دخول فوق 9.73$ · وقف 9.07$ (−6.7%) · هدف الأسبوع 11.04$ (+13.5%)",
+   "plan_en": "Entry above 9.73$ · Stop 9.07$ (−6.7%) · Weekly target 11.04$ (+13.5%)",
+   "signals": [
+    "قاعدة ضيقة (26%) — تجميع وايكوف",
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (26%) — Wyckoff accumulation",
+    "Spring — false break then recovery",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "ULCC",
+   "name": "ULCC",
+   "score": 50.9,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.11,
+   "status": "watch",
+   "close": 6.81,
+   "chg": 4.77,
+   "mcap": "—",
+   "eta": 6,
+   "plan": "دخول فوق 8.42$ · وقف 7.62$ (−9.5%) · هدف الأسبوع 10.02$ (+19.0%)",
+   "plan_en": "Entry above 8.42$ · Stop 7.62$ (−9.5%) · Weekly target 10.02$ (+19.0%)",
+   "signals": [
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "جفاف السيولة قبل الانطلاق",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Spring — false break then recovery",
+    "Volume dry-up before launch",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "AMBP",
+   "name": "AMBP",
+   "score": 50.6,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.77,
+   "status": "watch",
+   "close": 4.89,
+   "chg": -1.41,
+   "mcap": "—",
+   "eta": 3,
+   "plan": "دخول فوق 5.44$ · وقف 4.99$ (−8.2%) · هدف الأسبوع 6.34$ (+16.5%)",
+   "plan_en": "Entry above 5.44$ · Stop 4.99$ (−8.2%) · Weekly target 6.34$ (+16.5%)",
+   "signals": [
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Up-volume beats down-volume — institutional accumulation",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "DEI",
+   "name": "DEI",
+   "score": 50.6,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.71,
+   "status": "watch",
+   "close": 11.94,
+   "chg": -2.65,
+   "mcap": "—",
+   "eta": 4,
+   "plan": "دخول فوق 13.00$ · وقف 12.34$ (−5.0%) · هدف الأسبوع 14.31$ (+10.1%)",
+   "plan_en": "Entry above 13.00$ · Stop 12.34$ (−5.0%) · Weekly target 14.31$ (+10.1%)",
+   "signals": [
+    "قاعدة ضيقة (17%) — تجميع وايكوف",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (17%) — Wyckoff accumulation",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  },
+  {
+   "ticker": "TJGC",
+   "name": "TJGC",
+   "score": 50.6,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 3.7,
+   "status": "watch",
+   "close": 5.03,
+   "chg": -1.66,
+   "mcap": "—",
+   "eta": 10,
+   "plan": "دخول فوق 7.08$ · وقف 6.38$ (−10.0%) · هدف الأسبوع 8.50$ (+20.0%)",
+   "plan_en": "Entry above 7.08$ · Stop 6.38$ (−10.0%) · Weekly target 8.50$ (+20.0%)",
+   "signals": [
+    "انفجار حجم التداول ×3.7",
+    "جفاف السيولة قبل الانطلاق",
+    "فوق متوسط 200 ومحافظ عليه",
+    "موقع مبكر في الدورة — غير ممتد"
+   ],
+   "signals_en": [
+    "Volume surge ×3.7",
+    "Volume dry-up before launch",
+    "Above 200-MA and holding",
+    "Early in cycle — not extended"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false
+  },
+  {
+   "ticker": "DJT",
+   "name": "DJT",
+   "score": 50.3,
+   "earnings": null,
+   "sector": "",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.92,
+   "status": "watch",
+   "close": 10.24,
+   "chg": 4.01,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "دخول فوق 10.24$ · وقف 9.23$ (−9.9%) · هدف الأسبوع 12.27$ (+19.8%)",
+   "plan_en": "Entry above 10.24$ · Stop 9.23$ (−9.9%) · Weekly target 12.27$ (+19.8%)",
+   "signals": [
+    "اختراق سقف قاعدة التجميع",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "قوة نسبية +29% على SPY",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Breakout above base resistance",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Relative strength +29% vs SPY",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true
+  }
+ ],
+ "macro": [
+  {
+   "name": "الدولار",
+   "name_en": "US Dollar",
+   "live": true,
+   "tv": "CAPITALCOM:DXY",
+   "priceLabel": "100.05",
+   "mom": -1.3,
+   "mom5": -1.4,
+   "mom3": -1.4,
+   "outlook": "⬇️ الضغط الهابط مستمر — الأرجح مزيد من الضعف الأيام القادمة",
+   "outlook_en": "⬇️ Downward pressure persists — more weakness likely in coming days",
+   "dir": "down",
+   "gauge": -11,
+   "reversal": false,
+   "note": "يتحرك مع عوائد السندات — راقب كسر متوسط 50",
+   "note_en": "Moves with bond yields — watch the 50-MA"
+  },
+  {
+   "name": "الذهب",
+   "name_en": "Gold",
+   "live": true,
+   "tv": "TVC:GOLD",
+   "priceLabel": "4,164.10",
+   "mom": 2.4,
+   "mom5": 2.9,
+   "mom3": 2.2,
+   "outlook": "↔️ حركة عرضية مرجحة — لا انحياز واضحًا",
+   "outlook_en": "↔️ Sideways action likely — no clear bias",
+   "dir": "flat",
+   "gauge": 13,
+   "reversal": true,
+   "note": "دولار وعوائد صاعدة = ضغط على الذهب، والعكس دعم قوي · ⚠️ زخم معاكس للاتجاه",
+   "note_en": "Rising dollar & yields = pressure on gold; the reverse is strong support · ⚠️ Momentum against trend"
+  },
+  {
+   "name": "النفط",
+   "name_en": "Oil (WTI)",
+   "live": true,
+   "tv": "TVC:USOIL",
+   "priceLabel": "83.84",
+   "mom": 22.3,
+   "mom5": -9.1,
+   "mom3": 1.5,
+   "outlook": "⬇️ جني أرباح داخل صعود — تراجع قصير محتمل ثم استئناف",
+   "outlook_en": "⬇️ Profit-taking within an uptrend — brief dip likely, then resumption",
+   "dir": "up",
+   "gauge": 53,
+   "reversal": false,
+   "note": "اتجاهه الخاص + دولار ضعيف يدعمه",
+   "note_en": "Follows its own trend; a weak dollar supports it"
+  },
+  {
+   "name": "البتكوين",
+   "name_en": "Bitcoin",
+   "live": true,
+   "tv": "BITSTAMP:BTCUSD",
+   "priceLabel": "64,847.61",
+   "mom": 1.1,
+   "mom5": 0.8,
+   "mom3": 1.8,
+   "outlook": "⬆️ الصعود مرشح للاستمرار الأيام 3-5 القادمة",
+   "outlook_en": "⬆️ Uptrend likely to continue over the next 3-5 days",
+   "dir": "up",
+   "gauge": 18,
+   "reversal": false,
+   "note": "سيولة الدولار الضعيف وقود البتكوين",
+   "note_en": "Weak-dollar liquidity fuels bitcoin"
+  },
+  {
+   "name": "عوائد السندات 10س",
+   "name_en": "10Y Treasury Yield",
+   "live": true,
+   "tv": "TVC:US10Y",
+   "priceLabel": "4.66",
+   "mom": 4.2,
+   "mom5": -0.9,
+   "mom3": 0.5,
+   "outlook": "⬆️ الصعود مرشح للاستمرار الأيام 3-5 القادمة",
+   "outlook_en": "⬆️ Uptrend likely to continue over the next 3-5 days",
+   "dir": "up",
+   "gauge": 25,
+   "reversal": false,
+   "note": "صعودها يضغط على الذهب وأسهم النمو",
+   "note_en": "Rising yields pressure gold and growth stocks"
+  }
+ ],
+ "analysis": {
+  "window": 90,
+  "sectors": [
+   {
+    "name": "Consumer Cyclical",
+    "n": 48,
+    "ret3": 23.7,
+    "ret6": -1.7,
+    "rs": 20.5,
+    "leaders": [
+     {
+      "ticker": "FFAI",
+      "ret": 1020.4
+     },
+     {
+      "ticker": "HYLN",
+      "ret": 87.2
+     },
+     {
+      "ticker": "GBTG",
+      "ret": 61.0
+     }
+    ]
+   },
+   {
+    "name": "Healthcare",
+    "n": 126,
+    "ret3": 8.1,
+    "ret6": 10.3,
+    "rs": 4.9,
+    "leaders": [
+     {
+      "ticker": "OTLK",
+      "ret": 316.0
+     },
+     {
+      "ticker": "ENTX",
+      "ret": 131.9
+     },
+     {
+      "ticker": "SLS",
+      "ret": 105.7
+     }
+    ]
+   },
+   {
+    "name": "Communication Services",
+    "n": 43,
+    "ret3": 7.3,
+    "ret6": 3.4,
+    "rs": 4.0,
+    "leaders": [
+     {
+      "ticker": "EVC",
+      "ret": 206.7
+     },
+     {
+      "ticker": "CNET",
+      "ret": 133.8
+     },
+     {
+      "ticker": "AMC",
+      "ret": 79.6
+     }
+    ]
+   },
+   {
+    "name": "Technology",
+    "n": 89,
+    "ret3": 0.7,
+    "ret6": -3.2,
+    "rs": -2.5,
+    "leaders": [
+     {
+      "ticker": "RXT",
+      "ret": 181.5
+     },
+     {
+      "ticker": "SMWB",
+      "ret": 150.5
+     },
+     {
+      "ticker": "AMPG",
+      "ret": 148.0
+     }
+    ]
+   },
+   {
+    "name": "Real Estate",
+    "n": 31,
+    "ret3": -2.0,
+    "ret6": -5.6,
+    "rs": -5.2,
+    "leaders": [
+     {
+      "ticker": "COMP",
+      "ret": 48.4
+     },
+     {
+      "ticker": "INN",
+      "ret": 39.4
+     },
+     {
+      "ticker": "SHO",
+      "ret": 20.1
+     }
+    ]
+   },
+   {
+    "name": "Financial Services",
+    "n": 53,
+    "ret3": -7.2,
+    "ret6": -11.2,
+    "rs": -10.4,
+    "leaders": [
+     {
+      "ticker": "ANY",
+      "ret": 44.3
+     },
+     {
+      "ticker": "CLBK",
+      "ret": 25.4
+     },
+     {
+      "ticker": "HIVE",
+      "ret": 24.0
+     }
+    ]
+   },
+   {
+    "name": "Utilities",
+    "n": 11,
+    "ret3": -12.1,
+    "ret6": -10.4,
+    "rs": -15.3,
+    "leaders": [
+     {
+      "ticker": "RNW",
+      "ret": 14.6
+     },
+     {
+      "ticker": "DGXX",
+      "ret": 11.1
+     },
+     {
+      "ticker": "XIFR",
+      "ret": 10.9
+     }
+    ]
+   },
+   {
+    "name": "Industrials",
+    "n": 52,
+    "ret3": -13.6,
+    "ret6": -16.1,
+    "rs": -16.8,
+    "leaders": [
+     {
+      "ticker": "ENGS",
+      "ret": 122.5
+     },
+     {
+      "ticker": "ULCC",
+      "ret": 87.6
+     },
+     {
+      "ticker": "XRX",
+      "ret": 53.2
+     }
+    ]
+   },
+   {
+    "name": "Energy",
+    "n": 31,
+    "ret3": -20.2,
+    "ret6": 11.4,
+    "rs": -23.4,
+    "leaders": [
+     {
+      "ticker": "STAK",
+      "ret": 173.3
+     },
+     {
+      "ticker": "NAT",
+      "ret": 24.2
+     },
+     {
+      "ticker": "UGP",
+      "ret": 6.9
+     }
+    ]
+   },
+   {
+    "name": "Consumer Defensive",
+    "n": 17,
+    "ret3": -22.5,
+    "ret6": -23.5,
+    "rs": -25.7,
+    "leaders": [
+     {
+      "ticker": "NWL",
+      "ret": 27.2
+     },
+     {
+      "ticker": "GO",
+      "ret": 13.1
+     },
+     {
+      "ticker": "COTY",
+      "ret": 9.3
+     }
+    ]
+   },
+   {
+    "name": "Basic Materials",
+    "n": 52,
+    "ret3": -24.2,
+    "ret6": -25.2,
+    "rs": -27.4,
+    "leaders": [
+     {
+      "ticker": "SXC",
+      "ret": 23.1
+     },
+     {
+      "ticker": "CLF",
+      "ret": 15.2
+     },
+     {
+      "ticker": "GGB",
+      "ret": 9.0
+     }
+    ]
+   }
+  ],
+  "counter": [
+   {
+    "ticker": "BATL",
+    "corr": -0.46,
+    "close": 1.38,
+    "sector": "Energy"
+   },
+   {
+    "ticker": "TURB",
+    "corr": -0.43,
+    "close": 1.47,
+    "sector": "Technology"
+   },
+   {
+    "ticker": "WTI",
+    "corr": -0.39,
+    "close": 3.37,
+    "sector": "Energy"
+   },
+   {
+    "ticker": "NEXT",
+    "corr": -0.39,
+    "close": 6.64,
+    "sector": "Energy"
+   },
+   {
+    "ticker": "KOS",
+    "corr": -0.35,
+    "close": 2.53,
+    "sector": "Energy"
+   },
+   {
+    "ticker": "CRGY",
+    "corr": -0.33,
+    "close": 10.94,
+    "sector": "Energy"
+   },
+   {
+    "ticker": "SSL",
+    "corr": -0.32,
+    "close": 11.6,
+    "sector": "Basic Materials"
+   },
+   {
+    "ticker": "EGY",
+    "corr": -0.31,
+    "close": 5.24,
+    "sector": "Energy"
+   },
+   {
+    "ticker": "VET",
+    "corr": -0.31,
+    "close": 11.33,
+    "sector": "Energy"
+   },
+   {
+    "ticker": "REI",
+    "corr": -0.29,
+    "close": 1.23,
+    "sector": "Energy"
+   }
+  ],
+  "sat": {
+   "gold": [
+    {
+     "ticker": "NG",
+     "corr": 0.71,
+     "close": 5.99
+    },
+    {
+     "ticker": "EQX",
+     "corr": 0.7,
+     "close": 9.31
+    },
+    {
+     "ticker": "GAU",
+     "corr": 0.69,
+     "close": 1.77
+    },
+    {
+     "ticker": "FSM",
+     "corr": 0.69,
+     "close": 8.64
+    },
+    {
+     "ticker": "SBSW",
+     "corr": 0.68,
+     "close": 8.98
+    }
+   ],
+   "oil": [
+    {
+     "ticker": "VET",
+     "corr": 0.74,
+     "close": 11.33
+    },
+    {
+     "ticker": "CRGY",
+     "corr": 0.72,
+     "close": 10.94
+    },
+    {
+     "ticker": "WTI",
+     "corr": 0.71,
+     "close": 3.37
+    },
+    {
+     "ticker": "PTEN",
+     "corr": 0.71,
+     "close": 9.73
+    },
+    {
+     "ticker": "KOS",
+     "corr": 0.69,
+     "close": 2.53
+    }
+   ],
+   "btc": [
+    {
+     "ticker": "SBET",
+     "corr": 0.59,
+     "close": 6.42
+    },
+    {
+     "ticker": "XXI",
+     "corr": 0.56,
+     "close": 4.41
+    },
+    {
+     "ticker": "ASST",
+     "corr": 0.56,
+     "close": 11.83
+    },
+    {
+     "ticker": "FWDI",
+     "corr": 0.55,
+     "close": 4.13
+    },
+    {
+     "ticker": "BULL",
+     "corr": 0.51,
+     "close": 7.16
+    }
+   ],
+   "bonds": [
+    {
+     "ticker": "JBI",
+     "corr": 0.63,
+     "close": 5.16
+    },
+    {
+     "ticker": "AGNC",
+     "corr": 0.56,
+     "close": 10.89
+    },
+    {
+     "ticker": "LEG",
+     "corr": 0.56,
+     "close": 10.06
+    },
+    {
+     "ticker": "JBLU",
+     "corr": 0.54,
+     "close": 5.97
+    },
+    {
+     "ticker": "SVV",
+     "corr": 0.53,
+     "close": 10.36
+    }
+   ]
+  }
+ },
+ "crypto": [
+  {
+   "ticker": "SHIB",
+   "name": "SHIB",
+   "score": 62.1,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 2.5,
+   "status": "watch",
+   "close": 0.0,
+   "chg": -7.4,
+   "mcap": "—",
+   "eta": 4,
+   "plan": "دخول فوق 0.00$ · وقف 0.00$ (−4.6%) · هدف الأسبوع 0.00$ (+9.1%)",
+   "plan_en": "Entry above 0.00$ · Stop 0.00$ (−4.6%) · Weekly target 0.00$ (+9.1%)",
+   "signals": [
+    "قاعدة ضيقة (25%) — تجميع وايكوف",
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "انفجار حجم التداول ×2.5",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Tight base (25%) — Wyckoff accumulation",
+    "Spring — false break then recovery",
+    "Volume surge ×2.5",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:SHIBUSDT"
+  },
+  {
+   "ticker": "TRX",
+   "name": "TRX",
+   "score": 56.0,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.95,
+   "status": "watch",
+   "close": 0.33,
+   "chg": 1.02,
+   "mcap": "—",
+   "eta": 3,
+   "plan": "دخول فوق 0.33$ · وقف 0.33$ (−1.5%) · هدف الأسبوع 0.34$ (+3.1%)",
+   "plan_en": "Entry above 0.33$ · Stop 0.33$ (−1.5%) · Weekly target 0.34$ (+3.1%)",
+   "signals": [
+    "قاعدة ضيقة (6%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "فوق متوسط 200 ومحافظ عليه"
+   ],
+   "signals_en": [
+    "Tight base (6%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Above 200-MA and holding"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:TRXUSDT"
+  },
+  {
+   "ticker": "APE",
+   "name": "APE",
+   "score": 54.2,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.13,
+   "status": "watch",
+   "close": 0.14,
+   "chg": -2.64,
+   "mcap": "—",
+   "eta": 7,
+   "plan": "دخول فوق 0.17$ · وقف 0.15$ (−8.9%) · هدف الأسبوع 0.20$ (+17.8%)",
+   "plan_en": "Entry above 0.17$ · Stop 0.15$ (−8.9%) · Weekly target 0.20$ (+17.8%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:APEUSDT"
+  },
+  {
+   "ticker": "INJ",
+   "name": "INJ",
+   "score": 53.7,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.84,
+   "status": "watch",
+   "close": 4.82,
+   "chg": 4.78,
+   "mcap": "—",
+   "eta": 5,
+   "plan": "دخول فوق 5.49$ · وقف 5.09$ (−7.3%) · هدف الأسبوع 6.29$ (+14.6%)",
+   "plan_en": "Entry above 5.49$ · Stop 5.09$ (−7.3%) · Weekly target 6.29$ (+14.6%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:INJUSDT"
+  },
+  {
+   "ticker": "NEAR",
+   "name": "NEAR",
+   "score": 53.4,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.91,
+   "status": "watch",
+   "close": 1.66,
+   "chg": 2.66,
+   "mcap": "—",
+   "eta": 13,
+   "plan": "دخول فوق 2.28$ · وقف 2.12$ (−7.0%) · هدف الأسبوع 2.59$ (+13.9%)",
+   "plan_en": "Entry above 2.28$ · Stop 2.12$ (−7.0%) · Weekly target 2.59$ (+13.9%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "فوق متوسط 200 ومحافظ عليه",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Above 200-MA and holding",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:NEARUSDT"
+  },
+  {
+   "ticker": "1INCH",
+   "name": "1INCH",
+   "score": 52.5,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.01,
+   "status": "watch",
+   "close": 0.09,
+   "chg": 2.06,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 0.09$ · وقف 0.08$ (−6.9%) · هدف الأسبوع 0.10$ (+13.7%)",
+   "plan_en": "Entry above 0.09$ · Stop 0.08$ (−6.9%) · Weekly target 0.10$ (+13.7%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "قوة نسبية +16% على SPY",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Relative strength +16% vs SPY",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:1INCHUSDT"
+  },
+  {
+   "ticker": "XLM",
+   "name": "XLM",
+   "score": 51.9,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.48,
+   "status": "watch",
+   "close": 0.17,
+   "chg": 0.59,
+   "mcap": "—",
+   "eta": 12,
+   "plan": "دخول فوق 0.22$ · وقف 0.21$ (−5.3%) · هدف الأسبوع 0.24$ (+10.6%)",
+   "plan_en": "Entry above 0.22$ · Stop 0.21$ (−5.3%) · Weekly target 0.24$ (+10.6%)",
+   "signals": [
+    "قاعدة ضيقة (29%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (29%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:XLMUSDT"
+  },
+  {
+   "ticker": "RUNE",
+   "name": "RUNE",
+   "score": 51.0,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.05,
+   "status": "watch",
+   "close": 0.44,
+   "chg": 0.87,
+   "mcap": "—",
+   "eta": 2,
+   "plan": "دخول فوق 0.46$ · وقف 0.44$ (−4.8%) · هدف الأسبوع 0.50$ (+9.5%)",
+   "plan_en": "Entry above 0.46$ · Stop 0.44$ (−4.8%) · Weekly target 0.50$ (+9.5%)",
+   "signals": [
+    "قاعدة ضيقة (22%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (22%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:RUNEUSDT"
+  },
+  {
+   "ticker": "ETH",
+   "name": "ETH",
+   "score": 50.7,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.06,
+   "status": "watch",
+   "close": 1919.68,
+   "chg": 0.58,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 1959.06$ · وقف 1871.16$ (−4.5%) · هدف الأسبوع 2134.85$ (+9.0%)",
+   "plan_en": "Entry above 1959.06$ · Stop 1871.16$ (−4.5%) · Weekly target 2134.85$ (+9.0%)",
+   "signals": [
+    "قاعدة ضيقة (29%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (29%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:ETHUSDT"
+  },
+  {
+   "ticker": "ARB",
+   "name": "ARB",
+   "score": 50.0,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.4,
+   "status": "launch",
+   "close": 0.0,
+   "chg": 0.01,
+   "mcap": "—",
+   "eta": 0,
+   "plan": "ادخل على تصحيح نحو 0.00$ · وقف 0.00$ · هدف ممتد 0.00$",
+   "plan_en": "Buy the pullback toward 0.00$ · Stop 0.00$ · Extended target 0.00$",
+   "signals": [
+    "🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح",
+    "اختراق سقف قاعدة التجميع",
+    "قاعدة ضيقة (0%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "🔥 Broke out and still trending — continuation candidate, buy the pullback",
+    "Breakout above base resistance",
+    "Tight base (0%) — Wyckoff accumulation",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:ARBUSDT"
+  },
+  {
+   "ticker": "LINK",
+   "name": "LINK",
+   "score": 49.4,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.06,
+   "status": "watch",
+   "close": 8.47,
+   "chg": 1.74,
+   "mcap": "—",
+   "eta": 2,
+   "plan": "دخول فوق 8.76$ · وقف 8.35$ (−4.7%) · هدف الأسبوع 9.57$ (+9.3%)",
+   "plan_en": "Entry above 8.76$ · Stop 8.35$ (−4.7%) · Weekly target 9.57$ (+9.3%)",
+   "signals": [
+    "قاعدة ضيقة (24%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (24%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:LINKUSDT"
+  },
+  {
+   "ticker": "OCEAN",
+   "name": "OCEAN",
+   "score": 49.1,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 2.06,
+   "status": "watch",
+   "close": 0.1,
+   "chg": -2.58,
+   "mcap": "—",
+   "eta": 18,
+   "plan": "دخول فوق 0.12$ · وقف 0.12$ (−2.9%) · هدف الأسبوع 0.13$ (+5.7%)",
+   "plan_en": "Entry above 0.12$ · Stop 0.12$ (−2.9%) · Weekly target 0.13$ (+5.7%)",
+   "signals": [
+    "انفجار حجم التداول ×2.1",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume surge ×2.1",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:OCEANUSDT"
+  },
+  {
+   "ticker": "LDO",
+   "name": "LDO",
+   "score": 47.7,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.82,
+   "status": "watch",
+   "close": 0.38,
+   "chg": 4.91,
+   "mcap": "—",
+   "eta": 2,
+   "plan": "دخول فوق 0.41$ · وقف 0.37$ (−9.3%) · هدف الأسبوع 0.49$ (+18.6%)",
+   "plan_en": "Entry above 0.41$ · Stop 0.37$ (−9.3%) · Weekly target 0.49$ (+18.6%)",
+   "signals": [
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "قوة نسبية +24% على SPY",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Up-volume beats down-volume — institutional accumulation",
+    "Relative strength +24% vs SPY",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:LDOUSDT"
+  },
+  {
+   "ticker": "VET",
+   "name": "VET",
+   "score": 47.3,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.87,
+   "status": "watch",
+   "close": 0.0,
+   "chg": 6.8,
+   "mcap": "—",
+   "eta": 3,
+   "plan": "دخول فوق 0.01$ · وقف 0.00$ (−5.4%) · هدف الأسبوع 0.01$ (+10.8%)",
+   "plan_en": "Entry above 0.01$ · Stop 0.00$ (−5.4%) · Weekly target 0.01$ (+10.8%)",
+   "signals": [
+    "قاعدة ضيقة (18%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (18%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:VETUSDT"
+  },
+  {
+   "ticker": "BNB",
+   "name": "BNB",
+   "score": 47.2,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.94,
+   "status": "watch",
+   "close": 593.4,
+   "chg": 3.85,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 602.65$ · وقف 586.44$ (−2.7%) · هدف الأسبوع 635.07$ (+5.4%)",
+   "plan_en": "Entry above 602.65$ · Stop 586.44$ (−2.7%) · Weekly target 635.07$ (+5.4%)",
+   "signals": [
+    "قاعدة ضيقة (12%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (12%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:BNBUSDT"
+  },
+  {
+   "ticker": "LTC",
+   "name": "LTC",
+   "score": 43.1,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.95,
+   "status": "watch",
+   "close": 45.3,
+   "chg": -0.24,
+   "mcap": "—",
+   "eta": 3,
+   "plan": "دخول فوق 48.10$ · وقف 45.94$ (−4.5%) · هدف الأسبوع 52.43$ (+9.0%)",
+   "plan_en": "Entry above 48.10$ · Stop 45.94$ (−4.5%) · Weekly target 52.43$ (+9.0%)",
+   "signals": [
+    "قاعدة ضيقة (22%) — تجميع وايكوف",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (22%) — Wyckoff accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": false
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:LTCUSDT"
+  },
+  {
+   "ticker": "CRV",
+   "name": "CRV",
+   "score": 43.0,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.95,
+   "status": "watch",
+   "close": 0.21,
+   "chg": 1.47,
+   "mcap": "—",
+   "eta": 4,
+   "plan": "دخول فوق 0.23$ · وقف 0.22$ (−5.4%) · هدف الأسبوع 0.25$ (+10.8%)",
+   "plan_en": "Entry above 0.23$ · Stop 0.22$ (−5.4%) · Weekly target 0.25$ (+10.8%)",
+   "signals": [
+    "قاعدة ضيقة (25%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (25%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:CRVUSDT"
+  },
+  {
+   "ticker": "BTC",
+   "name": "BTC",
+   "score": 42.7,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.96,
+   "status": "watch",
+   "close": 64846.69,
+   "chg": 1.47,
+   "mcap": "—",
+   "eta": 2,
+   "plan": "دخول فوق 67043.88$ · وقف 64774.23$ (−3.4%) · هدف الأسبوع 71583.19$ (+6.8%)",
+   "plan_en": "Entry above 67043.88$ · Stop 64774.23$ (−3.4%) · Weekly target 71583.19$ (+6.8%)",
+   "signals": [
+    "قاعدة ضيقة (16%) — تجميع وايكوف",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (16%) — Wyckoff accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": false
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:BTCUSDT"
+  },
+  {
+   "ticker": "ZEC",
+   "name": "ZEC",
+   "score": 42.7,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.76,
+   "status": "watch",
+   "close": 472.5,
+   "chg": 1.17,
+   "mcap": "—",
+   "eta": 8,
+   "plan": "دخول فوق 587.45$ · وقف 545.35$ (−7.2%) · هدف الأسبوع 671.65$ (+14.3%)",
+   "plan_en": "Entry above 587.45$ · Stop 545.35$ (−7.2%) · Weekly target 671.65$ (+14.3%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "فوق متوسط 200 ومحافظ عليه",
+    "موقع مبكر في الدورة — غير ممتد"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Above 200-MA and holding",
+    "Early in cycle — not extended"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": true
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:ZECUSDT"
+  },
+  {
+   "ticker": "AAVE",
+   "name": "AAVE",
+   "score": 42.1,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.33,
+   "status": "watch",
+   "close": 99.82,
+   "chg": 3.92,
+   "mcap": "—",
+   "eta": 1,
+   "plan": "دخول فوق 102.19$ · وقف 95.09$ (−6.9%) · هدف الأسبوع 116.39$ (+13.9%)",
+   "plan_en": "Entry above 102.19$ · Stop 95.09$ (−6.9%) · Weekly target 116.39$ (+13.9%)",
+   "signals": [
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:AAVEUSDT"
+  },
+  {
+   "ticker": "SOL",
+   "name": "SOL",
+   "score": 40.7,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.88,
+   "status": "watch",
+   "close": 74.53,
+   "chg": 1.27,
+   "mcap": "—",
+   "eta": 8,
+   "plan": "دخول فوق 83.98$ · وقف 80.58$ (−4.0%) · هدف الأسبوع 90.76$ (+8.1%)",
+   "plan_en": "Entry above 83.98$ · Stop 80.58$ (−4.0%) · Weekly target 90.76$ (+8.1%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:SOLUSDT"
+  },
+  {
+   "ticker": "TIA",
+   "name": "TIA",
+   "score": 40.3,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.57,
+   "status": "watch",
+   "close": 0.33,
+   "chg": 1.66,
+   "mcap": "—",
+   "eta": 11,
+   "plan": "دخول فوق 0.42$ · وقف 0.40$ (−6.7%) · هدف الأسبوع 0.48$ (+13.3%)",
+   "plan_en": "Entry above 0.42$ · Stop 0.40$ (−6.7%) · Weekly target 0.48$ (+13.3%)",
+   "signals": [
+    "قاعدة ضيقة (26%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (26%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:TIAUSDT"
+  },
+  {
+   "ticker": "FLOW",
+   "name": "FLOW",
+   "score": 39.5,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.7,
+   "status": "watch",
+   "close": 0.03,
+   "chg": -3.74,
+   "mcap": "—",
+   "eta": 4,
+   "plan": "دخول فوق 0.03$ · وقف 0.03$ (−6.5%) · هدف الأسبوع 0.03$ (+13.0%)",
+   "plan_en": "Entry above 0.03$ · Stop 0.03$ (−6.5%) · Weekly target 0.03$ (+13.0%)",
+   "signals": [
+    "قاعدة ضيقة (20%) — تجميع وايكوف",
+    "نموذج Spring — كسر كاذب ثم ارتداد",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Tight base (20%) — Wyckoff accumulation",
+    "Spring — false break then recovery",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:FLOWUSDT"
+  },
+  {
+   "ticker": "XRP",
+   "name": "XRP",
+   "score": 39.4,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.98,
+   "status": "watch",
+   "close": 1.09,
+   "chg": 1.35,
+   "mcap": "—",
+   "eta": 6,
+   "plan": "دخول فوق 1.18$ · وقف 1.14$ (−3.9%) · هدف الأسبوع 1.28$ (+7.8%)",
+   "plan_en": "Entry above 1.18$ · Stop 1.14$ (−3.9%) · Weekly target 1.28$ (+7.8%)",
+   "signals": [
+    "قاعدة ضيقة (17%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق",
+    "موقع مبكر في الدورة — غير ممتد"
+   ],
+   "signals_en": [
+    "Tight base (17%) — Wyckoff accumulation",
+    "Volume dry-up before launch",
+    "Early in cycle — not extended"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:XRPUSDT"
+  },
+  {
+   "ticker": "BCH",
+   "name": "BCH",
+   "score": 38.1,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.83,
+   "status": "watch",
+   "close": 218.82,
+   "chg": 3.64,
+   "mcap": "—",
+   "eta": 8,
+   "plan": "دخول فوق 254.84$ · وقف 241.19$ (−5.4%) · هدف الأسبوع 282.15$ (+10.7%)",
+   "plan_en": "Entry above 254.84$ · Stop 241.19$ (−5.4%) · Weekly target 282.15$ (+10.7%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:BCHUSDT"
+  },
+  {
+   "ticker": "AVAX",
+   "name": "AVAX",
+   "score": 37.5,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.0,
+   "status": "watch",
+   "close": 6.47,
+   "chg": 0.77,
+   "mcap": "—",
+   "eta": 4,
+   "plan": "دخول فوق 7.11$ · وقف 6.70$ (−5.7%) · هدف الأسبوع 7.92$ (+11.4%)",
+   "plan_en": "Entry above 7.11$ · Stop 6.70$ (−5.7%) · Weekly target 7.92$ (+11.4%)",
+   "signals": [
+    "قاعدة ضيقة (19%) — تجميع وايكوف",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Tight base (19%) — Wyckoff accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": false
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:AVAXUSDT"
+  },
+  {
+   "ticker": "JUP",
+   "name": "JUP",
+   "score": 36.9,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 5.69,
+   "status": "watch",
+   "close": 0.0,
+   "chg": -95.63,
+   "mcap": "—",
+   "eta": 6,
+   "plan": "دخول فوق 0.00$ · وقف -0.00$ (−1021.1%) · هدف الأسبوع 0.01$ (+2042.2%)",
+   "plan_en": "Entry above 0.00$ · Stop -0.00$ (−1021.1%) · Weekly target 0.01$ (+2042.2%)",
+   "signals": [
+    "انفجار حجم التداول ×5.7",
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي"
+   ],
+   "signals_en": [
+    "Volume surge ×5.7",
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": false
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:JUPUSDT"
+  },
+  {
+   "ticker": "ENJ",
+   "name": "ENJ",
+   "score": 36.8,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.64,
+   "status": "watch",
+   "close": 0.02,
+   "chg": 1.45,
+   "mcap": "—",
+   "eta": 21,
+   "plan": "دخول فوق 0.04$ · وقف 0.03$ (−5.5%) · هدف الأسبوع 0.04$ (+11.0%)",
+   "plan_en": "Entry above 0.04$ · Stop 0.03$ (−5.5%) · Weekly target 0.04$ (+11.0%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:ENJUSDT"
+  },
+  {
+   "ticker": "FIL",
+   "name": "FIL",
+   "score": 35.6,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.25,
+   "status": "watch",
+   "close": 0.73,
+   "chg": 7.49,
+   "mcap": "—",
+   "eta": 4,
+   "plan": "دخول فوق 0.82$ · وقف 0.76$ (−7.3%) · هدف الأسبوع 0.94$ (+14.5%)",
+   "plan_en": "Entry above 0.82$ · Stop 0.76$ (−7.3%) · Weekly target 0.94$ (+14.5%)",
+   "signals": [
+    "قاعدة ضيقة (18%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Tight base (18%) — Wyckoff accumulation",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:FILUSDT"
+  },
+  {
+   "ticker": "ORDI",
+   "name": "ORDI",
+   "score": 35.3,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 1.12,
+   "status": "watch",
+   "close": 3.15,
+   "chg": -3.4,
+   "mcap": "—",
+   "eta": 10,
+   "plan": "دخول فوق 4.35$ · وقف 3.95$ (−9.2%) · هدف الأسبوع 5.15$ (+18.4%)",
+   "plan_en": "Entry above 4.35$ · Stop 3.95$ (−9.2%) · Weekly target 5.15$ (+18.4%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:ORDIUSDT"
+  },
+  {
+   "ticker": "NEO",
+   "name": "NEO",
+   "score": 34.9,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.65,
+   "status": "watch",
+   "close": 1.81,
+   "chg": -0.18,
+   "mcap": "—",
+   "eta": 10,
+   "plan": "دخول فوق 2.23$ · وقف 2.11$ (−5.6%) · هدف الأسبوع 2.48$ (+11.3%)",
+   "plan_en": "Entry above 2.23$ · Stop 2.11$ (−5.6%) · Weekly target 2.48$ (+11.3%)",
+   "signals": [
+    "قاعدة ضيقة (21%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Tight base (21%) — Wyckoff accumulation",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:NEOUSDT"
+  },
+  {
+   "ticker": "ALGO",
+   "name": "ALGO",
+   "score": 34.7,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.89,
+   "status": "watch",
+   "close": 0.08,
+   "chg": 2.25,
+   "mcap": "—",
+   "eta": 11,
+   "plan": "دخول فوق 0.10$ · وقف 0.09$ (−5.1%) · هدف الأسبوع 0.11$ (+10.2%)",
+   "plan_en": "Entry above 0.10$ · Stop 0.09$ (−5.1%) · Weekly target 0.11$ (+10.2%)",
+   "signals": [
+    "قاعدة ضيقة (18%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Tight base (18%) — Wyckoff accumulation",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:ALGOUSDT"
+  },
+  {
+   "ticker": "PYTH",
+   "name": "PYTH",
+   "score": 34.0,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.68,
+   "status": "watch",
+   "close": 0.04,
+   "chg": 3.17,
+   "mcap": "—",
+   "eta": 8,
+   "plan": "دخول فوق 0.05$ · وقف 0.05$ (−8.1%) · هدف الأسبوع 0.06$ (+16.3%)",
+   "plan_en": "Entry above 0.05$ · Stop 0.05$ (−8.1%) · Weekly target 0.06$ (+16.3%)",
+   "signals": [
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:PYTHUSDT"
+  },
+  {
+   "ticker": "KAS",
+   "name": "KAS",
+   "score": 34.0,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.77,
+   "status": "watch",
+   "close": 0.03,
+   "chg": 0.04,
+   "mcap": "—",
+   "eta": 10,
+   "plan": "دخول فوق 0.03$ · وقف 0.03$ (−4.2%) · هدف الأسبوع 0.03$ (+8.4%)",
+   "plan_en": "Entry above 0.03$ · Stop 0.03$ (−4.2%) · Weekly target 0.03$ (+8.4%)",
+   "signals": [
+    "قاعدة ضيقة (19%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Tight base (19%) — Wyckoff accumulation",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:KASUSDT"
+  },
+  {
+   "ticker": "DASH",
+   "name": "DASH",
+   "score": 34.0,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.98,
+   "status": "watch",
+   "close": 30.2,
+   "chg": 1.87,
+   "mcap": "—",
+   "eta": 10,
+   "plan": "دخول فوق 37.33$ · وقف 35.06$ (−6.1%) · هدف الأسبوع 41.86$ (+12.1%)",
+   "plan_en": "Entry above 37.33$ · Stop 35.06$ (−6.1%) · Weekly target 41.86$ (+12.1%)",
+   "signals": [
+    "قاعدة ضيقة (17%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Tight base (17%) — Wyckoff accumulation",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:DASHUSDT"
+  },
+  {
+   "ticker": "OP",
+   "name": "OP",
+   "score": 31.5,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.97,
+   "status": "watch",
+   "close": 0.09,
+   "chg": -0.24,
+   "mcap": "—",
+   "eta": 9,
+   "plan": "دخول فوق 0.11$ · وقف 0.10$ (−6.4%) · هدف الأسبوع 0.12$ (+12.8%)",
+   "plan_en": "Entry above 0.11$ · Stop 0.10$ (−6.4%) · Weekly target 0.12$ (+12.8%)",
+   "signals": [
+    "قاعدة ضيقة (21%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Tight base (21%) — Wyckoff accumulation",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:OPUSDT"
+  },
+  {
+   "ticker": "EGLD",
+   "name": "EGLD",
+   "score": 31.4,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.49,
+   "status": "watch",
+   "close": 2.72,
+   "chg": -1.1,
+   "mcap": "—",
+   "eta": 12,
+   "plan": "دخول فوق 3.62$ · وقف 3.38$ (−6.7%) · هدف الأسبوع 4.11$ (+13.4%)",
+   "plan_en": "Entry above 3.62$ · Stop 3.38$ (−6.7%) · Weekly target 4.11$ (+13.4%)",
+   "signals": [
+    "حجم الصعود يفوق الهبوط — تجميع مؤسسي",
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Up-volume beats down-volume — institutional accumulation",
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:EGLDUSDT"
+  },
+  {
+   "ticker": "QNT",
+   "name": "QNT",
+   "score": 31.0,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.94,
+   "status": "watch",
+   "close": 60.42,
+   "chg": -0.31,
+   "mcap": "—",
+   "eta": 13,
+   "plan": "دخول فوق 73.67$ · وقف 70.61$ (−4.2%) · هدف الأسبوع 79.79$ (+8.3%)",
+   "plan_en": "Entry above 73.67$ · Stop 70.61$ (−4.2%) · Weekly target 79.79$ (+8.3%)",
+   "signals": [
+    "قاعدة ضيقة (18%) — تجميع وايكوف",
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Tight base (18%) — Wyckoff accumulation",
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:QNTUSDT"
+  },
+  {
+   "ticker": "ADA",
+   "name": "ADA",
+   "score": 30.8,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.86,
+   "status": "watch",
+   "close": 0.17,
+   "chg": 5.48,
+   "mcap": "—",
+   "eta": 6,
+   "plan": "دخول فوق 0.20$ · وقف 0.19$ (−7.0%) · هدف الأسبوع 0.23$ (+14.0%)",
+   "plan_en": "Entry above 0.20$ · Stop 0.19$ (−7.0%) · Weekly target 0.23$ (+14.0%)",
+   "signals": [
+    "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"
+   ],
+   "signals_en": [
+    "Cycle start — first impulse wave off a bottom (fractal method)"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": false
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": true
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": true,
+   "tv": "BINANCE:ADAUSDT"
+  },
+  {
+   "ticker": "THETA",
+   "name": "THETA",
+   "score": 30.6,
+   "earnings": null,
+   "sector": "Crypto",
+   "industry": "",
+   "mc": 0,
+   "volx": 0.65,
+   "status": "watch",
+   "close": 0.12,
+   "chg": 1.19,
+   "mcap": "—",
+   "eta": 13,
+   "plan": "دخول فوق 0.17$ · وقف 0.15$ (−6.2%) · هدف الأسبوع 0.19$ (+12.4%)",
+   "plan_en": "Entry above 0.17$ · Stop 0.15$ (−6.2%) · Weekly target 0.19$ (+12.4%)",
+   "signals": [
+    "جفاف السيولة قبل الانطلاق"
+   ],
+   "signals_en": [
+    "Volume dry-up before launch"
+   ],
+   "checklist": [
+    {
+     "k": "acc",
+     "ar": "التجميع",
+     "en": "Accumulation",
+     "ok": true
+    },
+    {
+     "k": "vol",
+     "ar": "الحجم",
+     "en": "Volume",
+     "ok": true
+    },
+    {
+     "k": "trend",
+     "ar": "الاتجاه",
+     "en": "Trend",
+     "ok": false
+    },
+    {
+     "k": "cycle",
+     "ar": "بداية الدورة",
+     "en": "Cycle start",
+     "ok": false
+    },
+    {
+     "k": "brk",
+     "ar": "الاختراق",
+     "en": "Breakout",
+     "ok": false
+    }
+   ],
+   "cycle_start": false,
+   "tv": "BINANCE:THETAUSDT"
+  }
+ ]
+}

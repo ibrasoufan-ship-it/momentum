@@ -1,0 +1,5 @@
+publish/
+*.log
+__pycache__/
+.DS_Store
+sectors.json

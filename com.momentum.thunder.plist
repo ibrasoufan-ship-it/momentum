@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.momentum.thunder</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/zsh</string>
+        <string>/Users/ibrahim/Thunder/run_thunder.sh</string>
+    </array>
+
+    <!-- يشتغل مرتين يومياً: 7:00 صباحاً و 11:00 مساءً — أيام الإثنين إلى الجمعة -->
+    <!-- Weekday: 1=الإثنين 2=الثلاثاء 3=الأربعاء 4=الخميس 5=الجمعة -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>23</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>23</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>23</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>23</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>23</integer><key>Minute</key><integer>0</integer></dict>
+    </array>
+
+    <!-- لا يشغّل الفحص لحظة تحميل الجدولة (الفحص طويل). لو كان الجهاز
+         نائماً وقت الموعد، launchd يشغّله تلقائياً عند أول استيقاظ. -->
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ibrahim/Thunder/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/ibrahim/Thunder/launchd.err.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/ibrahim/Thunder</string>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

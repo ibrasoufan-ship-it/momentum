@@ -1,0 +1,32 @@
+name: MOMENTUM auto scan
+on:
+  schedule:
+    - cron: '0 13-23 * * 1-5'   # كل ساعة أثناء جلسة السوق (UTC) — الاثنين-الجمعة
+  workflow_dispatch:            # زر تشغيل يدوي من GitHub
+permissions:
+  contents: write
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: تثبيت المكتبات
+        run: pip install yfinance pandas lxml
+      - name: تشغيل الفحص
+        run: python thunder_screener.py || true
+      - name: نشر النتيجة إلى GitHub Pages
+        run: |
+          mkdir -p site && cp dashboard.html site/index.html
+          cp -f _headers site/ 2>/dev/null || true
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: site }
+  deploy:
+    needs: scan
+    runs-on: ubuntu-latest
+    permissions: { pages: write, id-token: write }
+    environment: { name: github-pages, url: '\${{ steps.dep.outputs.page_url }}' }
+    steps:
+      - id: dep
+        uses: actions/deploy-pages@v4
