@@ -1,8 +1,8 @@
 name: MOMENTUM auto scan
 on:
   schedule:
-    - cron: '0 13-23 * * 1-5'
-  workflow_dispatch:
+- cron: '0 7,10,12 * * 0-4'
+    - cron: '0 14,16,18,20 * * 1-5'  workflow_dispatch:
 permissions:
   contents: write
 concurrency:
