@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ MOMENTUM</title>
+<style>
+  :root{
+    --bg:#f5f5f7; --card:#ffffff; --line:#e8e8ed;
+    --txt:#1d1d1f; --dim:#6e6e73; --dim2:#86868b;
+    --green:#34c759; --green-soft:#e8f8ee;
+    --amber:#ff9500; --amber-soft:#fff4e5;
+    --red:#ff3b30;  --red-soft:#ffeceb;
+    --gray:#8e8e93; --gray-soft:#f2f2f7;
+    --blue:#007aff;
+    --shadow:0 2px 14px rgba(0,0,0,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,sans-serif}
+  body{background:var(--bg);color:var(--txt);min-height:100vh;padding-bottom:80px;
+    font-size:18px;-webkit-font-smoothing:antialiased}
+  header{padding:52px 24px 16px;text-align:center;position:relative}
+  header h1{font-size:46px;font-weight:700;letter-spacing:-.5px}
+  header p{color:var(--dim);font-size:20px;margin-top:12px}
+  .langbtn{position:absolute;top:20px;inset-inline-start:24px;background:var(--card);
+    border:1px solid var(--line);border-radius:22px;padding:10px 22px;font-size:18px;
+    font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+  .dot{display:inline-block;width:13px;height:13px;border-radius:50%;
+    margin-inline-end:8px;animation:pulse 1.6s infinite;vertical-align:middle}
+  .d-g{background:#34c759}.d-a{background:#ff9500}.d-r{background:#ff3b30}
+  .demo-banner{background:var(--amber-soft);border:1px solid #ffd699;color:#b36b00;
+    text-align:center;padding:16px 22px;font-size:19px;margin:22px auto 0;max-width:900px;
+    border-radius:16px;line-height:1.7}
+  nav{display:flex;justify-content:center;gap:14px;margin:30px 0 10px}
+  nav button{background:var(--card);color:var(--dim);border:1px solid var(--line);
+    padding:16px 42px;border-radius:32px;font-size:22px;cursor:pointer;transition:.2s;
+    box-shadow:var(--shadow)}
+  nav button.on{background:var(--txt);color:#fff;border-color:var(--txt);font-weight:700}
+  .chips{display:flex;justify-content:center;gap:12px;margin:22px 0 6px;flex-wrap:wrap}
+  .chips button{background:var(--card);border:1px solid var(--line);color:var(--dim);
+    padding:11px 26px;border-radius:24px;font-size:18px;cursor:pointer}
+  .chips button.on{color:var(--txt);border-color:var(--txt);font-weight:700}
+  .sel{background:var(--card);border:1px solid var(--line);color:var(--txt);
+    padding:11px 18px;border-radius:24px;font-size:17px;cursor:pointer;font-weight:600}
+  .ind{color:var(--dim2);font-size:16px;margin-top:3px;max-width:230px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  main{max-width:1280px;margin:18px auto;padding:0 20px;display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(390px,1fr));gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;
+    transition:.15s;box-shadow:var(--shadow);position:relative;overflow:visible}
+  .stkr{position:absolute;top:-13px;inset-inline-end:18px;background:#fff4e5;color:#b36b00;
+    border:1.5px solid #ffd699;border-radius:14px;padding:7px 16px;font-size:16px;
+    font-weight:800;box-shadow:var(--shadow);z-index:2}
+  .stkr.hot{background:#ffeceb;color:#c22;border-color:#ffb3ae;animation:pulse 1.1s infinite}
+  .favbtn{background:none;border:none;font-size:26px;cursor:pointer;color:#d1d1d6;
+    transition:.15s;line-height:1;vertical-align:middle;margin-inline-start:8px;padding:0}
+  .favbtn:hover{transform:scale(1.25)}
+  .favbtn.on{color:#f5b400}
+  .tickrow{display:flex;align-items:center;gap:2px}
+  .card:hover{transform:translateY(-3px)}
+  .card .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .tick{font-size:34px;font-weight:800;letter-spacing:.3px}
+  .px{font-size:22px;font-weight:800;margin-top:6px}
+  .px .pct{font-size:17px;font-weight:700}
+  .px.up{color:#1d8b3f} .px.down{color:#d70015}
+  .livedot{color:#34c759;font-size:12px;animation:pulse 1.4s infinite;vertical-align:middle}
+  .nm{color:var(--dim);font-size:17px;margin-top:5px;max-width:220px;white-space:nowrap;
+    overflow:hidden;text-overflow:ellipsis}
+  .badge{padding:10px 20px;border-radius:20px;font-size:18px;font-weight:700}
+  .b-launch{background:var(--green-soft);color:#1d8b3f}
+  .b-watch{background:var(--amber-soft);color:#b36b00}
+  .b-wait{background:var(--gray-soft);color:var(--dim)}
+  .b-ext{background:var(--red-soft);color:#c22}
+  .b-loaded{background:#ffe6f2;color:#c0166b}
+  .ring{position:relative;width:116px;height:116px;flex-shrink:0}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .val{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:32px;font-weight:800}
+  .mid{display:flex;align-items:center;gap:22px;margin:18px 0 8px}
+  .chkwrap{flex:1}
+  .chk{display:flex;flex-direction:column;gap:7px}
+  .chkitem{font-size:17px;color:var(--dim);font-weight:600;display:flex;align-items:center;gap:8px}
+  .chkitem.ok{color:#1b8b3f}
+  .chkitem::first-letter{font-size:19px}
+  .rare{font-size:16px;font-weight:800;color:#b8860b;margin-top:6px;
+    background:#fdf3d0;border-radius:12px;padding:4px 12px;display:inline-block;animation:pulse 1.6s infinite}
+  .exc{font-size:16px;font-weight:800;color:#b36b00;margin-top:6px;
+    background:#fff0d9;border-radius:12px;padding:4px 12px;display:inline-block}
+  .mcap{font-size:15px;color:var(--dim2);margin-top:10px}
+  .mcap b{color:var(--txt)}
+  .meta2{font-size:19px;color:var(--dim);margin:8px 0}
+  .meta2 b{color:var(--txt)}
+  .meta{font-size:19px;color:var(--dim);line-height:2}
+  .meta b{color:var(--txt);font-weight:650}
+  .sigs{margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+  .sigs div{font-size:18px;line-height:2;color:#3a3a3c}
+  .sigs div::before{content:"⚡";margin-inline-start:0;margin-inline-end:8px;font-size:15px}
+  .bars{display:flex;gap:8px;margin-top:16px}
+  .bar{flex:1;text-align:center}
+  .bar .t{height:7px;background:var(--gray-soft);border-radius:4px;overflow:hidden}
+  .bar .t i{display:block;height:100%;background:var(--blue);border-radius:4px}
+  .bar span{font-size:14px;color:var(--dim2);display:block;margin-top:6px}
+  /* ---------- عدادات السلع ---------- */
+  .gcard{background:var(--card);border:1px solid var(--line);border-radius:22px;
+    padding:30px 26px;text-align:center;box-shadow:var(--shadow)}
+  .gname{font-size:30px;font-weight:800;margin-bottom:4px}
+  .gprice{color:var(--dim);font-size:19px;margin-bottom:10px}
+  .gprice b{color:var(--txt)}
+  .gauge-wrap{position:relative;width:280px;margin:0 auto}
+  .gstate{font-size:26px;font-weight:800;margin-top:-34px}
+  .s-up{color:var(--green)} .s-down{color:var(--red)} .s-flat{color:var(--gray)}
+  .rev{display:inline-block;background:var(--amber-soft);color:#b36b00;font-size:17px;
+    font-weight:700;padding:8px 18px;border-radius:18px;margin-top:12px;
+    animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+  .ref{display:inline-block;font-size:20px;margin-inline-start:6px}
+  .ref.spin{animation:spin .8s linear infinite}
+  @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  .plan{margin-top:14px;padding:12px 16px;border-radius:13px;font-size:17px;font-weight:700;
+    background:#e8f8ee;color:#1d8b3f;line-height:1.9;text-align:start}
+  .sigbar{display:flex;gap:6px;margin-top:16px;direction:ltr}
+  .sigbar i{flex:1;height:13px;border-radius:7px;opacity:.22;transition:.3s}
+  .sigbar i.on{opacity:1;transform:scaleY(1.7)}
+  .siglabel{font-size:24px;font-weight:800;margin-top:10px;text-align:center}
+  .sigpulse{animation:pulse 1.1s infinite}
+  .eta{margin-top:14px;padding:11px 16px;border-radius:13px;font-size:18px;font-weight:700;text-align:center}
+  .eta-go{background:#e8f8ee;color:#1d8b3f}
+  .eta-near{background:#fff4e5;color:#b36b00}
+  .eta-far{background:#f2f2f7;color:#6e6e73}
+  .outlook{background:#eef4ff;color:#0a58c2;font-size:17.5px;font-weight:600;
+    padding:12px 16px;border-radius:14px;margin-top:14px;line-height:1.9;text-align:start}
+  .gnote{color:var(--dim);font-size:18px;margin-top:16px;line-height:1.9;
+    border-top:1px solid var(--line);padding-top:14px}
+  .offline{opacity:.65}
+  .offline .gauge-wrap{filter:grayscale(1)}
+  .tvbtn{display:block;width:100%;text-align:center;margin-top:16px;padding:14px 0;
+    background:var(--gray-soft);color:var(--txt);border:none;border-radius:14px;
+    font-size:19px;font-weight:700;cursor:pointer;text-decoration:none;transition:.15s}
+  .tvbtn:hover{background:#e5e5ea}
+  footer{text-align:center;color:var(--dim2);font-size:16px;margin-top:44px;
+    padding:0 24px;line-height:2}
+  .empty{grid-column:1/-1;text-align:center;color:var(--dim);padding:60px 0;font-size:22px}
+  .anhead{grid-column:1/-1;font-size:28px;font-weight:800;margin:18px 4px 2px}
+  .annote{font-size:16px;font-weight:400;color:var(--dim2);margin-top:6px}
+  .chiprow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .chip{background:var(--gray-soft);border-radius:14px;padding:9px 16px;font-size:17px;
+    font-weight:700;text-decoration:none;color:var(--txt)}
+  .chip:hover{background:#e5e5ea}
+  .chip b{margin-inline-start:4px}
+  .cbig span{color:var(--dim);font-weight:400;font-size:15px}
+  .satbox{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;
+    font-size:17px;text-align:start}
+  .tvq{margin:10px 0 4px;min-height:70px;border-radius:14px;overflow:hidden;
+    background:var(--gray-soft)}
+  .stale{background:var(--amber-soft);color:#b36b00;font-size:15.5px;font-weight:600;
+    padding:10px 14px;border-radius:12px;margin-top:12px;line-height:1.8;text-align:start}
+</style>
+</head>
+<body>
+<header>
+  <button class="langbtn" id="langBtn" onclick="toggleLang()">EN</button>
+  <h1 id="title"></h1>
+  <p id="gen"></p>
+  <div class="demo-banner" id="demoBanner" style="display:none"></div>
+</header>
+
+<nav>
+  <button id="tabStocks" class="on" onclick="tab('stocks')"><span id="tabStocksTxt"></span> <span id="refIcon" class="ref">↻</span></button>
+  <button id="tabTasi" onclick="tab('tasi')"><span id="tabTasiTxt"></span></button>
+  <button id="tabMacro" onclick="tab('macro')"><span id="tabMacroTxt"></span></button>
+  <button id="tabAn" onclick="tab('an')"><span id="tabAnTxt"></span></button>
+  <button id="tabCyc" onclick="tab('cyc')"><span id="tabCycTxt"></span></button>
+</nav>
+
+<div id="cycBox" style="display:none;max-width:640px;margin:22px auto 0;padding:0 20px">
+  <div style="display:flex;gap:10px">
+    <input id="cycInput" placeholder="AAPL · TSLA · 2222 · 1120" autocomplete="off"
+      style="flex:1;padding:16px 20px;font-size:20px;border:1px solid var(--line);direction:ltr;
+      border-radius:18px;background:var(--card);color:var(--txt);font-weight:700;text-align:center"
+      onkeydown="if(event.key==='Enter')runCycle()">
+    <button onclick="runCycle()" style="padding:16px 28px;font-size:20px;font-weight:800;
+      border:none;border-radius:18px;background:var(--txt);color:#fff;cursor:pointer">🔍</button>
+  </div>
+  <div id="cycOut" style="margin-top:20px"></div>
+</div>
+
+<div class="chips" id="chips">
+  <button data-f="all" class="on"></button>
+  <button data-f="launch"></button>
+  <button data-f="watch"></button>
+  <button data-f="fav"></button>
+  <select id="sortSel" class="sel" onchange="sortBy=this.value;renderStocks()"></select>
+  <select id="secSel" class="sel" onchange="sector=this.value;renderStocks()"></select>
+</div>
+
+<main id="grid"></main>
+
+<footer id="foot"></footer>
+
+<script>
+/*DATA_START*/ const DATA = {"generated": "2026-07-31 03:24 · وضع: مضاربة أسبوع (سوينغ)", "generated_en": "2026-07-31 03:24 · Mode: Weekly swing", "demo": false, "stocks": [{"ticker": "SVV", "name": "Savers Value Village, Inc.", "score": 76.0, "earnings": "2026-08-06", "sector": "Consumer Cyclical", "industry": "Specialty Retail", "mc": 1592216960, "volx": 0.99, "status": "watch", "close": 10.34, "chg": 3.92, "mcap": "1.6B$", "eta": 1, "plan": "دخول فوق 10.57$ · وقف 9.78$ (−7.4%) · هدف الأسبوع 12.14$ (+14.9%)", "plan_en": "Entry above 10.57$ · Stop 9.78$ (−7.4%) · Weekly target 12.14$ (+14.9%)", "signals": ["قاعدة ضيقة (21%) — تجميع وايكوف", "نموذج Spring — كسر كاذب ثم ارتداد", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي"], "signals_en": ["Tight base (21%) — Wyckoff accumulation", "Spring — false break then recovery", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "NEXN", "name": "Nexxen International Ltd.", "score": 72.9, "earnings": "2026-08-12", "sector": "Communication Services", "industry": "Advertising Agencies", "mc": 583953728, "volx": 1.1, "status": "watch", "close": 10.48, "chg": -0.76, "mcap": "584M$", "eta": 0, "plan": "دخول فوق 10.48$ · وقف 9.79$ (−6.6%) · هدف الأسبوع 11.85$ (+13.1%)", "plan_en": "Entry above 10.48$ · Stop 9.79$ (−6.6%) · Weekly target 11.85$ (+13.1%)", "signals": ["اختراق سقف قاعدة التجميع", "قاعدة ضيقة (29%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Breakout above base resistance", "Tight base (29%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "GBTG", "name": "Global Business Travel Group, I", "score": 72.8, "earnings": "2026-08-04", "sector": "Consumer Cyclical", "industry": "Travel Services", "mc": 4919929344, "volx": 0.51, "status": "launch", "close": 9.42, "chg": 0.0, "mcap": "4.9B$", "eta": 0, "plan": "ادخل على تصحيح نحو 9.40$ · وقف 9.17$ · هدف ممتد 9.50$", "plan_en": "Buy the pullback toward 9.40$ · Stop 9.17$ · Extended target 9.50$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "اختراق سقف قاعدة التجميع", "قاعدة ضيقة (1%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Breakout above base resistance", "Tight base (1%) — Wyckoff accumulation", "Volume dry-up before launch"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "NEOG", "name": "Neogen Corporation", "score": 71.3, "earnings": null, "sector": "Healthcare", "industry": "Medical Devices", "mc": 2509769984, "volx": 1.32, "status": "launch", "close": 11.53, "chg": 22.66, "mcap": "2.5B$", "eta": 0, "plan": "ادخل على تصحيح نحو 10.97$ · وقف 10.12$ · هدف ممتد 13.40$", "plan_en": "Buy the pullback toward 10.97$ · Stop 10.12$ · Extended target 13.40$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "قاعدة ضيقة (21%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Tight base (21%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "STGW", "name": "Stagwell Inc.", "score": 70.6, "earnings": null, "sector": "Communication Services", "industry": "Advertising Agencies", "mc": 2104283520, "volx": 1.02, "status": "launch", "close": 8.49, "chg": 5.07, "mcap": "2.1B$", "eta": 0, "plan": "دخول فوق 8.49$ · وقف 7.93$ (−6.5%) · هدف الأسبوع 9.60$ (+13.1%)", "plan_en": "Entry above 8.49$ · Stop 7.93$ (−6.5%) · Weekly target 9.60$ (+13.1%)", "signals": ["✅ اختراق حديث ومؤكد بالحجم — نافذة الدخول مفتوحة", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه", "قوة نسبية +13% على SPY"], "signals_en": ["✅ Fresh volume-confirmed breakout — entry window open", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding", "Relative strength +13% vs SPY"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": true}], "cycle_start": true}, {"ticker": "IMMR", "name": "Immersion Corporation", "score": 70.1, "earnings": "2026-09-14", "sector": "Technology", "industry": "Software - Application", "mc": 245786032, "volx": 1.71, "status": "watch", "close": 7.41, "chg": 1.02, "mcap": "246M$", "eta": 0, "plan": "دخول فوق 7.41$ · وقف 6.90$ (−6.8%) · هدف الأسبوع 8.41$ (+13.6%)", "plan_en": "Entry above 7.41$ · Stop 6.90$ (−6.8%) · Weekly target 8.41$ (+13.6%)", "signals": ["قاعدة ضيقة (14%) — تجميع وايكوف", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (14%) — Wyckoff accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": true}], "cycle_start": true}, {"ticker": "AVIR", "name": "Atea Pharmaceuticals, Inc.", "score": 69.7, "earnings": "2026-08-06", "sector": "Healthcare", "industry": "Biotechnology", "mc": 379328416, "volx": 1.68, "status": "watch", "close": 4.74, "chg": 2.6, "mcap": "379M$", "eta": 2, "plan": "دخول فوق 5.05$ · وقف 4.58$ (−9.3%) · هدف الأسبوع 5.98$ (+18.5%)", "plan_en": "Entry above 5.05$ · Stop 4.58$ (−9.3%) · Weekly target 5.98$ (+18.5%)", "signals": ["قاعدة ضيقة (21%) — تجميع وايكوف", "نموذج Spring — كسر كاذب ثم ارتداد", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (21%) — Wyckoff accumulation", "Spring — false break then recovery", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "GDRX", "name": "GoodRx Holdings, Inc.", "score": 68.1, "earnings": "2026-08-05", "sector": "Healthcare", "industry": "Health Information Services", "mc": 1073600896, "volx": 1.09, "status": "watch", "close": 3.17, "chg": -1.55, "mcap": "1.1B$", "eta": 1, "plan": "دخول فوق 3.23$ · وقف 3.01$ (−6.6%) · هدف الأسبوع 3.65$ (+13.2%)", "plan_en": "Entry above 3.23$ · Stop 3.01$ (−6.6%) · Weekly target 3.65$ (+13.2%)", "signals": ["قاعدة ضيقة (30%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (30%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "CNET", "name": "ZW Data Action Technologies Inc", "score": 68.0, "earnings": null, "sector": "Communication Services", "industry": "Advertising Agencies", "mc": 6309698, "volx": 4.15, "status": "watch", "close": 1.72, "chg": 11.69, "mcap": "6M$", "eta": 0, "plan": "دخول فوق 1.72$ · وقف 1.05$ (−38.7%) · هدف الأسبوع 3.05$ (+77.4%)", "plan_en": "Entry above 1.72$ · Stop 1.05$ (−38.7%) · Weekly target 3.05$ (+77.4%)", "signals": ["انفجار حجم التداول ×4.2", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "قوة نسبية +61% على SPY"], "signals_en": ["Volume surge ×4.2", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Relative strength +61% vs SPY"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "PTON", "name": "Peloton Interactive, Inc.", "score": 68.0, "earnings": "2026-08-06", "sector": "Consumer Cyclical", "industry": "Leisure", "mc": 2762488576, "volx": 0.83, "status": "watch", "close": 6.38, "chg": -3.19, "mcap": "2.8B$", "eta": 1, "plan": "دخول فوق 6.58$ · وقف 6.21$ (−5.7%) · هدف الأسبوع 7.33$ (+11.4%)", "plan_en": "Entry above 6.58$ · Stop 6.21$ (−5.7%) · Weekly target 7.33$ (+11.4%)", "signals": ["قاعدة ضيقة (24%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (24%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "CRSR", "name": "Corsair Gaming, Inc.", "score": 68.0, "earnings": "2026-08-06", "sector": "Technology", "industry": "Computer Hardware", "mc": 1136157824, "volx": 0.86, "status": "watch", "close": 10.63, "chg": 3.45, "mcap": "1.1B$", "eta": 2, "plan": "دخول فوق 11.31$ · وقف 10.29$ (−9.0%) · هدف الأسبوع 13.35$ (+18.0%)", "plan_en": "Entry above 11.31$ · Stop 10.29$ (−9.0%) · Weekly target 13.35$ (+18.0%)", "signals": ["جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه", "قوة نسبية +13% على SPY"], "signals_en": ["Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding", "Relative strength +13% vs SPY"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "AEG", "name": "Aegon Ltd. New York Registry Sh", "score": 67.9, "earnings": "2026-08-20", "sector": "Financial Services", "industry": "Insurance - Diversified", "mc": 13958133760, "volx": 1.14, "status": "watch", "close": 9.44, "chg": 4.66, "mcap": "14.0B$", "eta": 0, "plan": "دخول فوق 9.44$ · وقف 9.27$ (−1.8%) · هدف الأسبوع 9.79$ (+3.7%)", "plan_en": "Entry above 9.44$ · Stop 9.27$ (−1.8%) · Weekly target 9.79$ (+3.7%)", "signals": ["اختراق سقف قاعدة التجميع", "قاعدة ضيقة (16%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Breakout above base resistance", "Tight base (16%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "PDM", "name": "Piedmont Realty Trust, Inc.", "score": 67.6, "earnings": "2026-10-27", "sector": "Real Estate", "industry": "REIT - Office", "mc": 1246322944, "volx": 0.68, "status": "watch", "close": 9.96, "chg": 0.5, "mcap": "1.2B$", "eta": 0, "plan": "دخول فوق 9.96$ · وقف 9.54$ (−4.2%) · هدف الأسبوع 10.80$ (+8.4%)", "plan_en": "Entry above 9.96$ · Stop 9.54$ (−4.2%) · Weekly target 10.80$ (+8.4%)", "signals": ["اختراق سقف قاعدة التجميع", "قاعدة ضيقة (20%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Breakout above base resistance", "Tight base (20%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "PAYO", "name": "Payoneer Global Inc.", "score": 67.1, "earnings": "2026-08-06", "sector": "Technology", "industry": "Software - Infrastructure", "mc": 2421471744, "volx": 1.2, "status": "launch", "close": 7.16, "chg": 0.56, "mcap": "2.4B$", "eta": 0, "plan": "ادخل على تصحيح نحو 7.12$ · وقف 6.95$ · هدف ممتد 7.28$", "plan_en": "Buy the pullback toward 7.12$ · Stop 6.95$ · Extended target 7.28$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "اختراق سقف قاعدة التجميع", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Breakout above base resistance", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "FIRY", "name": "Firy Inc.", "score": 67.1, "earnings": "2026-08-06", "sector": "Communication Services", "industry": "Electronic Gaming & Multimedia", "mc": 152485840, "volx": 5.27, "status": "watch", "close": 9.77, "chg": -0.71, "mcap": "152M$", "eta": 2, "plan": "دخول فوق 10.76$ · وقف 9.14$ (−15.1%) · هدف الأسبوع 14.01$ (+30.1%)", "plan_en": "Entry above 10.76$ · Stop 9.14$ (−15.1%) · Weekly target 14.01$ (+30.1%)", "signals": ["انفجار حجم التداول ×5.3", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Volume surge ×5.3", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "PAYS", "name": "Paysign, Inc.", "score": 66.2, "earnings": "2026-08-05", "sector": "Technology", "industry": "Software - Infrastructure", "mc": 512096864, "volx": 0.93, "status": "watch", "close": 9.16, "chg": -0.97, "mcap": "512M$", "eta": 0, "plan": "دخول فوق 9.32$ · وقف 8.57$ (−8.0%) · هدف الأسبوع 10.82$ (+16.1%)", "plan_en": "Entry above 9.32$ · Stop 8.57$ (−8.0%) · Weekly target 10.82$ (+16.1%)", "signals": ["جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه", "موقع مبكر في الدورة — غير ممتد"], "signals_en": ["Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding", "Early in cycle — not extended"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "CFFN", "name": "Capitol Federal Financial, Inc.", "score": 65.2, "earnings": "2026-10-28", "sector": "Financial Services", "industry": "Banks - Regional", "mc": 1093147136, "volx": 1.13, "status": "watch", "close": 8.86, "chg": 1.26, "mcap": "1.1B$", "eta": 0, "plan": "دخول فوق 8.86$ · وقف 8.55$ (−3.5%) · هدف الأسبوع 9.49$ (+7.1%)", "plan_en": "Entry above 8.86$ · Stop 8.55$ (−3.5%) · Weekly target 9.49$ (+7.1%)", "signals": ["اختراق سقف قاعدة التجميع", "قاعدة ضيقة (16%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Breakout above base resistance", "Tight base (16%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "XRX", "name": "Xerox Holdings Corporation", "score": 64.2, "earnings": null, "sector": "Industrials", "industry": "Business Equipment & Supplies", "mc": 456420832, "volx": 1.89, "status": "watch", "close": 3.49, "chg": 32.2, "mcap": "456M$", "eta": 2, "plan": "دخول فوق 3.73$ · وقف 3.36$ (−9.9%) · هدف الأسبوع 4.47$ (+19.9%)", "plan_en": "Entry above 3.73$ · Stop 3.36$ (−9.9%) · Weekly target 4.47$ (+19.9%)", "signals": ["نموذج Spring — كسر كاذب ثم ارتداد", "انفجار حجم التداول ×1.9", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي"], "signals_en": ["Spring — false break then recovery", "Volume surge ×1.9", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "IEP", "name": "Icahn Enterprises L.P. - Deposi", "score": 64.1, "earnings": "2026-08-05", "sector": "Energy", "industry": "Oil & Gas Refining & Marketing", "mc": 5181509632, "volx": 0.76, "status": "watch", "close": 7.71, "chg": 1.58, "mcap": "5.2B$", "eta": 1, "plan": "دخول فوق 7.82$ · وقف 7.60$ (−2.7%) · هدف الأسبوع 8.24$ (+5.4%)", "plan_en": "Entry above 7.82$ · Stop 7.60$ (−2.7%) · Weekly target 8.24$ (+5.4%)", "signals": ["قاعدة ضيقة (10%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (10%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "FNKO", "name": "Funko, Inc.", "score": 64.0, "earnings": "2026-08-06", "sector": "Consumer Cyclical", "industry": "Leisure", "mc": 337829504, "volx": 1.36, "status": "launch", "close": 6.05, "chg": -2.42, "mcap": "338M$", "eta": 0, "plan": "ادخل على تصحيح نحو 5.70$ · وقف 5.80$ · هدف ممتد 7.23$", "plan_en": "Buy the pullback toward 5.70$ · Stop 5.80$ · Extended target 7.23$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "اختراق سقف قاعدة التجميع", "قاعدة ضيقة (19%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Breakout above base resistance", "Tight base (19%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "JBLU", "name": "JetBlue Airways Corporation", "score": 63.7, "earnings": "2026-10-27", "sector": "Industrials", "industry": "Airlines", "mc": 2290285056, "volx": 1.89, "status": "watch", "close": 6.07, "chg": 6.12, "mcap": "2.3B$", "eta": 1, "plan": "دخول فوق 6.28$ · وقف 5.70$ (−9.3%) · هدف الأسبوع 7.45$ (+18.6%)", "plan_en": "Entry above 6.28$ · Stop 5.70$ (−9.3%) · Weekly target 7.45$ (+18.6%)", "signals": ["انفجار حجم التداول ×1.9", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Volume surge ×1.9", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "FOSL", "name": "Fossil Group, Inc.", "score": 63.7, "earnings": "2026-08-12", "sector": "Consumer Cyclical", "industry": "Footwear & Accessories", "mc": 287824800, "volx": 1.04, "status": "launch", "close": 4.87, "chg": 10.68, "mcap": "288M$", "eta": 0, "plan": "دخول فوق 4.87$ · وقف 4.47$ (−8.1%) · هدف الأسبوع 5.66$ (+16.3%)", "plan_en": "Entry above 4.87$ · Stop 4.47$ (−8.1%) · Weekly target 5.66$ (+16.3%)", "signals": ["✅ اختراق حديث ومؤكد بالحجم — نافذة الدخول مفتوحة", "قاعدة ضيقة (21%) — تجميع وايكوف", "نموذج Spring — كسر كاذب ثم ارتداد", "حجم الصعود يفوق الهبوط — تجميع مؤسسي"], "signals_en": ["✅ Fresh volume-confirmed breakout — entry window open", "Tight base (21%) — Wyckoff accumulation", "Spring — false break then recovery", "Up-volume beats down-volume — institutional accumulation"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": true}], "cycle_start": false}, {"ticker": "VTEX", "name": "VTEX", "score": 63.5, "earnings": "2026-08-06", "sector": "Technology", "industry": "Software - Application", "mc": 745024320, "volx": 0.7, "status": "watch", "close": 4.37, "chg": -2.89, "mcap": "745M$", "eta": 0, "plan": "دخول فوق 4.37$ · وقف 4.07$ (−6.9%) · هدف الأسبوع 4.97$ (+13.8%)", "plan_en": "Entry above 4.37$ · Stop 4.07$ (−6.9%) · Weekly target 4.97$ (+13.8%)", "signals": ["اختراق سقف قاعدة التجميع", "قاعدة ضيقة (24%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Breakout above base resistance", "Tight base (24%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "ENTX", "name": "Entera Bio Ltd.", "score": 63.0, "earnings": null, "sector": "Healthcare", "industry": "Biotechnology", "mc": 145406192, "volx": 3.62, "status": "watch", "close": 2.95, "chg": -1.67, "mcap": "145M$", "eta": 0, "plan": "دخول فوق 2.95$ · وقف 2.40$ (−18.6%) · هدف الأسبوع 4.05$ (+37.1%)", "plan_en": "Entry above 2.95$ · Stop 2.40$ (−18.6%) · Weekly target 4.05$ (+37.1%)", "signals": ["انفجار حجم التداول ×3.6", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "قوة نسبية +75% على SPY", "موقع مبكر في الدورة — غير ممتد"], "signals_en": ["Volume surge ×3.6", "Up-volume beats down-volume — institutional accumulation", "Relative strength +75% vs SPY", "Early in cycle — not extended"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": true}], "cycle_start": false}, {"ticker": "SB", "name": "Safe Bulkers, Inc", "score": 62.9, "earnings": null, "sector": "Industrials", "industry": "Marine Shipping", "mc": 812846016, "volx": 0.8, "status": "launch", "close": 7.95, "chg": 4.88, "mcap": "813M$", "eta": 0, "plan": "ادخل على تصحيح نحو 7.56$ · وقف 7.34$ · هدف ممتد 9.25$", "plan_en": "Buy the pullback toward 7.56$ · Stop 7.34$ · Extended target 9.25$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "قاعدة ضيقة (23%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Tight base (23%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "NMR", "name": "Nomura Holdings Inc", "score": 62.7, "earnings": "2026-10-27", "sector": "Financial Services", "industry": "Capital Markets", "mc": 27943598080, "volx": 1.02, "status": "watch", "close": 9.56, "chg": -1.14, "mcap": "27.9B$", "eta": 5, "plan": "دخول فوق 10.08$ · وقف 9.81$ (−2.7%) · هدف الأسبوع 10.62$ (+5.4%)", "plan_en": "Entry above 10.08$ · Stop 9.81$ (−2.7%) · Weekly target 10.62$ (+5.4%)", "signals": ["قاعدة ضيقة (20%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (20%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "RNW", "name": "ReNew Energy Global plc", "score": 62.4, "earnings": "2026-08-12", "sector": "Utilities", "industry": "Utilities - Renewable", "mc": 2247099392, "volx": 0.94, "status": "watch", "close": 6.17, "chg": 3.01, "mcap": "2.2B$", "eta": 3, "plan": "دخول فوق 6.54$ · وقف 6.27$ (−4.1%) · هدف الأسبوع 7.08$ (+8.3%)", "plan_en": "Entry above 6.54$ · Stop 6.27$ (−4.1%) · Weekly target 7.08$ (+8.3%)", "signals": ["قاعدة ضيقة (12%) — تجميع وايكوف", "نموذج Spring — كسر كاذب ثم ارتداد", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (12%) — Wyckoff accumulation", "Spring — false break then recovery", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "XIFR", "name": "XPLR Infrastructure, LP", "score": 61.8, "earnings": "2026-10-28", "sector": "Utilities", "industry": "Utilities - Renewable", "mc": 1118075264, "volx": 1.67, "status": "watch", "close": 11.86, "chg": 7.04, "mcap": "1.1B$", "eta": 4, "plan": "دخول فوق 12.94$ · وقف 12.17$ (−5.9%) · هدف الأسبوع 14.46$ (+11.8%)", "plan_en": "Entry above 12.94$ · Stop 12.17$ (−5.9%) · Weekly target 14.46$ (+11.8%)", "signals": ["قاعدة ضيقة (15%) — تجميع وايكوف", "نموذج Spring — كسر كاذب ثم ارتداد", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (15%) — Wyckoff accumulation", "Spring — false break then recovery", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "KRNY", "name": "Kearny Financial", "score": 61.8, "earnings": "2026-10-22", "sector": "Financial Services", "industry": "Banks - Regional", "mc": 606043520, "volx": 0.83, "status": "watch", "close": 9.63, "chg": 0.42, "mcap": "606M$", "eta": 1, "plan": "دخول فوق 9.78$ · وقف 9.46$ (−3.3%) · هدف الأسبوع 10.43$ (+6.6%)", "plan_en": "Entry above 9.78$ · Stop 9.46$ (−3.3%) · Weekly target 10.43$ (+6.6%)", "signals": ["قاعدة ضيقة (22%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (22%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "TJGC", "name": "TJGC Group Limited", "score": 61.0, "earnings": null, "sector": "Communication Services", "industry": "Advertising Agencies", "mc": 51813000, "volx": 3.76, "status": "watch", "close": 5.13, "chg": 0.29, "mcap": "52M$", "eta": 9, "plan": "دخول فوق 7.08$ · وقف 6.37$ (−10.1%) · هدف الأسبوع 8.52$ (+20.3%)", "plan_en": "Entry above 7.08$ · Stop 6.37$ (−10.1%) · Weekly target 8.52$ (+20.3%)", "signals": ["انفجار حجم التداول ×3.8", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Volume surge ×3.8", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "LVWR", "name": "LiveWire Group, Inc.", "score": 61.0, "earnings": null, "sector": "Consumer Cyclical", "industry": "Auto Manufacturers", "mc": 421809344, "volx": 5.52, "status": "watch", "close": 2.06, "chg": -20.46, "mcap": "422M$", "eta": 0, "plan": "دخول فوق 2.06$ · وقف 1.17$ (−43.4%) · هدف الأسبوع 3.85$ (+86.9%)", "plan_en": "Entry above 2.06$ · Stop 1.17$ (−43.4%) · Weekly target 3.85$ (+86.9%)", "signals": ["نموذج Spring — كسر كاذب ثم ارتداد", "انفجار حجم التداول ×5.5", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي"], "signals_en": ["Spring — false break then recovery", "Volume surge ×5.5", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": true}], "cycle_start": false}, {"ticker": "NEXT", "name": "NextDecade Corporation", "score": 60.9, "earnings": "2026-10-29", "sector": "Energy", "industry": "Oil & Gas Equipment & Services", "mc": 1783402880, "volx": 1.48, "status": "watch", "close": 6.73, "chg": 6.15, "mcap": "1.8B$", "eta": 9, "plan": "دخول فوق 8.90$ · وقف 8.11$ (−8.9%) · هدف الأسبوع 10.49$ (+17.8%)", "plan_en": "Entry above 8.90$ · Stop 8.11$ (−8.9%) · Weekly target 10.49$ (+17.8%)", "signals": ["قاعدة ضيقة (27%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (27%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "AHRT", "name": "AH Realty Trust, Inc.", "score": 60.4, "earnings": "2026-08-03", "sector": "Real Estate", "industry": "REIT - Diversified", "mc": 686737536, "volx": 0.8, "status": "watch", "close": 7.06, "chg": 0.0, "mcap": "687M$", "eta": 2, "plan": "دخول فوق 7.21$ · وقف 7.03$ (−2.5%) · هدف الأسبوع 7.58$ (+5.1%)", "plan_en": "Entry above 7.21$ · Stop 7.03$ (−2.5%) · Weekly target 7.58$ (+5.1%)", "signals": ["قاعدة ضيقة (12%) — تجميع وايكوف", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (12%) — Wyckoff accumulation", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": false}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "NAD", "name": "Nuveen Quality Municipal Income", "score": 60.0, "earnings": null, "sector": "Financial Services", "industry": "Asset Management", "mc": 2734728448, "volx": 1.06, "status": "watch", "close": 11.7, "chg": 0.34, "mcap": "2.7B$", "eta": 8, "plan": "دخول فوق 12.09$ · وقف 11.97$ (−1.0%) · هدف الأسبوع 12.34$ (+2.1%)", "plan_en": "Entry above 12.09$ · Stop 11.97$ (−1.0%) · Weekly target 12.34$ (+2.1%)", "signals": ["قاعدة ضيقة (5%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (5%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "ADT", "name": "ADT Inc.", "score": 59.6, "earnings": null, "sector": "Industrials", "industry": "Security & Protection Services", "mc": 5506687488, "volx": 1.01, "status": "watch", "close": 7.51, "chg": 1.35, "mcap": "5.5B$", "eta": 0, "plan": "دخول فوق 7.51$ · وقف 7.23$ (−3.8%) · هدف الأسبوع 8.08$ (+7.6%)", "plan_en": "Entry above 7.51$ · Stop 7.23$ (−3.8%) · Weekly target 8.08$ (+7.6%)", "signals": ["اختراق سقف قاعدة التجميع", "قاعدة ضيقة (16%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "قوة نسبية +12% على SPY"], "signals_en": ["Breakout above base resistance", "Tight base (16%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Relative strength +12% vs SPY"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "CERT", "name": "Certara, Inc.", "score": 59.3, "earnings": "2026-08-04", "sector": "Healthcare", "industry": "Health Information Services", "mc": 1210292736, "volx": 1.11, "status": "launch", "close": 7.78, "chg": -3.83, "mcap": "1.2B$", "eta": 0, "plan": "ادخل على تصحيح نحو 7.35$ · وقف 7.17$ · هدف ممتد 9.22$", "plan_en": "Buy the pullback toward 7.35$ · Stop 7.17$ · Extended target 9.22$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "قوة نسبية +16% على SPY", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Up-volume beats down-volume — institutional accumulation", "Relative strength +16% vs SPY", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "BLMN", "name": "Bloomin' Brands, Inc.", "score": 58.8, "earnings": "2026-08-05", "sector": "Consumer Cyclical", "industry": "Restaurants", "mc": 758542592, "volx": 0.78, "status": "watch", "close": 8.86, "chg": 0.57, "mcap": "759M$", "eta": 2, "plan": "دخول فوق 9.30$ · وقف 8.67$ (−6.8%) · هدف الأسبوع 10.56$ (+13.6%)", "plan_en": "Entry above 9.30$ · Stop 8.67$ (−6.8%) · Weekly target 10.56$ (+13.6%)", "signals": ["حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "CARS", "name": "Cars.com Inc.", "score": 58.8, "earnings": "2026-08-06", "sector": "Communication Services", "industry": "Internet Content & Information", "mc": 664128000, "volx": 0.82, "status": "watch", "close": 11.88, "chg": -7.98, "mcap": "664M$", "eta": 2, "plan": "دخول فوق 12.45$ · وقف 11.65$ (−6.4%) · هدف الأسبوع 14.06$ (+12.9%)", "plan_en": "Entry above 12.45$ · Stop 11.65$ (−6.4%) · Weekly target 14.06$ (+12.9%)", "signals": ["جفاف السيولة قبل الانطلاق", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Volume dry-up before launch", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "NEA", "name": "Nuveen AMT-Free Quality Municip", "score": 58.5, "earnings": null, "sector": "Financial Services", "industry": "Asset Management", "mc": 3367212032, "volx": 1.17, "status": "watch", "close": 11.26, "chg": 0.27, "mcap": "3.4B$", "eta": 8, "plan": "دخول فوق 11.72$ · وقف 11.58$ (−1.3%) · هدف الأسبوع 12.02$ (+2.5%)", "plan_en": "Entry above 11.72$ · Stop 11.58$ (−1.3%) · Weekly target 12.02$ (+2.5%)", "signals": ["قاعدة ضيقة (4%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (4%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "USA", "name": "Liberty All-Star Equity Fund", "score": 58.5, "earnings": null, "sector": "Financial Services", "industry": "Asset Management", "mc": 1790754432, "volx": 0.91, "status": "watch", "close": 5.81, "chg": 0.87, "mcap": "1.8B$", "eta": 1, "plan": "دخول فوق 5.87$ · وقف 5.77$ (−1.7%) · هدف الأسبوع 6.07$ (+3.4%)", "plan_en": "Entry above 5.87$ · Stop 5.77$ (−1.7%) · Weekly target 6.07$ (+3.4%)", "signals": ["قاعدة ضيقة (7%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (7%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "SXC", "name": "SunCoke Energy, Inc.", "score": 58.4, "earnings": null, "sector": "Basic Materials", "industry": "Coking Coal", "mc": 717009536, "volx": 1.69, "status": "watch", "close": 8.45, "chg": -9.72, "mcap": "717M$", "eta": 6, "plan": "دخول فوق 9.73$ · وقف 9.08$ (−6.7%) · هدف الأسبوع 11.03$ (+13.4%)", "plan_en": "Entry above 9.73$ · Stop 9.08$ (−6.7%) · Weekly target 11.03$ (+13.4%)", "signals": ["قاعدة ضيقة (26%) — تجميع وايكوف", "نموذج Spring — كسر كاذب ثم ارتداد", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (26%) — Wyckoff accumulation", "Spring — false break then recovery", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "CRF", "name": "33138", "score": 58.1, "earnings": null, "sector": "Financial Services", "industry": "Asset Management", "mc": 1141886336, "volx": 0.92, "status": "watch", "close": 7.04, "chg": 1.0, "mcap": "1.1B$", "eta": 3, "plan": "دخول فوق 7.19$ · وقف 7.08$ (−1.4%) · هدف الأسبوع 7.39$ (+2.9%)", "plan_en": "Entry above 7.19$ · Stop 7.08$ (−1.4%) · Weekly target 7.39$ (+2.9%)", "signals": ["قاعدة ضيقة (4%) — تجميع وايكوف", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (4%) — Wyckoff accumulation", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": false}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "ACVA", "name": "ACV Auctions Inc.", "score": 57.7, "earnings": "2026-08-10", "sector": "Consumer Cyclical", "industry": "Auto & Truck Dealerships", "mc": 1401916672, "volx": 0.75, "status": "watch", "close": 8.03, "chg": -0.5, "mcap": "1.4B$", "eta": 0, "plan": "دخول فوق 8.03$ · وقف 7.45$ (−7.2%) · هدف الأسبوع 9.19$ (+14.4%)", "plan_en": "Entry above 8.03$ · Stop 7.45$ (−7.2%) · Weekly target 9.19$ (+14.4%)", "signals": ["اختراق سقف قاعدة التجميع", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "قوة نسبية +11% على SPY", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Breakout above base resistance", "Up-volume beats down-volume — institutional accumulation", "Relative strength +11% vs SPY", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "INN", "name": "Summit Hotel Properties, Inc.", "score": 57.5, "earnings": "2026-08-05", "sector": "Real Estate", "industry": "REIT - Hotel & Motel", "mc": 747719040, "volx": 0.74, "status": "watch", "close": 6.9, "chg": -2.4, "mcap": "748M$", "eta": 2, "plan": "دخول فوق 7.16$ · وقف 6.83$ (−4.6%) · هدف الأسبوع 7.83$ (+9.3%)", "plan_en": "Entry above 7.16$ · Stop 6.83$ (−4.6%) · Weekly target 7.83$ (+9.3%)", "signals": ["قاعدة ضيقة (26%) — تجميع وايكوف", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (26%) — Wyckoff accumulation", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": false}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "LILA", "name": "Liberty Latin America Ltd.", "score": 57.5, "earnings": "2026-08-05", "sector": "Communication Services", "industry": "Telecom Services", "mc": 1631340032, "volx": 0.77, "status": "watch", "close": 8.1, "chg": -4.93, "mcap": "1.6B$", "eta": 0, "plan": "دخول فوق 8.10$ · وقف 7.60$ (−6.2%) · هدف الأسبوع 9.11$ (+12.4%)", "plan_en": "Entry above 8.10$ · Stop 7.60$ (−6.2%) · Weekly target 9.11$ (+12.4%)", "signals": ["اختراق سقف قاعدة التجميع", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)", "⚠️ اختراق بلا حجم مؤكد — احذر الاختراق الكاذب"], "signals_en": ["Breakout above base resistance", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)", "⚠️ Breakout lacks volume — beware false breakout"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "CYCU", "name": "Cycurion, Inc.", "score": 57.0, "earnings": null, "sector": "Technology", "industry": "Information Technology Services", "mc": 18470866, "volx": 5.71, "status": "launch", "close": 1.61, "chg": 496.3, "mcap": "18M$", "eta": 0, "plan": "ادخل على تصحيح نحو 1.13$ · وقف 0.87$ · هدف ممتد 3.22$", "plan_en": "Buy the pullback toward 1.13$ · Stop 0.87$ · Extended target 3.22$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "نموذج Spring — كسر كاذب ثم ارتداد", "انفجار حجم التداول ×5.7", "جفاف السيولة قبل الانطلاق"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Spring — false break then recovery", "Volume surge ×5.7", "Volume dry-up before launch"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "AGNC", "name": "AGNC Investment Corp.", "score": 56.8, "earnings": "2026-10-19", "sector": "Real Estate", "industry": "REIT - Mortgage", "mc": 12712291328, "volx": 1.25, "status": "watch", "close": 10.92, "chg": 0.18, "mcap": "12.7B$", "eta": 4, "plan": "دخول فوق 11.47$ · وقف 11.11$ (−3.2%) · هدف الأسبوع 12.21$ (+6.4%)", "plan_en": "Entry above 11.47$ · Stop 11.11$ (−3.2%) · Weekly target 12.21$ (+6.4%)", "signals": ["قاعدة ضيقة (15%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (15%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "OPK", "name": "Opko Health, Inc.", "score": 56.8, "earnings": "2026-10-28", "sector": "Healthcare", "industry": "Diagnostics & Research", "mc": 996348224, "volx": 2.46, "status": "watch", "close": 1.34, "chg": -2.55, "mcap": "996M$", "eta": 5, "plan": "دخول فوق 1.61$ · وقف 1.44$ (−10.5%) · هدف الأسبوع 1.95$ (+21.0%)", "plan_en": "Entry above 1.61$ · Stop 1.44$ (−10.5%) · Weekly target 1.95$ (+21.0%)", "signals": ["نموذج Spring — كسر كاذب ثم ارتداد", "انفجار حجم التداول ×2.5", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Spring — false break then recovery", "Volume surge ×2.5", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}, {"ticker": "AMBP", "name": "Ardagh Metal Packaging S.A.", "score": 56.6, "earnings": "2026-10-22", "sector": "Consumer Cyclical", "industry": "Packaging & Containers", "mc": 2898875392, "volx": 1.84, "status": "watch", "close": 4.85, "chg": -2.22, "mcap": "2.9B$", "eta": 4, "plan": "دخول فوق 5.44$ · وقف 4.99$ (−8.2%) · هدف الأسبوع 6.34$ (+16.5%)", "plan_en": "Entry above 5.44$ · Stop 4.99$ (−8.2%) · Weekly target 6.34$ (+16.5%)", "signals": ["انفجار حجم التداول ×1.8", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Volume surge ×1.8", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false}, {"ticker": "DJT", "name": "Trump Media & Technology Group ", "score": 56.4, "earnings": "2026-07-31", "sector": "Communication Services", "industry": "Internet Content & Information", "mc": 2874780672, "volx": 1.02, "status": "watch", "close": 10.38, "chg": 5.38, "mcap": "2.9B$", "eta": 0, "plan": "دخول فوق 10.38$ · وقف 9.34$ (−10.0%) · هدف الأسبوع 12.46$ (+20.0%)", "plan_en": "Entry above 10.38$ · Stop 9.34$ (−10.0%) · Weekly target 12.46$ (+20.0%)", "signals": ["حجم الصعود يفوق الهبوط — تجميع مؤسسي", "قوة نسبية +30% على SPY", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)", "⚠️ اختراق بلا حجم مؤكد — احذر الاختراق الكاذب"], "signals_en": ["Up-volume beats down-volume — institutional accumulation", "Relative strength +30% vs SPY", "Cycle start — first impulse wave off a bottom (fractal method)", "⚠️ Breakout lacks volume — beware false breakout"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true}], "macro": [{"name": "الدولار", "name_en": "US Dollar", "live": true, "tv": "CAPITALCOM:DXY", "priceLabel": "100.22", "mom": -1.2, "mom5": -1.2, "mom3": -1.3, "outlook": "⬇️ الضغط الهابط مستمر — الأرجح مزيد من الضعف الأيام القادمة", "outlook_en": "⬇️ Downward pressure persists — more weakness likely in coming days", "dir": "down", "gauge": -9, "reversal": false, "note": "يتحرك مع عوائد السندات — راقب كسر متوسط 50", "note_en": "Moves with bond yields — watch the 50-MA"}, {"name": "الذهب", "name_en": "Gold", "live": true, "tv": "TVC:GOLD", "priceLabel": "4,131.30", "mom": 1.5, "mom5": 2.1, "mom3": 1.4, "outlook": "↔️ حركة عرضية مرجحة — لا انحياز واضحًا", "outlook_en": "↔️ Sideways action likely — no clear bias", "dir": "flat", "gauge": 3, "reversal": true, "note": "دولار وعوائد صاعدة = ضغط على الذهب، والعكس دعم قوي · ⚠️ زخم معاكس للاتجاه", "note_en": "Rising dollar & yields = pressure on gold; the reverse is strong support · ⚠️ Momentum against trend"}, {"name": "النفط", "name_en": "Oil (WTI)", "live": true, "tv": "TVC:USOIL", "priceLabel": "82.10", "mom": 19.7, "mom5": -10.9, "mom3": -0.6, "outlook": "↔️ حركة عرضية مرجحة — لا انحياز واضحًا", "outlook_en": "↔️ Sideways action likely — no clear bias", "dir": "flat", "gauge": 28, "reversal": true, "note": "اتجاهه الخاص + دولار ضعيف يدعمه · ⚠️ زخم معاكس للاتجاه", "note_en": "Follows its own trend; a weak dollar supports it · ⚠️ Momentum against trend"}, {"name": "البتكوين", "name_en": "Bitcoin", "live": true, "tv": "BITSTAMP:BTCUSD", "priceLabel": "64,314.02", "mom": 0.3, "mom5": 0.0, "mom3": 0.9, "outlook": "⬆️ الصعود مرشح للاستمرار الأيام 3-5 القادمة", "outlook_en": "⬆️ Uptrend likely to continue over the next 3-5 days", "dir": "up", "gauge": 9, "reversal": false, "note": "سيولة الدولار الضعيف وقود البتكوين", "note_en": "Weak-dollar liquidity fuels bitcoin"}, {"name": "عوائد السندات 10س", "name_en": "10Y Treasury Yield", "live": true, "tv": "TVC:US10Y", "priceLabel": "4.66", "mom": 4.2, "mom5": -0.9, "mom3": 0.5, "outlook": "⬆️ الصعود مرشح للاستمرار الأيام 3-5 القادمة", "outlook_en": "⬆️ Uptrend likely to continue over the next 3-5 days", "dir": "up", "gauge": 25, "reversal": false, "note": "صعودها يضغط على الذهب وأسهم النمو", "note_en": "Rising yields pressure gold and growth stocks"}], "analysis": {"window": 90, "sectors": [{"name": "Consumer Cyclical", "n": 32, "ret3": 42.2, "ret6": 5.3, "rs": 38.7, "leaders": [{"ticker": "FFAI", "ret": 1127.1}, {"ticker": "HYLN", "ret": 89.5}, {"ticker": "GBTG", "ret": 60.8}]}, {"name": "Communication Services", "n": 27, "ret3": 22.5, "ret6": 20.2, "rs": 19.0, "leaders": [{"ticker": "EVC", "ret": 209.9}, {"ticker": "CNET", "ret": 132.4}, {"ticker": "AMC", "ret": 82.2}]}, {"name": "Healthcare", "n": 79, "ret3": 9.0, "ret6": 14.3, "rs": 5.5, "leaders": [{"ticker": "ENTX", "ret": 147.9}, {"ticker": "AGEN", "ret": 102.3}, {"ticker": "FATE", "ret": 100.8}]}, {"name": "Real Estate", "n": 20, "ret3": 1.7, "ret6": -3.5, "rs": -1.8, "leaders": [{"ticker": "COMP", "ret": 51.4}, {"ticker": "INN", "ret": 40.9}, {"ticker": "PDM", "ret": 19.1}]}, {"name": "Technology", "n": 54, "ret3": -0.8, "ret6": -3.5, "rs": -4.2, "leaders": [{"ticker": "AMPG", "ret": 150.5}, {"ticker": "APPS", "ret": 132.0}, {"ticker": "CRSR", "ret": 56.6}]}, {"name": "Financial Services", "n": 40, "ret3": -1.1, "ret6": -5.6, "rs": -4.5, "leaders": [{"ticker": "LPRO", "ret": 78.4}, {"ticker": "ANY", "ret": 59.9}, {"ticker": "CLBK", "ret": 25.3}]}, {"name": "Utilities", "n": 8, "ret3": -5.5, "ret6": -1.9, "rs": -8.9, "leaders": [{"ticker": "RNW", "ret": 14.7}, {"ticker": "XIFR", "ret": 14.6}, {"ticker": "DGXX", "ret": 12.8}]}, {"name": "Industrials", "n": 39, "ret3": -11.6, "ret6": -16.0, "rs": -15.1, "leaders": [{"ticker": "ENGS", "ret": 122.0}, {"ticker": "XRX", "ret": 56.3}, {"ticker": "BWEN", "ret": 46.6}]}, {"name": "Consumer Defensive", "n": 11, "ret3": -17.4, "ret6": -10.7, "rs": -20.9, "leaders": [{"ticker": "GO", "ret": 15.8}, {"ticker": "COTY", "ret": 9.3}, {"ticker": "ABEV", "ret": 7.2}]}, {"name": "Basic Materials", "n": 33, "ret3": -21.1, "ret6": -21.5, "rs": -24.6, "leaders": [{"ticker": "SXC", "ret": 25.8}, {"ticker": "CLF", "ret": 14.0}, {"ticker": "GGB", "ret": 9.4}]}, {"name": "Energy", "n": 16, "ret3": -26.3, "ret6": -9.4, "rs": -29.7, "leaders": [{"ticker": "IEP", "ret": -0.7}, {"ticker": "HLX", "ret": -11.1}, {"ticker": "NEXT", "ret": -14.0}]}], "counter": [{"ticker": "BATL", "corr": -0.47, "close": 1.37, "sector": "Energy"}, {"ticker": "TURB", "corr": -0.43, "close": 1.49, "sector": ""}, {"ticker": "GRNT", "corr": -0.4, "close": 4.66, "sector": "Energy"}, {"ticker": "WTI", "corr": -0.39, "close": 3.46, "sector": ""}, {"ticker": "NEXT", "corr": -0.38, "close": 6.73, "sector": "Energy"}, {"ticker": "KOS", "corr": -0.34, "close": 2.56, "sector": "Energy"}, {"ticker": "SSL", "corr": -0.32, "close": 11.71, "sector": ""}, {"ticker": "CRGY", "corr": -0.31, "close": 11.17, "sector": "Energy"}, {"ticker": "EGY", "corr": -0.3, "close": 5.3, "sector": "Energy"}, {"ticker": "VET", "corr": -0.29, "close": 11.5, "sector": ""}], "sat": {"gold": [{"ticker": "NG", "corr": 0.71, "close": 6.07}, {"ticker": "EQX", "corr": 0.71, "close": 9.41}, {"ticker": "GAU", "corr": 0.7, "close": 1.79}, {"ticker": "FSM", "corr": 0.7, "close": 8.77}, {"ticker": "SBSW", "corr": 0.68, "close": 9.09}], "oil": [{"ticker": "VET", "corr": 0.72, "close": 11.5}, {"ticker": "CRGY", "corr": 0.72, "close": 11.17}, {"ticker": "WTI", "corr": 0.71, "close": 3.46}, {"ticker": "PTEN", "corr": 0.7, "close": 9.85}, {"ticker": "KOS", "corr": 0.68, "close": 2.56}], "btc": [{"ticker": "SBET", "corr": 0.59, "close": 6.41}, {"ticker": "XXI", "corr": 0.56, "close": 4.45}, {"ticker": "ASST", "corr": 0.56, "close": 11.94}, {"ticker": "FWDI", "corr": 0.54, "close": 4.11}, {"ticker": "NUWE", "corr": 0.52, "close": 4.45}], "bonds": [{"ticker": "JBI", "corr": 0.63, "close": 5.09}, {"ticker": "AGNC", "corr": 0.56, "close": 10.92}, {"ticker": "LEG", "corr": 0.56, "close": 10.02}, {"ticker": "JBLU", "corr": 0.54, "close": 6.07}, {"ticker": "SVV", "corr": 0.53, "close": 10.34}]}}, "tasi": [{"ticker": "6015", "name": "6015", "score": 79.1, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.47, "status": "launch", "close": 2.25, "chg": 7.66, "mcap": "—", "eta": 0, "plan": "دخول فوق 2.25$ · وقف 2.18$ (−2.9%) · هدف الأسبوع 2.38$ (+5.8%)", "plan_en": "Entry above 2.25$ · Stop 2.18$ (−2.9%) · Weekly target 2.38$ (+5.8%)", "signals": ["✅ اختراق حديث ومؤكد بالحجم — نافذة الدخول مفتوحة", "اختراق سقف قاعدة التجميع", "قاعدة ضيقة (14%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق"], "signals_en": ["✅ Fresh volume-confirmed breakout — entry window open", "Breakout above base resistance", "Tight base (14%) — Wyckoff accumulation", "Volume dry-up before launch"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": true}], "cycle_start": true, "tv": "TADAWUL:6015"}, {"ticker": "4310", "name": "4310", "score": 69.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.4, "status": "launch", "close": 15.11, "chg": 2.09, "mcap": "—", "eta": 0, "plan": "ادخل على تصحيح نحو 14.34$ · وقف 14.51$ · هدف ممتد 17.68$", "plan_en": "Buy the pullback toward 14.34$ · Stop 14.51$ · Extended target 17.68$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "اختراق سقف قاعدة التجميع", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "قوة نسبية +27% على SPY"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Breakout above base resistance", "Up-volume beats down-volume — institutional accumulation", "Relative strength +27% vs SPY"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:4310"}, {"ticker": "2190", "name": "2190", "score": 67.9, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.46, "status": "watch", "close": 35.78, "chg": -0.78, "mcap": "—", "eta": 3, "plan": "دخول فوق 37.58$ · وقف 35.84$ (−4.6%) · هدف الأسبوع 41.04$ (+9.2%)", "plan_en": "Entry above 37.58$ · Stop 35.84$ (−4.6%) · Weekly target 41.04$ (+9.2%)", "signals": ["قاعدة ضيقة (13%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (13%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2190"}, {"ticker": "2110", "name": "2110", "score": 67.3, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.87, "status": "watch", "close": 161.3, "chg": -0.43, "mcap": "—", "eta": 8, "plan": "دخول فوق 190.98$ · وقف 180.31$ (−5.6%) · هدف الأسبوع 212.32$ (+11.2%)", "plan_en": "Entry above 190.98$ · Stop 180.31$ (−5.6%) · Weekly target 212.32$ (+11.2%)", "signals": ["قاعدة ضيقة (26%) — تجميع وايكوف", "نموذج Spring — كسر كاذب ثم ارتداد", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي"], "signals_en": ["Tight base (26%) — Wyckoff accumulation", "Spring — false break then recovery", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2110"}, {"ticker": "2300", "name": "2300", "score": 66.4, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.94, "status": "watch", "close": 64.4, "chg": -1.08, "mcap": "—", "eta": 2, "plan": "دخول فوق 66.78$ · وقف 63.95$ (−4.2%) · هدف الأسبوع 72.46$ (+8.5%)", "plan_en": "Entry above 66.78$ · Stop 63.95$ (−4.2%) · Weekly target 72.46$ (+8.5%)", "signals": ["قاعدة ضيقة (23%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "قوة نسبية +21% على SPY", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (23%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Relative strength +21% vs SPY", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2300"}, {"ticker": "5110", "name": "5110", "score": 66.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.24, "status": "watch", "close": 17.01, "chg": -5.24, "mcap": "—", "eta": 7, "plan": "دخول فوق 18.52$ · وقف 17.97$ (−3.0%) · هدف الأسبوع 19.62$ (+6.0%)", "plan_en": "Entry above 18.52$ · Stop 17.97$ (−3.0%) · Weekly target 19.62$ (+6.0%)", "signals": ["قاعدة ضيقة (14%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (14%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:5110"}, {"ticker": "4270", "name": "4270", "score": 65.7, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 2.42, "status": "launch", "close": 8.5, "chg": 4.42, "mcap": "—", "eta": 0, "plan": "دخول فوق 8.50$ · وقف 7.71$ (−9.3%) · هدف الأسبوع 10.08$ (+18.6%)", "plan_en": "Entry above 8.50$ · Stop 7.71$ (−9.3%) · Weekly target 10.08$ (+18.6%)", "signals": ["✅ اختراق حديث ومؤكد بالحجم — نافذة الدخول مفتوحة", "قاعدة ضيقة (20%) — تجميع وايكوف", "انفجار حجم التداول ×2.4", "حجم الصعود يفوق الهبوط — تجميع مؤسسي"], "signals_en": ["✅ Fresh volume-confirmed breakout — entry window open", "Tight base (20%) — Wyckoff accumulation", "Volume surge ×2.4", "Up-volume beats down-volume — institutional accumulation"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": true}], "cycle_start": true, "tv": "TADAWUL:4270"}, {"ticker": "2280", "name": "2280", "score": 65.3, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.67, "status": "watch", "close": 46.4, "chg": 0.87, "mcap": "—", "eta": 2, "plan": "دخول فوق 47.39$ · وقف 46.31$ (−2.3%) · هدف الأسبوع 49.56$ (+4.6%)", "plan_en": "Entry above 47.39$ · Stop 46.31$ (−2.3%) · Weekly target 49.56$ (+4.6%)", "signals": ["قاعدة ضيقة (7%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (7%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2280"}, {"ticker": "3080", "name": "3080", "score": 64.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.77, "status": "watch", "close": 25.3, "chg": -1.56, "mcap": "—", "eta": 10, "plan": "دخول فوق 27.62$ · وقف 26.98$ (−2.3%) · هدف الأسبوع 28.88$ (+4.6%)", "plan_en": "Entry above 27.62$ · Stop 26.98$ (−2.3%) · Weekly target 28.88$ (+4.6%)", "signals": ["قاعدة ضيقة (12%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (12%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:3080"}, {"ticker": "6040", "name": "6040", "score": 64.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.81, "status": "launch", "close": 9.4, "chg": 9.94, "mcap": "—", "eta": 0, "plan": "ادخل على تصحيح نحو 8.90$ · وقف 8.36$ · هدف ممتد 11.06$", "plan_en": "Buy the pullback toward 8.90$ · Stop 8.36$ · Extended target 11.06$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "انفجار حجم التداول ×1.8", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "قوة نسبية +35% على SPY"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Volume surge ×1.8", "Up-volume beats down-volume — institutional accumulation", "Relative strength +35% vs SPY"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:6040"}, {"ticker": "1080", "name": "1080", "score": 62.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.0, "status": "watch", "close": 21.42, "chg": -1.7, "mcap": "—", "eta": 0, "plan": "دخول فوق 21.42$ · وقف 20.84$ (−2.7%) · هدف الأسبوع 22.58$ (+5.4%)", "plan_en": "Entry above 21.42$ · Stop 20.84$ (−2.7%) · Weekly target 22.58$ (+5.4%)", "signals": ["اختراق سقف قاعدة التجميع", "قاعدة ضيقة (7%) — تجميع وايكوف", "نموذج Spring — كسر كاذب ثم ارتداد", "جفاف السيولة قبل الانطلاق"], "signals_en": ["Breakout above base resistance", "Tight base (7%) — Wyckoff accumulation", "Spring — false break then recovery", "Volume dry-up before launch"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:1080"}, {"ticker": "4013", "name": "4013", "score": 60.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 2.02, "status": "launch", "close": 236.5, "chg": -0.25, "mcap": "—", "eta": 0, "plan": "ادخل على تصحيح نحو 231.02$ · وقف 214.18$ · هدف ممتد 254.78$", "plan_en": "Buy the pullback toward 231.02$ · Stop 214.18$ · Extended target 254.78$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "قاعدة ضيقة (5%) — تجميع وايكوف", "نموذج Spring — كسر كاذب ثم ارتداد", "انفجار حجم التداول ×2.0"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Tight base (5%) — Wyckoff accumulation", "Spring — false break then recovery", "Volume surge ×2.0"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:4013"}, {"ticker": "2180", "name": "2180", "score": 59.9, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.84, "status": "watch", "close": 32.34, "chg": -0.49, "mcap": "—", "eta": 4, "plan": "دخول فوق 33.99$ · وقف 32.90$ (−3.2%) · هدف الأسبوع 36.16$ (+6.4%)", "plan_en": "Entry above 33.99$ · Stop 32.90$ (−3.2%) · Weekly target 36.16$ (+6.4%)", "signals": ["قاعدة ضيقة (19%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (19%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2180"}, {"ticker": "1050", "name": "1050", "score": 59.3, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.0, "status": "watch", "close": 19.53, "chg": 0.36, "mcap": "—", "eta": 2, "plan": "دخول فوق 20.06$ · وقف 19.35$ (−3.5%) · هدف الأسبوع 21.46$ (+7.0%)", "plan_en": "Entry above 20.06$ · Stop 19.35$ (−3.5%) · Weekly target 21.46$ (+7.0%)", "signals": ["قاعدة ضيقة (11%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (11%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false, "tv": "TADAWUL:1050"}, {"ticker": "4162", "name": "4162", "score": 58.4, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.61, "status": "watch", "close": 59.3, "chg": -3.89, "mcap": "—", "eta": 9, "plan": "دخول فوق 66.13$ · وقف 64.00$ (−3.2%) · هدف الأسبوع 70.39$ (+6.4%)", "plan_en": "Entry above 66.13$ · Stop 64.00$ (−3.2%) · Weekly target 70.39$ (+6.4%)", "signals": ["قاعدة ضيقة (10%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (10%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:4162"}, {"ticker": "2070", "name": "2070", "score": 58.4, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.25, "status": "watch", "close": 30.18, "chg": -1.18, "mcap": "—", "eta": 1, "plan": "دخول فوق 30.86$ · وقف 29.77$ (−3.5%) · هدف الأسبوع 33.04$ (+7.1%)", "plan_en": "Entry above 30.86$ · Stop 29.77$ (−3.5%) · Weekly target 33.04$ (+7.1%)", "signals": ["قاعدة ضيقة (11%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (11%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2070"}, {"ticker": "2130", "name": "2130", "score": 57.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.5, "status": "watch", "close": 16.16, "chg": -0.31, "mcap": "—", "eta": 5, "plan": "دخول فوق 17.99$ · وقف 17.04$ (−5.2%) · هدف الأسبوع 19.87$ (+10.5%)", "plan_en": "Entry above 17.99$ · Stop 17.04$ (−5.2%) · Weekly target 19.87$ (+10.5%)", "signals": ["قاعدة ضيقة (21%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (21%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2130"}, {"ticker": "3040", "name": "3040", "score": 56.9, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.89, "status": "watch", "close": 44.76, "chg": -0.49, "mcap": "—", "eta": 4, "plan": "دخول فوق 45.89$ · وقف 45.27$ (−1.3%) · هدف الأسبوع 47.13$ (+2.7%)", "plan_en": "Entry above 45.89$ · Stop 45.27$ (−1.3%) · Weekly target 47.13$ (+2.7%)", "signals": ["قاعدة ضيقة (5%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (5%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false, "tv": "TADAWUL:3040"}, {"ticker": "7200", "name": "7200", "score": 55.8, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.71, "status": "watch", "close": 235.0, "chg": 5.81, "mcap": "—", "eta": 1, "plan": "دخول فوق 239.08$ · وقف 228.78$ (−4.3%) · هدف الأسبوع 259.66$ (+8.6%)", "plan_en": "Entry above 239.08$ · Stop 228.78$ (−4.3%) · Weekly target 259.66$ (+8.6%)", "signals": ["حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false, "tv": "TADAWUL:7200"}, {"ticker": "8012", "name": "8012", "score": 55.7, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.99, "status": "watch", "close": 12.0, "chg": -1.72, "mcap": "—", "eta": 6, "plan": "دخول فوق 13.14$ · وقف 12.65$ (−3.7%) · هدف الأسبوع 14.10$ (+7.3%)", "plan_en": "Entry above 13.14$ · Stop 12.65$ (−3.7%) · Weekly target 14.10$ (+7.3%)", "signals": ["قاعدة ضيقة (21%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (21%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:8012"}, {"ticker": "4250", "name": "4250", "score": 55.5, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.13, "status": "watch", "close": 15.81, "chg": -1.25, "mcap": "—", "eta": 1, "plan": "دخول فوق 16.07$ · وقف 15.60$ (−3.0%) · هدف الأسبوع 17.02$ (+5.9%)", "plan_en": "Entry above 16.07$ · Stop 15.60$ (−3.0%) · Weekly target 17.02$ (+5.9%)", "signals": ["قاعدة ضيقة (12%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (12%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:4250"}, {"ticker": "4030", "name": "4030", "score": 55.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.79, "status": "watch", "close": 32.26, "chg": -2.83, "mcap": "—", "eta": 5, "plan": "دخول فوق 34.25$ · وقف 33.12$ (−3.3%) · هدف الأسبوع 36.51$ (+6.6%)", "plan_en": "Entry above 34.25$ · Stop 33.12$ (−3.3%) · Weekly target 36.51$ (+6.6%)", "signals": ["قاعدة ضيقة (8%) — تجميع وايكوف", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (8%) — Wyckoff accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false, "tv": "TADAWUL:4030"}, {"ticker": "2200", "name": "2200", "score": 55.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.82, "status": "watch", "close": 6.19, "chg": 0.81, "mcap": "—", "eta": 16, "plan": "دخول فوق 7.80$ · وقف 7.48$ (−4.1%) · هدف الأسبوع 8.44$ (+8.2%)", "plan_en": "Entry above 7.80$ · Stop 7.48$ (−4.1%) · Weekly target 8.44$ (+8.2%)", "signals": ["قاعدة ضيقة (20%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (20%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2200"}, {"ticker": "8010", "name": "8010", "score": 54.9, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.78, "status": "watch", "close": 136.2, "chg": 0.07, "mcap": "—", "eta": 14, "plan": "دخول فوق 159.76$ · وقف 154.95$ (−3.0%) · هدف الأسبوع 169.38$ (+6.0%)", "plan_en": "Entry above 159.76$ · Stop 154.95$ (−3.0%) · Weekly target 169.38$ (+6.0%)", "signals": ["قاعدة ضيقة (18%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (18%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:8010"}, {"ticker": "2340", "name": "2340", "score": 53.8, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.8, "status": "watch", "close": 12.11, "chg": -2.57, "mcap": "—", "eta": 4, "plan": "دخول فوق 13.20$ · وقف 12.51$ (−5.2%) · هدف الأسبوع 14.57$ (+10.4%)", "plan_en": "Entry above 13.20$ · Stop 12.51$ (−5.2%) · Weekly target 14.57$ (+10.4%)", "signals": ["قاعدة ضيقة (28%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (28%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2340"}, {"ticker": "4040", "name": "4040", "score": 52.8, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.75, "status": "watch", "close": 10.82, "chg": -0.46, "mcap": "—", "eta": 7, "plan": "دخول فوق 12.02$ · وقف 11.55$ (−4.0%) · هدف الأسبوع 12.98$ (+7.9%)", "plan_en": "Entry above 12.02$ · Stop 11.55$ (−4.0%) · Weekly target 12.98$ (+7.9%)", "signals": ["قاعدة ضيقة (11%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (11%) — Wyckoff accumulation", "Volume dry-up before launch", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:4040"}, {"ticker": "1320", "name": "1320", "score": 52.6, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.87, "status": "watch", "close": 47.3, "chg": -1.91, "mcap": "—", "eta": 10, "plan": "دخول فوق 56.80$ · وقف 53.92$ (−5.1%) · هدف الأسبوع 62.54$ (+10.1%)", "plan_en": "Entry above 56.80$ · Stop 53.92$ (−5.1%) · Weekly target 62.54$ (+10.1%)", "signals": ["قاعدة ضيقة (23%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (23%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:1320"}, {"ticker": "1150", "name": "1150", "score": 52.5, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.09, "status": "watch", "close": 23.18, "chg": -0.73, "mcap": "—", "eta": 11, "plan": "دخول فوق 25.43$ · وقف 24.90$ (−2.1%) · هدف الأسبوع 26.50$ (+4.2%)", "plan_en": "Entry above 25.43$ · Stop 24.90$ (−2.1%) · Weekly target 26.50$ (+4.2%)", "signals": ["قاعدة ضيقة (8%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (8%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:1150"}, {"ticker": "2222", "name": "2222", "score": 52.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.91, "status": "watch", "close": 26.28, "chg": -0.08, "mcap": "—", "eta": 7, "plan": "دخول فوق 27.35$ · وقف 26.99$ (−1.3%) · هدف الأسبوع 28.09$ (+2.7%)", "plan_en": "Entry above 27.35$ · Stop 26.99$ (−1.3%) · Weekly target 28.09$ (+2.7%)", "signals": ["قاعدة ضيقة (5%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (5%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false, "tv": "TADAWUL:2222"}, {"ticker": "4280", "name": "4280", "score": 52.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.59, "status": "watch", "close": 12.43, "chg": 1.89, "mcap": "—", "eta": 10, "plan": "دخول فوق 15.33$ · وقف 14.42$ (−5.9%) · هدف الأسبوع 17.15$ (+11.9%)", "plan_en": "Entry above 15.33$ · Stop 14.42$ (−5.9%) · Weekly target 17.15$ (+11.9%)", "signals": ["نموذج Spring — كسر كاذب ثم ارتداد", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه", "قوة نسبية +11% على SPY"], "signals_en": ["Spring — false break then recovery", "Volume dry-up before launch", "Above 200-MA and holding", "Relative strength +11% vs SPY"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false, "tv": "TADAWUL:4280"}, {"ticker": "1820", "name": "1820", "score": 51.8, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.5, "status": "watch", "close": 2.03, "chg": 0.0, "mcap": "—", "eta": 7, "plan": "دخول فوق 2.25$ · وقف 2.17$ (−3.6%) · هدف الأسبوع 2.42$ (+7.2%)", "plan_en": "Entry above 2.25$ · Stop 2.17$ (−3.6%) · Weekly target 2.42$ (+7.2%)", "signals": ["قاعدة ضيقة (15%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (15%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:1820"}, {"ticker": "2230", "name": "2230", "score": 51.5, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.81, "status": "watch", "close": 8.1, "chg": -1.1, "mcap": "—", "eta": 6, "plan": "دخول فوق 8.76$ · وقف 8.45$ (−3.5%) · هدف الأسبوع 9.37$ (+7.0%)", "plan_en": "Entry above 8.76$ · Stop 8.45$ (−3.5%) · Weekly target 9.37$ (+7.0%)", "signals": ["قاعدة ضيقة (9%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (9%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2230"}, {"ticker": "2380", "name": "2380", "score": 51.4, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.82, "status": "watch", "close": 14.8, "chg": -2.7, "mcap": "—", "eta": 2, "plan": "دخول فوق 15.87$ · وقف 14.52$ (−8.5%) · هدف الأسبوع 18.58$ (+17.0%)", "plan_en": "Entry above 15.87$ · Stop 14.52$ (−8.5%) · Weekly target 18.58$ (+17.0%)", "signals": ["انفجار حجم التداول ×1.8", "فوق متوسط 200 ومحافظ عليه", "قوة نسبية +19% على SPY", "موقع مبكر في الدورة — غير ممتد"], "signals_en": ["Volume surge ×1.8", "Above 200-MA and holding", "Relative strength +19% vs SPY", "Early in cycle — not extended"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false, "tv": "TADAWUL:2380"}, {"ticker": "4190", "name": "4190", "score": 51.4, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.79, "status": "watch", "close": 16.45, "chg": -0.6, "mcap": "—", "eta": 8, "plan": "دخول فوق 18.42$ · وقف 17.72$ (−3.8%) · هدف الأسبوع 19.81$ (+7.6%)", "plan_en": "Entry above 18.42$ · Stop 17.72$ (−3.8%) · Weekly target 19.81$ (+7.6%)", "signals": ["قاعدة ضيقة (20%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه"], "signals_en": ["Tight base (20%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false, "tv": "TADAWUL:4190"}, {"ticker": "2050", "name": "2050", "score": 51.4, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 1.06, "status": "watch", "close": 26.0, "chg": -0.69, "mcap": "—", "eta": 12, "plan": "دخول فوق 30.36$ · وقف 29.34$ (−3.3%) · هدف الأسبوع 32.39$ (+6.7%)", "plan_en": "Entry above 30.36$ · Stop 29.34$ (−3.3%) · Weekly target 32.39$ (+6.7%)", "signals": ["قاعدة ضيقة (17%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (17%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:2050"}, {"ticker": "3060", "name": "3060", "score": 51.0, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.91, "status": "watch", "close": 14.89, "chg": -1.39, "mcap": "—", "eta": 14, "plan": "دخول فوق 16.32$ · وقف 16.05$ (−1.7%) · هدف الأسبوع 16.88$ (+3.4%)", "plan_en": "Entry above 16.32$ · Stop 16.05$ (−1.7%) · Weekly target 16.88$ (+3.4%)", "signals": ["قاعدة ضيقة (9%) — تجميع وايكوف", "جفاف السيولة قبل الانطلاق", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (9%) — Wyckoff accumulation", "Volume dry-up before launch", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:3060"}, {"ticker": "8030", "name": "8030", "score": 50.9, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.76, "status": "watch", "close": 14.79, "chg": -1.0, "mcap": "—", "eta": 10, "plan": "دخول فوق 17.18$ · وقف 16.49$ (−4.0%) · هدف الأسبوع 18.56$ (+8.0%)", "plan_en": "Entry above 17.18$ · Stop 16.49$ (−4.0%) · Weekly target 18.56$ (+8.0%)", "signals": ["قاعدة ضيقة (18%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (18%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:8030"}, {"ticker": "4020", "name": "4020", "score": 49.9, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.42, "status": "watch", "close": 15.98, "chg": -3.15, "mcap": "—", "eta": 7, "plan": "دخول فوق 18.46$ · وقف 17.51$ (−5.1%) · هدف الأسبوع 20.34$ (+10.2%)", "plan_en": "Entry above 18.46$ · Stop 17.51$ (−5.1%) · Weekly target 20.34$ (+10.2%)", "signals": ["قاعدة ضيقة (21%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (21%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:4020"}, {"ticker": "2001", "name": "2001", "score": 48.9, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.0, "status": "launch", "close": 39.88, "chg": 0.0, "mcap": "—", "eta": 0, "plan": "ادخل على تصحيح نحو 39.88$ · وقف 38.69$ · هدف ممتد 39.88$", "plan_en": "Buy the pullback toward 39.88$ · Stop 38.69$ · Extended target 39.88$", "signals": ["🔥 اخترق وما زال في اتجاهه — مرشح استمرار، ادخل على تصحيح", "اختراق سقف قاعدة التجميع", "جفاف السيولة قبل الانطلاق", "قوة نسبية +353% على SPY"], "signals_en": ["🔥 Broke out and still trending — continuation candidate, buy the pullback", "Breakout above base resistance", "Volume dry-up before launch", "Relative strength +353% vs SPY"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": false}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": false}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": false, "tv": "TADAWUL:2001"}, {"ticker": "4140", "name": "4140", "score": 48.7, "earnings": null, "sector": "TASI", "industry": "", "mc": 0, "volx": 0.36, "status": "watch", "close": 2.3, "chg": 0.0, "mcap": "—", "eta": 6, "plan": "دخول فوق 2.56$ · وقف 2.44$ (−4.5%) · هدف الأسبوع 2.79$ (+9.0%)", "plan_en": "Entry above 2.56$ · Stop 2.44$ (−4.5%) · Weekly target 2.79$ (+9.0%)", "signals": ["قاعدة ضيقة (14%) — تجميع وايكوف", "حجم الصعود يفوق الهبوط — تجميع مؤسسي", "فوق متوسط 200 ومحافظ عليه", "بداية دورة زمنية — موجة أولى من قاع (منهج الفراكتال)"], "signals_en": ["Tight base (14%) — Wyckoff accumulation", "Up-volume beats down-volume — institutional accumulation", "Above 200-MA and holding", "Cycle start — first impulse wave off a bottom (fractal method)"], "checklist": [{"k": "acc", "ar": "التجميع", "en": "Accumulation", "ok": true}, {"k": "vol", "ar": "الحجم", "en": "Volume", "ok": true}, {"k": "trend", "ar": "الاتجاه", "en": "Trend", "ok": true}, {"k": "cycle", "ar": "بداية الدورة", "en": "Cycle start", "ok": true}, {"k": "brk", "ar": "الاختراق", "en": "Breakout", "ok": false}], "cycle_start": true, "tv": "TADAWUL:4140"}]}; /*DATA_END*/
+
+/* ======================= i18n ======================= */
+const I18N = {
+ ar: {dir:"rtl", langBtn:"EN", title:"⚡ MOMENTUM", lastScan:"آخر فحص: ",
+   banner:"بطاقات الأسهم بيانات توضيحية — شغّل thunder_screener.py لفحص السوق الفعلي. صفحة السلع تعمل ببيانات حقيقية.",
+   tabStocks:"🎯 فحص الأسهم", tabMacro:"🌍 السلع",
+   chips:{all:"الكل",launch:"🚀 منطلق",watch:"👁 مراقبة",fav:"⭐ المفضلة"},
+   st:{launch:"🚀 اخترق ومنطلق",loaded:"🚀 اخترق ومنطلق",watch:"👁 مراقبة",wait:"👁 مراقبة"},
+   price:"السعر", mcap:"القيمة السوقية", na:"غير متاح",
+   momM:"زخم شهر", momW:"زخم أسبوع", mom3:"زخم 3 أيام",
+   dirs:{up:"UP ▲",down:"DOWN ▼",flat:"FLAT ◆"},
+   sig:["بيع قوي","بيع","حياد","شراء","شراء قوي"],
+   outlookL:"تصوّر الأيام القادمة:", rev:"⚠️ بوادر انعكاس", tv:"📈 عرض الشارت في TradingView",
+   etaGo:"🚀 اختراق حديث — نافذة الدخول مفتوحة",
+   etaNear:n=>`⏳ تقديريًا باقي ~${n} ${n<=2?"يوم":"أيام"} للاختراق`,
+   etaFar:"⏳ القاعدة لم تنضج بعد — أكثر من 10 أيام",
+   etaChase:"🚫 انطلق بالفعل — انتظر إعادة الاختبار أو قاعدة جديدة",
+   parts:{w:"وايكوف",v:"الحجم",t:"الاتجاه",c:"الدورة",f:"الأساسيات"},
+   empty:"لا نتائج في هذا التصنيف حاليًا",
+   sortL:{score:"⭐ الدرجة الأعلى",priceAsc:"💲 السعر: الأدنى أولًا",priceDesc:"💲 السعر: الأعلى أولًا",
+     eta:"⏳ الأقرب للاختراق",volx:"📊 انفجار الحجم",mc:"🏢 أصغر قيمة سوقية"},
+   allSec:"🏭 كل القطاعات",
+   tabAn:"📊 التحليل", tabTasi:"🇸🇦 تاسي", tasiEmpty:"لا نتائج تاسي بعد — شغّل فحصًا جديدًا",
+   tabCyc:"🔍 بحث الدورة",
+   cycLoad:"أحلّل دورة", cycFail:"تعذّر جلب بيانات هذا الرمز — تأكد من كتابته (AAPL أو BTC)",
+   phEarly:"🟢 بداية دورة صاعدة", phMid:"🔵 وسط دورة صاعدة", phLate:"🟠 دورة صاعدة ناضجة",
+   phDEarly:"🔴 بداية دورة هابطة", phDLate:"⚪ دورة هابطة ممتدة",
+   cycFromPivot:"من المحور", cycUpTrend:"دورة صاعدة", cycDownTrend:"دورة هابطة",
+   cycEarly:"موقع مبكر في الدورة", cycTrendy:"حركة اتجاهية (فراكتال)", cycHasHistory:"تاريخ دورات كافٍ",
+   hTrend:"اتجاهية", hMean:"ارتدادية", hRandom:"عشوائية",
+   cycStart:"بداية الدورة الحالية", cycAge:"عمر الدورة", cycAvg:"متوسط دوراته", cycPrev:"دورة سابقة",
+   cycDays:"يوم", cycWindow:"نافذة النضج المتوقعة", cycIn:"خلال", cycPrevLens:"أطوال آخر دورات",
+   cycNote:"النافذة إسقاط إحصائي من دورات السهم نفسه — احتمال لا موعد مضمون",
+   anSec:"🔄 دوران القطاعات — من يقود السوق؟",
+   anCounter:"🧭 عكس التيار — يتحركون ضد ناسداك وداو",
+   anSat:"🛰 أسهم ترافقه",
+   lead:"يقود",lag:"متخلف",mid:"متعادل",
+   ret3L:"3 أشهر",ret6L:"6 أشهر",rsL:"قوة نسبية على SPY",nL:"سهمًا",
+   corrL:"ارتباط",leadersL:"القادة",
+   noAn:"لا تحليل بعد — شغّل فحصًا جديدًا (thunder) ليتولد",
+   earnIn:n=>`📰 أرباح خلال ${n} ${n<=2?"يوم":"يومًا"}`,
+   earnToday:"📰 أرباح اليوم!",
+   rare:"✦ نادر", exc:"★ ممتاز",
+   staleNote:h=>`⚠️ الإشارة والعداد من فحص قبل ${h} ساعة — السعر الحي أعلاه أحدث · شغّل thunder للمزامنة`,
+   anNote:"الارتباط محسوب على آخر 90 يومًا — يتغير مع الزمن وليس ثابتًا",
+   foot:"لون الدائرة يميّز الدرجة: ⚪ <50 ضعيف · 🔵 50–64 متوسط · 🟢 65–79 قوي · 🟠 80–84 ممتاز · 🟡 85+ نادر<br>الرقم داخل الدائرة درجة الفرصة · ✓ = تخطّى المرحلة<br>أداة فحص وترجيح احتمالات — ليست نصيحة مالية ولا ضمانًا لأي عائد."},
+ en: {dir:"ltr", langBtn:"عربي", title:"⚡ MOMENTUM", lastScan:"Last scan: ",
+   banner:"Stock cards are demo data — run thunder_screener.py for a real market scan. Commodities page uses real data.",
+   tabStocks:"🎯 Stock Scan", tabMacro:"🌍 Commodities",
+   chips:{all:"All",launch:"🚀 Launched",watch:"👁 Watch",fav:"⭐ Favorites"},
+   st:{launch:"🚀 Broke out & running",loaded:"🚀 Broke out & running",watch:"👁 Watch",wait:"👁 Watch"},
+   price:"Price", mcap:"Market cap", na:"Unavailable",
+   momM:"1-month", momW:"1-week", mom3:"3-day",
+   dirs:{up:"UP ▲",down:"DOWN ▼",flat:"FLAT ◆"},
+   sig:["STRONG SELL","SELL","NEUTRAL","BUY","STRONG BUY"],
+   outlookL:"Coming days outlook:", rev:"⚠️ Reversal hints", tv:"📈 View chart on TradingView",
+   etaGo:"🚀 Fresh breakout — entry window open",
+   etaNear:n=>`⏳ Est. ~${n} day${n>1?"s":""} to breakout`,
+   etaFar:"⏳ Base not mature yet — more than 10 days",
+   etaChase:"🚫 Already launched — wait for a retest or a new base",
+   parts:{w:"Wyckoff",v:"Volume",t:"Trend",c:"Cycle",f:"Fundamentals"},
+   empty:"No results in this category right now",
+   sortL:{score:"⭐ Top score",priceAsc:"💲 Price: low first",priceDesc:"💲 Price: high first",
+     eta:"⏳ Nearest breakout",volx:"📊 Volume surge",mc:"🏢 Smallest market cap"},
+   allSec:"🏭 All sectors",
+   tabAn:"📊 Analysis", tabTasi:"🇸🇦 TASI", tasiEmpty:"No TASI results yet — run a new scan",
+   tabCyc:"🔍 Cycle search",
+   cycLoad:"Analyzing cycle of", cycFail:"Couldn't fetch this symbol — check spelling (AAPL or BTC)",
+   phEarly:"🟢 Early uptrend cycle", phMid:"🔵 Mid uptrend cycle", phLate:"🟠 Mature uptrend cycle",
+   phDEarly:"🔴 Early downtrend cycle", phDLate:"⚪ Extended downtrend",
+   cycFromPivot:"from pivot", cycUpTrend:"Up cycle", cycDownTrend:"Down cycle",
+   cycEarly:"Early in cycle", cycTrendy:"Trending (fractal)", cycHasHistory:"Enough cycle history",
+   hTrend:"trending", hMean:"mean-reverting", hRandom:"random",
+   cycStart:"Current cycle started", cycAge:"Cycle age", cycAvg:"Avg cycle", cycPrev:"prior cycles",
+   cycDays:"days", cycWindow:"Expected maturity window", cycIn:"in", cycPrevLens:"Recent cycle lengths",
+   cycNote:"The window is a statistical projection from this symbol's own cycles — a probability, not a guaranteed date",
+   anSec:"🔄 Sector rotation — who leads the market?",
+   anCounter:"🧭 Counter-trend — moving against Nasdaq & Dow",
+   anSat:"🛰 Stocks moving with it",
+   lead:"Leading",lag:"Lagging",mid:"Neutral",
+   ret3L:"3-mo",ret6L:"6-mo",rsL:"RS vs SPY",nL:"stocks",
+   corrL:"corr",leadersL:"Leaders",
+   noAn:"No analysis yet — run a new scan (thunder) to generate it",
+   earnIn:n=>`📰 Earnings in ${n}d`,
+   earnToday:"📰 Earnings today!",
+   rare:"✦ Rare", exc:"★ Excellent",
+   staleNote:h=>`⚠️ Gauge & signal from a scan ${h}h ago — the live price above is fresher · run thunder to sync`,
+   anNote:"Correlations use the last 90 days — they shift over time, not fixed truths",
+   foot:"Ring color grades the score: ⚪ <50 weak · 🔵 50–64 fair · 🟢 65–79 strong · 🟠 80–84 excellent · 🟡 85+ rare<br>The number is the opportunity score · ✓ = stage passed<br>A screening & probability tool — not financial advice, no returns guaranteed."}
+};
+let lang = localStorage.getItem("thunder_lang") || "ar";
+/* توافق مع بيانات قديمة: توحيد التصنيفات على (منطلق / مراقبة) */
+(DATA.stocks||[]).forEach(s=>{
+  if(s.status==="chase"||s.status==="loaded") s.status="launch";   // كل اختراق = منطلق
+  if(s.status==="wait") s.status="watch";                          // دمج القديم في مراقبة
+});
+let view = "stocks", filter = "all", sortBy = "score", sector = "all";
+let favs = new Set(JSON.parse(localStorage.getItem("thunder_favs") || "[]"));
+function toggleFav(tk){
+  favs.has(tk) ? favs.delete(tk) : favs.add(tk);
+  localStorage.setItem("thunder_favs", JSON.stringify([...favs]));
+  renderStocks();
+}
+const SECT_AR = {"Technology":"تقنية","Healthcare":"رعاية صحية","Financial Services":"خدمات مالية",
+  "Energy":"طاقة","Consumer Cyclical":"استهلاكية دورية","Consumer Defensive":"استهلاكية دفاعية",
+  "Industrials":"صناعات","Basic Materials":"مواد أساسية","Real Estate":"عقارات",
+  "Utilities":"مرافق","Communication Services":"اتصالات وإعلام"};
+const secName = s => lang==="ar" ? (SECT_AR[s]||s) : s;
+const L = () => I18N[lang];
+const pick = (o, k) => lang === "en" ? (o[k + "_en"] ?? o[k]) : o[k];
+
+function applyStatic(){
+  const t = L();
+  document.documentElement.lang = lang;
+  document.documentElement.dir = t.dir;
+  document.getElementById("langBtn").textContent = t.langBtn;
+  document.getElementById("title").textContent = t.title;
+  renderGen();
+  const db = document.getElementById("demoBanner");
+  db.textContent = t.banner; db.style.display = DATA.demo ? "block" : "none";
+  document.getElementById("tabStocksTxt").textContent = t.tabStocks;
+  document.getElementById("tabMacroTxt").textContent = t.tabMacro;
+  document.getElementById("tabAnTxt").textContent = t.tabAn;
+  document.getElementById("tabTasiTxt").textContent = t.tabTasi;
+  document.getElementById("tabCycTxt").textContent = t.tabCyc;
+  document.querySelectorAll("#chips button").forEach(b => b.textContent = t.chips[b.dataset.f]);
+  document.getElementById("foot").innerHTML = t.foot;
+  const ss = document.getElementById("sortSel");
+  ss.innerHTML = Object.entries(t.sortL).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
+  ss.value = sortBy;
+  const secs = [...new Set(DATA.stocks.map(s=>s.sector).filter(Boolean))].sort();
+  const sc = document.getElementById("secSel");
+  sc.innerHTML = `<option value="all">${t.allSec}</option>` +
+    secs.map(s=>`<option value="${s}">${secName(s)}</option>`).join("");
+  sc.value = secs.includes(sector) ? sector : "all";
+  sc.style.display = secs.length ? "" : "none";
+}
+function renderGen(){
+  const t=L(), txt=(pick(DATA,"generated")||DATA.generated);
+  const m=String(DATA.generated).match(/(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2})/);
+  let extra="", cls="d-a";
+  if(m){
+    const mins=Math.max(0,Math.round((Date.now()-new Date(m[1]+"T"+m[2]).getTime())/60000));
+    cls = mins<=90?"d-g": mins<=240?"d-a":"d-r";
+    extra = " · " + (lang==="ar"
+      ? (mins<60?`منذ ${mins} دقيقة`: mins<1440?`منذ ${Math.round(mins/60)} ساعة`:`منذ ${Math.round(mins/1440)} يوم`)
+      : (mins<60?`${mins} min ago`: mins<1440?`${Math.round(mins/60)}h ago`:`${Math.round(mins/1440)}d ago`));
+  }
+  document.getElementById("gen").innerHTML =
+    `<span class="dot ${cls}"></span>` + t.lastScan + txt + extra;
+}
+setInterval(renderGen, 60000);
+function toggleLang(){
+  lang = lang === "ar" ? "en" : "ar";
+  localStorage.setItem("thunder_lang", lang);
+  applyStatic();
+  view === "stocks" ? renderStocks() : (renderMacro(), animateNeedles());
+}
+
+/* ======================= مكونات ======================= */
+const STC = {launch:["b-launch","#34c759"],loaded:["b-launch","#34c759"],
+             watch:["b-watch","#ff9500"],wait:["b-wait","#8e8e93"]};
+const SIGC = ["#c62828","#ef5350","#9e9e9e","#66bb6a","#1b8b3f"];
+
+/* تدرّج 5 مستويات: رمادي ضعيف → أزرق متوسط → أخضر قوي → برتقالي ممتاز → ذهبي نادر */
+function maturityColor(score){
+  return score>=85 ? "#e8b923"     // ذهبي — نادر
+       : score>=80 ? "#f5a623"     // برتقالي — ممتاز
+       : score>=65 ? "#22c37a"     // أخضر — قوي
+       : score>=50 ? "#3b9be8"     // أزرق — متوسط
+       :             "#9aa4b2";    // رمادي — ضعيف
+}
+/* شارة نصية للمستوى (تظهر تحت الرقم للنادر والممتاز) */
+function maturityTag(score){
+  const t=L();
+  if(score>=85) return `<div class="rare">${t.rare}</div>`;
+  if(score>=80) return `<div class="exc">${t.exc}</div>`;
+  return "";
+}
+function ring(score){
+  const color=maturityColor(score), r=48,c=2*Math.PI*r,off=c*(1-Math.min(score,100)/100);
+  return `<div class="ring"><svg width="116" height="116">
+    <circle cx="58" cy="58" r="${r}" fill="none" stroke="#f2f2f7" stroke-width="10"/>
+    <circle cx="58" cy="58" r="${r}" fill="none" stroke="${color}" stroke-width="10"
+      stroke-dasharray="${c}" stroke-dashoffset="${off}" stroke-linecap="round"/>
+    </svg><div class="val" style="color:${color}">${score}</div></div>`;
+}
+/* شيك-ليست المراحل: ✓ خضراء لما تخطّاها · دائرة باهتة لو لا */
+function checklist(items){
+  const t=L();
+  return `<div class="chk">${items.map(it=>{
+    const lbl=lang==="en"?it.en:it.ar;
+    return `<span class="chkitem ${it.ok?"ok":""}">${it.ok?"✓":"○"} ${lbl}</span>`;
+  }).join("")}</div>`;
+}
+function speedo(g, live){
+  const W=280,H=170,cx=W/2,cy=150,R=115;
+  const p=a=>[cx+R*Math.cos(Math.PI*(1-a/180)), cy-R*Math.sin(Math.PI*(1-a/180))];
+  const arc=(a1,a2,c)=>{const[x1,y1]=p(a1),[x2,y2]=p(a2);
+    return `<path d="M ${x1} ${y1} A ${R} ${R} 0 0 1 ${x2} ${y2}" fill="none" stroke="${c}" stroke-width="18" stroke-linecap="round"/>`};
+  const needle = live ? g : 0;
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%">
+    ${arc(2,58,"#ff3b30")}${arc(64,116,"#d1d1d6")}${arc(122,178,"#34c759")}
+    <g class="ndl" data-t="${needle}" data-cx="${cx}" data-cy="${cy}" transform="rotate(0 ${cx} ${cy})">
+      <line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy-R+30}" stroke="#1d1d1f" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="${cx}" cy="${cy}" r="12" fill="#1d1d1f"/></g>
+    <text x="20" y="${H-4}" font-size="15" fill="#ff3b30" font-weight="700">DOWN</text>
+    <text x="${W-46}" y="${H-4}" font-size="15" fill="#34c759" font-weight="700">UP</text></svg>`;
+}
+function sigIdx(m){
+  const sc=(m.gauge||0)*0.5+(m.mom5||0)*3+(m.mom3||0)*4;
+  return sc<=-45?0: sc<=-15?1: sc<15?2: sc<45?3:4;
+}
+function sigbar(m){
+  const k=sigIdx(m), strong=(k===0||k===4);
+  return `<div class="sigbar">${SIGC.map((c,i)=>`<i style="background:${c}" class="${i===k?"on":""}"></i>`).join("")}</div>
+    <div class="siglabel ${strong?"sigpulse":""}" style="color:${SIGC[k]}">${L().sig[k]}</div>`;
+}
+function animateNeedles(){
+  document.querySelectorAll("g.ndl").forEach(g=>{
+    const t=+g.dataset.t, cx=g.dataset.cx, cy=g.dataset.cy, dur=1300, st=performance.now();
+    function step(now){
+      const p=Math.min(1,(now-st)/dur), e=1-Math.pow(1-p,3);
+      const wob=p<1?Math.sin(p*14)*(1-p)*5:0;
+      g.setAttribute("transform",`rotate(${t*e+wob} ${cx} ${cy})`);
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+}
+
+/* ======================= عرض الأسهم ======================= */
+function partsOf(s){
+  // يدعم الشكل القديم {وايكوف:..} والجديد {w:..}
+  const map={"وايكوف":"w","الحجم":"v","الاتجاه":"t","الدورة":"c","الأساسيات":"f"};
+  const out={};
+  for(const[k,val]of Object.entries(s.parts)) out[map[k]||k]=val;
+  return out;
+}
+const CMP = {
+  score:(a,b)=>b.score-a.score,
+  priceAsc:(a,b)=>a.close-b.close,
+  priceDesc:(a,b)=>b.close-a.close,
+  eta:(a,b)=>((a.eta??99)-(b.eta??99))||b.score-a.score,
+  volx:(a,b)=>(b.volx||0)-(a.volx||0),
+  mc:(a,b)=>((a.mc||9e15)-(b.mc||9e15)),
+};
+function renderStocks(){
+  renderCardList(DATA.stocks, true);
+}
+function renderTasi(){
+  renderCardList(DATA.tasi||[], false);
+}
+function renderCardList(source, isStock){
+  const t=L(), g=document.getElementById("grid");
+  const items=(source||[]).filter(s=>
+    (filter==="all"||(filter==="fav"?favs.has(s.ticker):s.status===filter))
+    &&(sector==="all"||!isStock||s.sector===sector));
+  items.sort(CMP[sortBy]||CMP.score);
+  if(!items.length){g.innerHTML=`<div class="empty">${isStock?t.empty:t.tasiEmpty}</div>`;return}
+  g.innerHTML=items.map(s=>{
+    const [cls]=STC[s.status]||STC.wait;
+    // الإشارات: نحذف ما يكرّر الشارة (اختراق/استمرار) ونُبقي البنيوية فقط، سطران كحد أقصى
+    const rawSigs=(lang==="en"&&s.signals_en?s.signals_en:s.signals)||[];
+    const sigs=rawSigs.filter(x=>!/^[🚀🔥✅🚫]/.test(x)).slice(0,2);
+    // صندوق eta فقط لحالة "مراقبة" (العدّاد المفيد) — المنطلق تكفيه الشارة+الخطة
+    const eta = (s.status==="launch"||s.status==="loaded") ? ""
+      : s.eta!==undefined && s.eta<=10 ? `<div class="eta eta-near">${t.etaNear(s.eta)}</div>`
+      : s.eta!==undefined ? `<div class="eta eta-far">${t.etaFar}</div>` : "";
+    const plan=pick(s,"plan");
+    const isSym=/^[A-Za-z.\-]+$/.test(s.ticker);
+    const hasMc = s.mcap && s.mcap!=="—";
+    let stkr="";
+    if(s.earnings){
+      const days=Math.ceil((new Date(s.earnings+"T16:00")-Date.now())/864e5);
+      if(days>=0&&days<=45)
+        stkr=`<div class="stkr ${days<=7?"hot":""}">${days===0?t.earnToday:t.earnIn(days)}</div>`;
+    }
+    return `<div class="card">
+      ${stkr}
+      <div class="top"><div>
+        <div class="tickrow"><div class="tick">${s.ticker}</div>
+          <button class="favbtn ${favs.has(s.ticker)?"on":""}" onclick="toggleFav('${s.ticker}')" aria-label="fav">★</button></div>
+        ${s.chg!==undefined?`<div class="px ${s.chg>=0?"up":"down"}"${!isStock?` data-live="${s.ticker}"`:""}>$${s.close} <span class="pct">${s.chg>=0?"▲":"▼"} ${Math.abs(s.chg)}%</span></div>`:`<div class="px">$${s.close}</div>`}
+        ${(s.name&&s.name!==s.ticker)||s.sector?`<div class="nm">${[s.name!==s.ticker?s.name:"",s.sector?secName(s.sector):""].filter(Boolean).join(" · ")}</div>`:""}</div>
+        <span class="badge ${cls}">${t.st[s.status]}</span></div>
+      <div class="mid"><div style="text-align:center">${ring(s.score)}${maturityTag(s.score)}</div>
+        <div class="chkwrap">${checklist(s.checklist||[])}${hasMc?`<div class="mcap">${t.mcap}: <b>${s.mcap}</b></div>`:""}</div></div>
+      ${eta}
+      ${plan?`<div class="plan">🎯 ${plan}</div>`:""}
+      <div class="sigs">${sigs.slice(0,2).map(x=>`<div>${x}</div>`).join("")}</div>
+      ${(s.tv||isSym)?`<a class="tvbtn" target="_blank"
+        href="https://www.tradingview.com/chart/?symbol=${encodeURIComponent(s.tv||s.ticker)}">${t.tv}</a>`:""}
+    </div>`;
+  }).join("");
+  mountQuotes();
+}
+
+/* ======================= عرض السلع ======================= */
+function renderMacro(){
+  const t=L(), g=document.getElementById("grid");
+  g.innerHTML=DATA.macro.map(m=>{
+    const dirTxt=t.dirs[m.dir]||t.dirs.flat;
+    const dirCls=m.dir==="up"?"s-up":m.dir==="down"?"s-down":"s-flat";
+    return `<div class="gcard ${m.live?"":"offline"}">
+      <div class="gname">${pick(m,"name")}</div>
+      <div class="gprice">${m.priceLabel}${m.live?` · ${t.momM}: <b>${m.mom>0?"+":""}${m.mom}%</b>`:""}
+        ${m.live&&m.mom5!==undefined?`<br>${t.momW}: <b style="color:${m.mom5>=0?"#1d8b3f":"#d70015"}">${m.mom5>0?"+":""}${m.mom5}%</b>
+         · ${t.mom3}: <b style="color:${m.mom3>=0?"#1d8b3f":"#d70015"}">${m.mom3>0?"+":""}${m.mom3}%</b>`:""}</div>
+      ${m.tv?`<div class="tvq" data-s="${m.tv}"></div>`:""}
+      <div class="gauge-wrap">${speedo(m.gauge, m.live)}</div>
+      <div class="gstate ${dirCls}">${m.live?dirTxt:t.na}</div>
+      ${m.live?sigbar(m):""}
+      ${(()=>{const mm=String(DATA.generated).match(/(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2})/);
+        if(!mm||!m.live)return"";
+        const h2=Math.round((Date.now()-new Date(mm[1]+"T"+mm[2]))/36e5);
+        return h2>=3?`<div class="stale">${t.staleNote(h2)}</div>`:""})()}
+      ${m.reversal?`<div class="rev">${t.rev}</div>`:""}
+      ${pick(m,"outlook")?`<div class="outlook"><b>${t.outlookL}</b> ${pick(m,"outlook")}</div>`:""}
+      ${(()=>{const sat=(DATA.analysis&&DATA.analysis.sat||{})[SATKEY[m.name]]||[];
+        return sat.length?`<div class="satbox"><b>${L().anSat}:</b><div class="chiprow">${
+          sat.map(x=>`<a class="chip" target="_blank" href="https://www.tradingview.com/chart/?symbol=${x.ticker}">${x.ticker} <b class="s-up">${x.corr}</b></a>`).join("")
+        }</div></div>`:""})()}
+      <div class="gnote">${pick(m,"note")}</div>
+      ${m.tv?`<a class="tvbtn" target="_blank"
+        href="https://www.tradingview.com/chart/?symbol=${encodeURIComponent(m.tv)}">${t.tv}</a>`:""}
+    </div>`;
+  }).join("");
+  mountQuotes();
+}
+
+/* ======================= التحليل ======================= */
+const SATKEY={"الذهب":"gold","النفط":"oil","البتكوين":"btc","عوائد السندات 10س":"bonds"};
+function tvlink(tk){return `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(tk)}`}
+function renderAnalysis(){
+  const t=L(), g=document.getElementById("grid"), A=DATA.analysis||{};
+  if(!A.sectors||!A.sectors.length){
+    g.innerHTML=`<div class="empty">${t.noAn}</div>`;return}
+  const secCards=A.sectors.map(s=>{
+    const cls=s.rs>=5?"b-launch":s.rs<=-5?"b-ext":"b-wait";
+    const lbl=s.rs>=5?t.lead:s.rs<=-5?t.lag:t.mid;
+    const leaders=s.leaders.map(l=>
+      `<a class="chip" target="_blank" href="${tvlink(l.ticker)}">${l.ticker} <b class="${l.ret>=0?"s-up":"s-down"}">${l.ret>0?"+":""}${l.ret}%</b></a>`).join("");
+    return `<div class="card">
+      <div class="top"><div><div class="tick" style="font-size:26px">${secName(s.name)}</div>
+        <div class="ind">${s.n} ${t.nL}</div></div>
+        <span class="badge ${cls}">${lbl} ${s.rs>0?"+":""}${s.rs}%</span></div>
+      <div class="meta" style="margin-top:10px">${t.ret3L}: <b class="${s.ret3>=0?"s-up":"s-down"}">${s.ret3>0?"+":""}${s.ret3}%</b>
+        · ${t.ret6L}: <b class="${s.ret6>=0?"s-up":"s-down"}">${s.ret6>0?"+":""}${s.ret6}%</b></div>
+      <div class="sigs" style="border:none;padding-top:8px"><div style="color:var(--dim2)">${t.leadersL}:</div></div>
+      <div class="chiprow">${leaders}</div>
+    </div>`;
+  }).join("");
+  const counter=(A.counter||[]).map(c=>
+    `<a class="chip cbig" target="_blank" href="${tvlink(c.ticker)}">${c.ticker}
+      <b class="s-down">${c.corr}</b> <span>${c.close}$${c.sector?` · ${secName(c.sector)}`:""}</span></a>`).join("");
+  g.innerHTML=`<div class="anhead">${t.anSec}<div class="annote">${t.anNote}</div></div>${secCards}
+    ${counter?`<div class="anhead">${t.anCounter}</div><div class="card" style="grid-column:1/-1"><div class="chiprow">${counter}</div></div>`:""}`;
+}
+
+/* ======================= محرك الدورة الزمنية (منهج الفراكتال) ======================= */
+/* جلب بيانات أي رمز من المتصفح: Binance للكريبتو · Stooq للأسهم */
+async function fetchSeries(sym){
+  const s=sym.trim().toUpperCase();
+  const isSaudi=/^\d{4}$/.test(s);              // رمز تاسي = 4 أرقام (مثل 2222)
+  // مرشحات المصدر: تاسي أولًا للأرقام، وإلا أمريكي
+  const cands = isSaudi
+    ? [`https://stooq.com/q/d/l/?s=${s}.sr&i=d`, `https://stooq.com/q/d/l/?s=${s}.sa&i=d`]
+    : [`https://stooq.com/q/d/l/?s=${s.toLowerCase()}.us&i=d`,
+       `https://stooq.com/q/d/l/?s=${s.toLowerCase()}&i=d`];
+  for(const u of cands){
+    try{
+      const r=await fetch(u);
+      if(!r.ok) continue;
+      const txt=await r.text();
+      const lines=txt.trim().split("\n");
+      if(lines.length>60&&lines[0].toLowerCase().startsWith("date")){
+        const rows=lines.slice(1).map(l=>{const p=l.split(",");
+          return {d:new Date(p[0]),c:+p[4],l:+p[3],h:+p[2]}}).filter(x=>isFinite(x.c)&&x.c>0);
+        if(rows.length>60) return {kind:isSaudi?"tasi":"stock",rows:rows.slice(-500)};
+      }
+    }catch(e){}
+  }
+  return null;
+}
+/* مقياس الاتجاهية Hurst — جوهر نظرية الفراكتال في الكتاب:
+   >0.55 حركة اتجاهية تحترم مسارها · ~0.5 عشوائية · <0.45 ارتدادية متذبذبة */
+function hurst(cl){
+  const r=[]; for(let i=1;i<cl.length;i++) r.push(Math.log(cl[i]/cl[i-1]));
+  const lags=[2,4,8,16,32,64].filter(l=>l<r.length/3);
+  const X=[],Y=[];
+  lags.forEach(lag=>{
+    let s=0,n=0;
+    for(let i=lag;i<r.length;i++){ let d=0; for(let j=0;j<lag;j++) d+=r[i-j]; s+=d*d; n++; }
+    if(n>0){ X.push(Math.log(lag)); Y.push(Math.log(Math.sqrt(s/n))); }
+  });
+  const n=X.length; if(n<3) return 0.5;
+  const mx=X.reduce((a,b)=>a+b)/n, my=Y.reduce((a,b)=>a+b)/n;
+  let num=0,den=0; for(let i=0;i<n;i++){num+=(X[i]-mx)*(Y[i]-my);den+=(X[i]-mx)**2;}
+  return den? Math.max(0.1,Math.min(0.95,num/den)) : 0.5;
+}
+/* كشف القيعان/القمم المحورية (فراكتال ويليامز: قاع أدنى من يومين قبله وبعده بمسافة) */
+function pivots(rows,w){
+  w=w||5; const lo=[],hi=[];
+  for(let i=w;i<rows.length-w;i++){
+    let isLo=true,isHi=true;
+    for(let j=i-w;j<=i+w;j++){ if(rows[j].l<rows[i].l) isLo=false; if(rows[j].h>rows[i].h) isHi=false; }
+    if(isLo) lo.push(i); if(isHi) hi.push(i);
+  }
+  return {lo,hi};
+}
+function fmtD(d){ return d.toISOString().slice(0,10); }
+function analyzeCycle(rows){
+  const cl=rows.map(x=>x.c);
+  const P=pivots(rows,5);
+  const lows=P.lo, highs=P.hi;
+  const last=rows.length-1, price=cl[last];
+  // أطوال الدورات السابقة: قاع → قاع
+  const lens=[]; for(let i=1;i<lows.length;i++) lens.push(lows[i]-lows[i-1]);
+  const avgLen=lens.length? Math.round(lens.reduce((a,b)=>a+b)/lens.length) : null;
+  // الدورة الحالية تبدأ من آخر قاع محوري
+  const lastLow=lows.length? lows[lows.length-1] : 0;
+  const lastHigh=highs.length? highs[highs.length-1] : 0;
+  const startIdx=lastLow, ageD=last-startIdx;
+  const up = lastLow>lastHigh;                    // آخر محور قاع = دورة صاعدة
+  const fromLow=(price/cl[lastLow]-1)*100;
+  const fromHigh=lastHigh? (price/cl[lastHigh]-1)*100 : 0;
+  // مرحلة الدورة
+  let phase;
+  if(up){ phase = ageD<=Math.max(8,(avgLen||40)*0.25) ? "early" : fromLow>60 ? "late" : "mid"; }
+  else  { phase = ageD<=Math.max(8,(avgLen||40)*0.25) ? "dearly" : "dlate"; }
+  // نافذة النضج المتوقعة (إسقاط إحصائي من دورات السهم نفسه — احتمال لا موعد)
+  let win=null;
+  if(avgLen){
+    const sd=lens.length>1? Math.sqrt(lens.map(x=>(x-avgLen)**2).reduce((a,b)=>a+b)/lens.length) : avgLen*0.25;
+    const lo=Math.max(0,Math.round(avgLen-sd-ageD)), hi=Math.round(avgLen+sd-ageD);
+    if(hi>0) win={lo:Math.max(0,lo),hi,
+      d1:fmtD(new Date(rows[last].d.getTime()+Math.max(0,lo)*864e5)),
+      d2:fmtD(new Date(rows[last].d.getTime()+hi*864e5))};
+  }
+  return {price,up,phase,ageD,avgLen,lens:lens.slice(-4),win,
+    startDate:fmtD(rows[startIdx].d), startPrice:cl[startIdx],
+    fromLow:+fromLow.toFixed(1), fromHigh:+fromHigh.toFixed(1),
+    H:+hurst(cl).toFixed(2), nCycles:lens.length,
+    lastDate:fmtD(rows[last].d)};
+}
+async function runCycle(){
+  const sym=(document.getElementById("cycInput").value||"").trim().toUpperCase();
+  const out=document.getElementById("cycOut"), t=L();
+  if(!sym){ out.innerHTML=""; return }
+  out.innerHTML=`<div class="empty" style="padding:30px">⏳ ${t.cycLoad} ${sym}…</div>`;
+  const data=await fetchSeries(sym);
+  if(!data){ out.innerHTML=`<div class="empty" style="padding:30px">${t.cycFail}</div>`; return }
+  const a=analyzeCycle(data.rows);
+  const PH={early:[t.phEarly,"#1b8b3f","#e8f8ee"], mid:[t.phMid,"#0a58c2","#eef4ff"],
+            late:[t.phLate,"#b36b00","#fff4e5"], dearly:[t.phDEarly,"#c22","#ffeceb"],
+            dlate:[t.phDLate,"#6e6e73","#f2f2f7"]};
+  const [phTxt,phCol,phBg]=PH[a.phase]||PH.mid;
+  const hTxt = a.H>=0.55? t.hTrend : a.H<=0.45? t.hMean : t.hRandom;
+  const chk=(ok,label)=>`<span class="chkitem ${ok?"ok":""}">${ok?"✓":"○"} ${label}</span>`;
+  out.innerHTML=`<div class="card">
+    <div class="top"><div><div class="tick">${sym}</div>
+      <div class="nm">${data.kind==="tasi"?"🇸🇦 تاسي":"🇺🇸 US"} · ${a.lastDate}</div></div>
+      <span class="badge" style="background:${phBg};color:${phCol}">${phTxt}</span></div>
+    <div class="px ${a.up?"up":"down"}" style="margin-top:10px">$${a.price.toFixed(a.price<1?5:2)}
+      <span class="pct">${a.up?"▲":"▼"} ${Math.abs(a.up?a.fromLow:a.fromHigh)}% ${t.cycFromPivot}</span></div>
+    <div class="chk" style="margin-top:16px">
+      ${chk(a.up,a.up?t.cycUpTrend:t.cycDownTrend)}
+      ${chk(a.phase==="early"||a.phase==="dearly",t.cycEarly)}
+      ${chk(a.H>=0.55,`${t.cycTrendy} (H=${a.H} · ${hTxt})`)}
+      ${chk(!!a.avgLen,t.cycHasHistory)}
+    </div>
+    <div class="plan" style="background:#eef4ff;color:#0a58c2;margin-top:16px">
+      📅 <b>${t.cycStart}:</b> ${a.startDate} ($${a.startPrice.toFixed(2)})<br>
+      ⏱ <b>${t.cycAge}:</b> ${a.ageD} ${t.cycDays}
+      ${a.avgLen?` · <b>${t.cycAvg}:</b> ${a.avgLen} ${t.cycDays} (${a.nCycles} ${t.cycPrev})`:""}
+    </div>
+    ${a.win?`<div class="plan" style="margin-top:12px">🎯 <b>${t.cycWindow}:</b> ${a.win.d1} → ${a.win.d2}
+      <span style="font-weight:400">(${t.cycIn} ${a.win.lo}–${a.win.hi} ${t.cycDays})</span></div>`:""}
+    ${a.lens.length?`<div class="sigs"><div>${t.cycPrevLens}: ${a.lens.join(" · ")} ${t.cycDays}</div></div>`:""}
+    <div class="annote" style="margin-top:10px">${t.cycNote}</div>
+    <a class="tvbtn" target="_blank" href="https://www.tradingview.com/chart/?symbol=${encodeURIComponent(sym)}">${t.tv}</a>
+  </div>`;
+}
+
+/* ======================= تنقل ======================= */
+function tab(v){
+  const icon=document.getElementById("refIcon");
+  if(v==="stocks"){
+    icon.classList.add("spin");
+    if(view==="stocks"){ setTimeout(()=>location.reload(), 500); return }
+    setTimeout(()=>icon.classList.remove("spin"), 700);
+  }
+  view=v;
+  document.getElementById("tabStocks").classList.toggle("on",v==="stocks");
+  document.getElementById("tabTasi").classList.toggle("on",v==="tasi");
+  document.getElementById("tabCyc").classList.toggle("on",v==="cyc");
+  document.getElementById("tabMacro").classList.toggle("on",v==="macro");
+  document.getElementById("tabAn").classList.toggle("on",v==="an");
+  // الفلاتر للأسهم وتاسي · صندوق البحث لتبويب الدورة · الشبكة تختفي في البحث
+  document.getElementById("chips").style.display=(v==="stocks"||v==="tasi")?"flex":"none";
+  document.getElementById("secSel").style.display=v==="tasi"?"none":"";
+  document.getElementById("cycBox").style.display=v==="cyc"?"block":"none";
+  document.getElementById("grid").style.display=v==="cyc"?"none":"grid";
+  if(v==="stocks"){renderStocks()}
+  else if(v==="tasi"){renderTasi()}
+  else if(v==="macro"){renderMacro();animateNeedles()}
+  else if(v==="cyc"){ setTimeout(()=>document.getElementById("cycInput").focus(),100) }
+  else{renderAnalysis()}
+}
+document.querySelectorAll("#chips button").forEach(b=>b.onclick=()=>{
+  filter=b.dataset.f;
+  document.querySelectorAll("#chips button").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); view==="tasi"?renderTasi():renderStocks();
+});
+/* سعر لايف داخل كل بطاقة — عنصر TradingView مصغّر، بلا مفاتيح ولا حدود */
+function mountQuotes(){
+  document.querySelectorAll(".tvq:not([data-done])").forEach(el=>{
+    el.dataset.done="1";
+    el.innerHTML='<div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div></div>';
+    const sym = el.dataset.s === "TVC:DXY" ? "CAPITALCOM:DXY" : el.dataset.s;
+    const sc=document.createElement("script");
+    sc.src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js";
+    sc.async=true;
+    sc.innerHTML=JSON.stringify({symbol:sym,colorTheme:"light",
+      isTransparent:true,locale:"en",width:"100%"});
+    el.querySelector(".tradingview-widget-container").appendChild(sc);
+  });
+}
+applyStatic();
+renderStocks();
+</script>
+</body>
+</html>
